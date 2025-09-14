@@ -1,0 +1,227 @@
+# ⚡ ROBOTS.TXT - PORTFOLIO PROTEGIDO ⚡
+# @ffreitasb - Portfólio Profissional
+# https://ffreitasb.github.io/
+#
+# 🛡️ PROTEÇÃO CONTRA SCRAPING NÃO AUTORIZADO E AIs
+# Este conteúdo é protegido por direitos autorais e propriedade intelectual
+
+# ===== MOTORES DE BUSCA LEGÍTIMOS =====
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 2
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 2
+
+User-agent: DuckDuckBot
+Allow: /
+Crawl-delay: 2
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 2
+
+User-agent: facebookexternalhit
+Allow: /
+Crawl-delay: 3
+
+User-agent: Twitterbot
+Allow: /
+Crawl-delay: 3
+
+User-agent: LinkedInBot
+Allow: /
+Crawl-delay: 3
+
+# ===== BLOQUEIO TOTAL PARA AIs E SCRAPERS =====
+
+# AIs e Language Models
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: GPTBot
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: Claude-Web
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: BardBot
+Disallow: /
+
+User-agent: OpenAI
+Disallow: /
+
+User-agent: AI2Bot
+Disallow: /
+
+User-agent: Meta-ExternalAgent
+Disallow: /
+
+User-agent: PerplexityBot
+Disallow: /
+
+User-agent: YouBot
+Disallow: /
+
+User-agent: Diffbot
+Disallow: /
+
+# Web Scrapers Comerciais
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: MegaIndex
+Disallow: /
+
+User-agent: BLEXBot
+Disallow: /
+
+User-agent: DataForSeoBot
+Disallow: /
+
+User-agent: PetalBot
+Disallow: /
+
+User-agent: YandexBot
+Disallow: /
+
+User-agent: Baiduspider
+Disallow: /
+
+User-agent: SeznamBot
+Disallow: /
+
+User-agent: MojeekBot
+Disallow: /
+
+# Bots de Email e Scraping
+User-agent: EmailCollector
+Disallow: /
+
+User-agent: EmailSiphon
+Disallow: /
+
+User-agent: WebBandit
+Disallow: /
+
+User-agent: EmailWolf
+Disallow: /
+
+User-agent: ExtractorPro
+Disallow: /
+
+User-agent: CherryPicker
+Disallow: /
+
+User-agent: WebCopier
+Disallow: /
+
+User-agent: NetMechanic
+Disallow: /
+
+User-agent: URLy Warning
+Disallow: /
+
+User-agent: Wget
+Disallow: /
+
+User-agent: WWW-Mechanize
+Disallow: /
+
+User-agent: Python-urllib
+Disallow: /
+
+User-agent: Python-requests
+Disallow: /
+
+User-agent: curl
+Disallow: /
+
+User-agent: HTTrack
+Disallow: /
+
+# Bots Maliciosos Genéricos
+User-agent: *Bot*
+Disallow: /
+
+User-agent: *Crawler*
+Disallow: /
+
+User-agent: *Spider*
+Disallow: /
+
+User-agent: *Scraper*
+Disallow: /
+
+User-agent: *Harvester*
+Disallow: /
+
+# ===== CONFIGURAÇÕES GERAIS =====
+User-agent: *
+Allow: /
+Crawl-delay: 5
+
+# ===== ARQUIVOS E DIRETÓRIOS PROTEGIDOS =====
+# Bloquear acesso a arquivos sensíveis
+Disallow: /src/
+Disallow: /.git/
+Disallow: /node_modules/
+Disallow: /config/
+Disallow: /scripts/
+Disallow: /reports/
+Disallow: /claudedocs/
+Disallow: *.json
+Disallow: *.config.js
+Disallow: *.config.ts
+Disallow: *.md
+Disallow: /package.json
+Disallow: /vite.config.js
+Disallow: /.gitignore
+
+# Permitir arquivos essenciais
+Allow: /manifest.json
+Allow: /sitemap.xml
+Allow: /robots.txt
+
+# ===== SITEMAP E META =====
+Sitemap: https://ffreitasb.github.io/sitemap.xml
+
+# ===== AVISO LEGAL =====
+# 📜 DIREITOS AUTORAIS E PROPRIEDADE INTELECTUAL
+#
+# Este portfólio e todo seu conteúdo são protegidos por:
+# - Direitos autorais (Copyright © 2024 @ffreitasb)
+# - Propriedade intelectual sobre projetos e códigos
+# - Proteção de dados pessoais e profissionais
+#
+# 🚫 É EXPRESSAMENTE PROIBIDO:
+# - Scraping automatizado não autorizado
+# - Coleta de dados para treinamento de IA
+# - Reprodução de conteúdo sem autorização
+# - Uso comercial não autorizado
+# - Extração de informações pessoais
+#
+# 📞 CONTATO PARA AUTORIZAÇÕES:
+# Email: ffreitasb@pm.me
+# LinkedIn: linkedin.com/in/ffreitasb
+#
+# ⚖️ Violações serão tratadas conforme a legislação aplicável

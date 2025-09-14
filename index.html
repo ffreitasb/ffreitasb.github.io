@@ -3,289 +3,1812 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ffreitasb - Ultra Fancy Portfolio</title>
+    <link rel="icon" href="logo_FF.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style-ultra-effects.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-glow: #00ffff;
+            --secondary-glow: #ff0080;
+            --tertiary-glow: #ffff00;
+            --neon-blue: #00d4ff;
+            --neon-pink: #ff1493;
+            --neon-purple: #9d4edd;
+            --neon-green: #39ff14;
+            --dark-bg: #0a0a0a;
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+        }
 
-    <title>Felipe Freitas - Portfólio</title>
-    <meta name="description" content="Portfólio de Felipe Freitas, especialista em Business Analytics, Liderança Comercial e Estratégia.">
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://ffreitasb.github.io/">
-    <meta property="og:title" content="Felipe Freitas - Portfólio">
-    <meta property="og:description" content="Especialista em Business Analytics, Liderança Comercial e Estratégia.">
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://ffreitasb.github.io/">
-    <meta property="twitter:title" content="Felipe Freitas - Portfólio">
-    <meta property="twitter:description" content="Especialista em Business Analytics, Liderança Comercial e Estratégia.">
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--dark-bg);
+            color: #ffffff;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
 
-    <!-- Favicon -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📊</text></svg>">
+        /* Animated Background */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            background: linear-gradient(45deg, #0a0a0a, #1a0033, #000066, #0a0a0a);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+        }
 
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
 
-    <link rel="stylesheet" href="style.css">
+        /* Floating Particles */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--primary-glow);
+            border-radius: 50%;
+            animation: float 20s infinite linear;
+            box-shadow: 0 0 10px var(--primary-glow);
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Container */
+        .container {
+            display: flex;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        /* Ultra Fancy Sidebar */
+        .sidebar {
+            width: 320px;
+            height: 100vh;
+            position: fixed;
+            background: linear-gradient(135deg,
+                rgba(0, 255, 255, 0.1) 0%,
+                rgba(255, 0, 128, 0.1) 50%,
+                rgba(255, 255, 0, 0.1) 100%);
+            backdrop-filter: blur(30px);
+            border: 1px solid var(--glass-border);
+            border-left: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem 1.5rem;
+            z-index: 100;
+            transform: perspective(1000px) rotateY(-5deg);
+            transform-origin: right;
+            box-shadow:
+                0 0 50px rgba(0, 255, 255, 0.3),
+                inset 0 0 50px rgba(255, 255, 255, 0.1);
+        }
+
+        /* Ultra Fancy Logo Container - Formato Otimizado */
+        .logo-container {
+            width: 140px;
+            height: 140px;
+            margin-bottom: 2rem;
+            border-radius: 15px;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: logoFloat 4s ease-in-out infinite;
+            background: linear-gradient(135deg,
+                var(--primary-glow) 0deg,
+                var(--secondary-glow) 45deg,
+                var(--tertiary-glow) 90deg,
+                var(--neon-purple) 135deg,
+                var(--primary-glow) 180deg
+            );
+            background-size: 200% 200%;
+            animation: logoFloat 4s ease-in-out infinite, gradientShift 6s ease-in-out infinite;
+            padding: 6px;
+            box-shadow:
+                0 0 40px rgba(0, 255, 255, 0.6),
+                0 0 80px rgba(255, 0, 128, 0.4),
+                inset 0 0 20px rgba(255, 255, 255, 0.2);
+        }
+
+        @keyframes logoFloat {
+            0%, 100% {
+                transform: translateY(0px) scale(1) rotateZ(0deg);
+                box-shadow:
+                    0 0 40px rgba(0, 255, 255, 0.6),
+                    0 0 80px rgba(255, 0, 128, 0.4);
+            }
+            50% {
+                transform: translateY(-8px) scale(1.05) rotateZ(2deg);
+                box-shadow:
+                    0 0 60px rgba(0, 255, 255, 0.8),
+                    0 0 120px rgba(255, 0, 128, 0.6);
+            }
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .logo-container::before {
+            content: '';
+            position: absolute;
+            inset: -8px;
+            border-radius: 20px;
+            background: linear-gradient(45deg,
+                var(--primary-glow) 0deg,
+                var(--secondary-glow) 120deg,
+                var(--tertiary-glow) 240deg,
+                var(--primary-glow) 360deg
+            );
+            animation: logoRotate 8s linear infinite;
+            z-index: -1;
+            opacity: 0.6;
+            filter: blur(15px);
+        }
+
+        .logo-container::after {
+            content: '';
+            position: absolute;
+            inset: 3px;
+            border-radius: 12px;
+            background: var(--dark-bg);
+            z-index: 0;
+            box-shadow: inset 0 0 30px rgba(0, 255, 255, 0.3);
+        }
+
+        @keyframes logoRotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .logo-container img {
+            width: calc(100% - 12px);
+            height: calc(100% - 12px);
+            object-fit: contain;
+            border-radius: 10px;
+            position: relative;
+            z-index: 2;
+            margin: 6px;
+            filter: brightness(1.1) contrast(1.2) saturate(1.1) drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            padding: 8px;
+        }
+
+        .logo-container:hover img {
+            filter: brightness(1.3) contrast(1.3) saturate(1.3) drop-shadow(0 0 20px rgba(0, 255, 255, 0.8));
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
+        }
+
+        /* Holographic Typing Display */
+        .typing-display {
+            width: 100%;
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: linear-gradient(135deg,
+                rgba(0, 255, 255, 0.2),
+                rgba(255, 0, 128, 0.2),
+                rgba(255, 255, 0, 0.2));
+            border: 2px solid transparent;
+            border-radius: 15px;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(20px);
+        }
+
+        .typing-display::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg,
+                transparent,
+                rgba(255, 255, 255, 0.4),
+                transparent);
+            animation: holographicScan 3s infinite;
+        }
+
+        @keyframes holographicScan {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        .typing-text {
+            font-family: 'Orbitron', monospace;
+            font-weight: 700;
+            font-size: 1.1rem;
+            background: linear-gradient(45deg,
+                var(--primary-glow),
+                var(--secondary-glow),
+                var(--tertiary-glow));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+            animation: textGlow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes textGlow {
+            from {
+                filter: drop-shadow(0 0 5px var(--primary-glow));
+            }
+            to {
+                filter: drop-shadow(0 0 15px var(--secondary-glow));
+            }
+        }
+
+        /* Futuristic Navigation */
+        .nav-menu {
+            list-style: none;
+            width: 100%;
+        }
+
+        .nav-menu li {
+            margin-bottom: 1rem;
+        }
+
+        .nav-menu a {
+            display: block;
+            padding: 1.2rem 1.5rem;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 15px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            background: linear-gradient(135deg,
+                rgba(255, 255, 255, 0.1),
+                rgba(255, 255, 255, 0.05));
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            overflow: hidden;
+        }
+
+        .nav-menu a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg,
+                transparent,
+                rgba(0, 255, 255, 0.3),
+                transparent);
+            transition: left 0.5s;
+        }
+
+        .nav-menu a:hover::before,
+        .nav-menu a.active::before {
+            left: 100%;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            background: linear-gradient(135deg,
+                rgba(0, 255, 255, 0.3),
+                rgba(255, 0, 128, 0.3));
+            box-shadow:
+                0 0 20px rgba(0, 255, 255, 0.5),
+                inset 0 0 20px rgba(255, 255, 255, 0.1);
+            transform: translateX(10px) scale(1.05);
+            border-color: var(--primary-glow);
+        }
+
+        /* Main Content with 3D Transform */
+        .main-content {
+            margin-left: 320px;
+            flex: 1;
+            overflow-y: auto;
+            scroll-behavior: smooth;
+            transform-style: preserve-3d;
+        }
+
+        /* Sections with Depth */
+        .section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 4rem 3rem;
+            text-align: center;
+            position: relative;
+            backdrop-filter: blur(10px);
+        }
+
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg,
+                rgba(0, 255, 255, 0.05) 0%,
+                rgba(255, 0, 128, 0.05) 50%,
+                rgba(255, 255, 0, 0.05) 100%);
+            z-index: -1;
+        }
+
+        /* Ultra Fancy Headings */
+        .section h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 900;
+            margin-bottom: 2rem;
+            background: linear-gradient(45deg,
+                var(--primary-glow),
+                var(--secondary-glow),
+                var(--tertiary-glow),
+                var(--neon-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
+            animation: titlePulse 4s ease-in-out infinite;
+            transform: perspective(500px) rotateX(15deg);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        @keyframes titlePulse {
+            0%, 100% {
+                filter: drop-shadow(0 0 10px var(--primary-glow));
+                transform: perspective(500px) rotateX(15deg) scale(1);
+            }
+            50% {
+                filter: drop-shadow(0 0 30px var(--secondary-glow));
+                transform: perspective(500px) rotateX(15deg) scale(1.05);
+            }
+        }
+
+        .section p {
+            font-size: 1.3rem;
+            max-width: 900px;
+            margin-bottom: 2rem;
+            color: #e0e0e0;
+            line-height: 1.8;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+            animation: textFloat 3s ease-in-out infinite;
+        }
+
+        @keyframes textFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-5px); }
+        }
+
+        /* 3D Timeline */
+        .timeline {
+            max-width: 1000px;
+            width: 100%;
+            margin: 3rem 0;
+            position: relative;
+            padding-left: 3rem;
+            transform-style: preserve-3d;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(180deg,
+                var(--primary-glow),
+                var(--secondary-glow),
+                var(--tertiary-glow));
+            border-radius: 2px;
+            box-shadow: 0 0 20px var(--primary-glow);
+            animation: timelineGlow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes timelineGlow {
+            from { box-shadow: 0 0 20px var(--primary-glow); }
+            to { box-shadow: 0 0 40px var(--secondary-glow); }
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+            padding-left: 3rem;
+            transform: perspective(1000px) rotateY(5deg);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .timeline-item:hover {
+            transform: perspective(1000px) rotateY(0deg) scale(1.05);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -15px;
+            top: 30px;
+            width: 30px;
+            height: 30px;
+            background: radial-gradient(circle, var(--primary-glow), var(--secondary-glow));
+            border-radius: 50%;
+            border: 4px solid var(--dark-bg);
+            box-shadow: 0 0 30px var(--primary-glow);
+            animation: pulseOrb 2s ease-in-out infinite;
+        }
+
+        @keyframes pulseOrb {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 0 30px var(--primary-glow);
+            }
+            50% {
+                transform: scale(1.2);
+                box-shadow: 0 0 50px var(--secondary-glow);
+            }
+        }
+
+        .timeline-content {
+            background: linear-gradient(135deg,
+                rgba(0, 255, 255, 0.1),
+                rgba(255, 0, 128, 0.1),
+                rgba(255, 255, 0, 0.1));
+            padding: 2rem;
+            border-radius: 20px;
+            border: 2px solid var(--glass-border);
+            backdrop-filter: blur(20px);
+            box-shadow:
+                0 10px 40px rgba(0, 0, 0, 0.3),
+                inset 0 0 20px rgba(255, 255, 255, 0.1);
+            transition: all 0.4s ease;
+        }
+
+        .timeline-content:hover {
+            box-shadow:
+                0 20px 60px rgba(0, 255, 255, 0.3),
+                inset 0 0 30px rgba(255, 255, 255, 0.2);
+        }
+
+        .timeline-content h2 {
+            color: var(--primary-glow);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .timeline-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary-glow), var(--secondary-glow));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dark-bg);
+            font-size: 1.2rem;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+            animation: iconSpin 10s linear infinite;
+        }
+
+        @keyframes iconSpin {
+            0% { transform: rotateY(0deg); }
+            100% { transform: rotateY(360deg); }
+        }
+
+        /* Holographic Portfolio Grid */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            width: 100%;
+            max-width: 1400px;
+            margin: 3rem 0;
+            transform-style: preserve-3d;
+        }
+
+        .portfolio-item {
+            background: linear-gradient(135deg,
+                rgba(0, 255, 255, 0.1),
+                rgba(255, 0, 128, 0.1));
+            border: 2px solid var(--glass-border);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            backdrop-filter: blur(20px);
+            transform: perspective(1000px) rotateX(10deg);
+            position: relative;
+        }
+
+        .portfolio-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg,
+                transparent,
+                rgba(255, 255, 255, 0.3),
+                transparent);
+            transition: left 0.6s;
+        }
+
+        .portfolio-item:hover::before {
+            left: 100%;
+        }
+
+        .portfolio-item:hover {
+            transform: perspective(1000px) rotateX(0deg) translateY(-20px) scale(1.05);
+            box-shadow:
+                0 30px 60px rgba(0, 255, 255, 0.3),
+                0 0 50px rgba(255, 0, 128, 0.2);
+            border-color: var(--primary-glow);
+        }
+
+        .portfolio-placeholder {
+            height: 250px;
+            background: linear-gradient(135deg,
+                rgba(0, 255, 255, 0.3),
+                rgba(255, 0, 128, 0.3),
+                rgba(255, 255, 0, 0.3));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 900;
+            font-family: 'Orbitron', monospace;
+            background: linear-gradient(45deg,
+                var(--primary-glow),
+                var(--secondary-glow));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .portfolio-placeholder::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg,
+                rgba(0, 255, 255, 0.2),
+                rgba(255, 0, 128, 0.2),
+                rgba(255, 255, 0, 0.2));
+            animation: portfolioShimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes portfolioShimmer {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.7; }
+        }
+
+        .portfolio-title {
+            padding: 1.5rem;
+            font-weight: 700;
+            text-align: center;
+            font-size: 1.2rem;
+            background: linear-gradient(45deg,
+                var(--primary-glow),
+                var(--secondary-glow));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Cyberpunk Contact Form */
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            max-width: 600px;
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            padding: 1.5rem;
+            background: linear-gradient(135deg,
+                rgba(0, 255, 255, 0.1),
+                rgba(255, 0, 128, 0.1));
+            border: 2px solid var(--glass-border);
+            border-radius: 15px;
+            color: #ffffff;
+            font-family: inherit;
+            font-size: 1.1rem;
+            backdrop-filter: blur(20px);
+            transition: all 0.4s ease;
+            outline: none;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: var(--primary-glow);
+            box-shadow:
+                0 0 30px rgba(0, 255, 255, 0.3),
+                inset 0 0 20px rgba(255, 255, 255, 0.1);
+            transform: scale(1.02);
+        }
+
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .contact-form button {
+            padding: 1.5rem;
+            background: linear-gradient(135deg,
+                var(--primary-glow),
+                var(--secondary-glow),
+                var(--tertiary-glow));
+            border: none;
+            border-radius: 15px;
+            color: var(--dark-bg);
+            font-weight: 700;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-form button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg,
+                transparent,
+                rgba(255, 255, 255, 0.4),
+                transparent);
+            transition: left 0.6s;
+        }
+
+        .contact-form button:hover::before {
+            left: 100%;
+        }
+
+        .contact-form button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow:
+                0 20px 40px rgba(0, 255, 255, 0.4),
+                0 0 50px rgba(255, 0, 128, 0.3);
+        }
+
+        /* Floating Back to Top */
+        .back-to-top {
+            position: fixed;
+            bottom: 3rem;
+            right: 3rem;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg,
+                var(--primary-glow),
+                var(--secondary-glow));
+            color: var(--dark-bg);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 1000;
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
+            font-size: 1.5rem;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            animation: floatButton 3s ease-in-out infinite;
+        }
+
+        @keyframes floatButton {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-10px) rotate(180deg);
+            }
+        }
+
+        .back-to-top:hover {
+            transform: scale(1.2) rotate(360deg);
+            box-shadow: 0 0 50px rgba(0, 255, 255, 0.8);
+        }
+
+        /* Bio Container Styles */
+        .bio-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: left;
+            padding: 2rem;
+            background: linear-gradient(135deg,
+                rgba(0, 255, 255, 0.05),
+                rgba(255, 0, 128, 0.05));
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            backdrop-filter: blur(20px);
+            box-shadow:
+                0 0 40px rgba(0, 255, 255, 0.2),
+                inset 0 0 40px rgba(255, 255, 255, 0.05);
+        }
+
+        .bio-line {
+            display: flex;
+            align-items: center;
+            margin: 1rem 0;
+            padding: 0.8rem 1.2rem;
+            background: linear-gradient(90deg,
+                rgba(0, 255, 255, 0.1),
+                rgba(255, 0, 128, 0.05));
+            border-left: 3px solid var(--electric-blue);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .bio-line:hover {
+            transform: translateX(10px);
+            background: linear-gradient(90deg,
+                rgba(0, 255, 255, 0.2),
+                rgba(255, 0, 128, 0.1));
+            box-shadow: 0 5px 20px rgba(0, 255, 255, 0.3);
+        }
+
+        .bio-icon {
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            min-width: 2rem;
+            text-align: center;
+            filter: drop-shadow(0 0 10px currentColor);
+        }
+
+        .bio-text {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--text-light);
+            letter-spacing: 0.5px;
+        }
+
+        .bio-highlight {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            text-align: center;
+            background: linear-gradient(135deg,
+                rgba(0, 255, 255, 0.15),
+                rgba(255, 0, 128, 0.15));
+            border: 2px solid var(--neon-purple);
+            border-radius: 15px;
+            box-shadow:
+                0 0 30px rgba(255, 0, 128, 0.4),
+                inset 0 0 30px rgba(0, 255, 255, 0.1);
+        }
+
+        .highlight-text {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--electric-blue);
+            text-shadow: 0 0 10px currentColor;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(1.1); }
+        }
+
+        @media (max-width: 768px) {
+            .bio-container {
+                padding: 1.5rem;
+                margin: 1rem;
+            }
+
+            .bio-line {
+                padding: 0.6rem 1rem;
+                margin: 0.8rem 0;
+            }
+
+            .bio-icon {
+                font-size: 1.2rem;
+                margin-right: 0.8rem;
+                min-width: 1.5rem;
+            }
+
+            .bio-text {
+                font-size: 1rem;
+            }
+
+            .bio-highlight {
+                padding: 1rem;
+            }
+
+            .highlight-text {
+                font-size: 1rem;
+            }
+        }
+
+        /* Contact Links */
+        .contact-links {
+            display: flex;
+            gap: 2rem;
+            margin: 2rem 0;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .contact-links a {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg,
+                rgba(0, 255, 255, 0.2),
+                rgba(255, 0, 128, 0.2));
+            border: 2px solid var(--glass-border);
+            border-radius: 25px;
+            color: #ffffff;
+            text-decoration: none;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(20px);
+            font-weight: 500;
+        }
+
+        .contact-links a:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 30px rgba(0, 255, 255, 0.3);
+            border-color: var(--primary-glow);
+        }
+
+        .contact-links a i {
+            font-size: 1.5rem;
+            background: linear-gradient(45deg,
+                var(--primary-glow),
+                var(--secondary-glow));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: fixed;
+                bottom: 0;
+                top: auto;
+                flex-direction: row;
+                justify-content: space-around;
+                padding: 1rem;
+                transform: none;
+                backdrop-filter: blur(30px);
+            }
+
+            .logo-container,
+            .typing-display {
+                display: none;
+            }
+
+            .nav-menu {
+                display: flex;
+                width: 100%;
+                justify-content: space-around;
+            }
+
+            .nav-menu li {
+                margin: 0;
+                flex: 1;
+            }
+
+            .nav-menu a {
+                padding: 0.8rem;
+                text-align: center;
+                font-size: 0.8rem;
+                margin: 0 0.2rem;
+            }
+
+            .main-content {
+                margin-left: 0;
+                margin-bottom: 80px;
+            }
+
+            .section {
+                min-height: calc(100vh - 80px);
+                padding: 2rem 1rem;
+            }
+
+            .section h1 {
+                font-size: clamp(2rem, 6vw, 3rem);
+            }
+
+            .timeline {
+                padding-left: 2rem;
+            }
+
+            .timeline-item {
+                padding-left: 2rem;
+                transform: none;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .portfolio-item {
+                transform: none;
+            }
+
+            .contact-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .contact-links a {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+        }
+
+        /* Loading Animation */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--dark-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        .loading-animation {
+            width: 100px;
+            height: 100px;
+            border: 3px solid transparent;
+            border-top: 3px solid var(--primary-glow);
+            border-right: 3px solid var(--secondary-glow);
+            border-radius: 50%;
+            animation: loadingSpin 1s linear infinite;
+        }
+
+        @keyframes loadingSpin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Tech Tags */
+        .tech-tag {
+            display: inline-block;
+            background: linear-gradient(135deg,
+                rgba(0, 255, 255, 0.2),
+                rgba(255, 0, 128, 0.2));
+            border: 1px solid rgba(0, 255, 255, 0.3);
+            border-radius: 20px;
+            padding: 0.3rem 0.8rem;
+            font-size: 0.8rem;
+            color: var(--primary-glow);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+        }
+
+        .tech-tag:hover {
+            background: linear-gradient(135deg,
+                rgba(0, 255, 255, 0.4),
+                rgba(255, 0, 128, 0.4));
+            border-color: var(--primary-glow);
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+            transform: scale(1.05);
+        }
+
+        /* Scroll-triggered animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 </head>
 <body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loading">
+        <div class="loading-animation"></div>
+    </div>
+
+    <!-- Animated Background -->
+    <div class="animated-bg"></div>
+
+    <!-- Floating Particles -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Floating Particles System -->
+    <div class="particles-container">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
+    <!-- Morphing Background Shapes -->
+    <div class="morphing-shape"></div>
+    <div class="morphing-shape"></div>
+    <div class="morphing-shape"></div>
 
     <div class="container">
-        <!-- Sidebar -->
+        <!-- Ultra Fancy Sidebar -->
         <nav class="sidebar">
-            <div id="typing-container">
-                <span id="typing-text"></span>
+            <div class="logo-container">
+                <img src="logo_FF.png" alt="@ffreitasb">
+            </div>
+            <div class="typing-display">
+                <span class="typing-text" id="typing-text"></span>
             </div>
             <ul class="nav-menu">
-                <li><a href="#home" class="active">Início</a></li>
-                <li><a href="#about">Sobre Mim</a></li>
-                <li><a href="#experience">Experiência</a></li>
-                <li><a href="#portfolio">Portfólio</a></li>
-                <li><a href="#contact">Contato</a></li>
+                <li><a href="#home" class="active magnetic">Início</a></li>
+                <li><a href="#sobre" class="magnetic">Sobre</a></li>
+                <li><a href="#experiencia" class="magnetic">Experiência</a></li>
+                <li><a href="#portfolio" class="magnetic">Portfólio</a></li>
+                <li><a href="#contato" class="magnetic">Contato</a></li>
             </ul>
         </nav>
 
         <!-- Main Content -->
         <main class="main-content">
-            <!-- Home Section -->
+            <!-- Home -->
             <section id="home" class="section">
-                <h1>Felipe Freitas</h1>
-                <p>Mechanical & Economic Engineering; Market & Competitive Intelligence; Data Science; Strategic & Innovation Management; AI & Tech; Finances; LSS Black Belt</p>
+                <h1 class="neon-title fade-in" data-text="@ffreitasb">@ffreitasb</h1>
+                <div class="bio-container fade-in">
+                    <div class="bio-line">
+                        <span class="bio-icon">🎓</span>
+                        <span class="bio-text">Mechanical & Economic Engineering</span>
+                    </div>
+                    <div class="bio-line">
+                        <span class="bio-icon">📚</span>
+                        <span class="bio-text">5 MBAs: Competitive Intelligence • Big Data & Python • Corporate Finance • Economic Engineering • Strategic Management</span>
+                    </div>
+                    <div class="bio-line">
+                        <span class="bio-icon">💼</span>
+                        <span class="bio-text">Senior Executive • Sales Leadership • Business Intelligence</span>
+                    </div>
+                    <div class="bio-line">
+                        <span class="bio-icon">🎯</span>
+                        <span class="bio-text">Strategic Management • Market Intelligence • Innovation</span>
+                    </div>
+                    <div class="bio-line">
+                        <span class="bio-icon">📊</span>
+                        <span class="bio-text">Data Science • Python • Advanced Analytics</span>
+                    </div>
+                    <div class="bio-line">
+                        <span class="bio-icon">🤖</span>
+                        <span class="bio-text">AI & Tech Enthusiast • Digital Transformation</span>
+                    </div>
+                    <div class="bio-line">
+                        <span class="bio-icon">🏆</span>
+                        <span class="bio-text">Lean Six Sigma Black Belt • PowerBI & Excel • Process Excellence</span>
+                    </div>
+                    <div class="bio-highlight">
+                        <span class="highlight-text">13+ Years Experience ◈ R$300M+ Revenue Impact ◈ 5 Industries</span>
+                    </div>
+                </div>
             </section>
 
-            <!-- About Section -->
-            <section id="about" class="section">
-                <h1>Sobre Mim</h1>
-                <p>
-                    Perfil racional, analítico e data-driven, com alta adaptabilidade e foco em metas e resultados. Proficiente em Excel, PowerBI, e data analytics, com conhecimentos em Python e metodologias ágeis. Vasta experiência em negociações complexas, gestão de equipes de vendas B2B e excelente relacionamento interpessoal.
-                </p>
+            <!-- About -->
+            <section id="sobre" class="section">
+                <h1 class="visible">About Me</h1>
+                <div class="portfolio-item holo-card magnetic" style="max-width: 1000px; margin: 0 auto;">
+                    <div class="timeline-content">
+                        <h2><span class="timeline-icon"><i class="fas fa-user-tie"></i></span> Professional Profile</h2>
+                        <div style="text-align: left; line-height: 1.8; font-size: 1.1rem;">
+                            <p style="margin-bottom: 1.5rem;"><strong style="color: var(--electric-blue);">Mechanical Engineer by training, Commercial Professional by destiny, Tech Hard User by passion.</strong></p>
+
+                            <p style="margin-bottom: 1.5rem;">As a Commercial Manager, I contribute to developing market strategies and innovation, integrating data analysis and competitive intelligence to boost corporate growth. My experience includes collaborating with teams to identify business opportunities and implement structured solutions that generate value for the organization.</p>
+
+                            <p style="margin-bottom: 1.5rem;">With a strong background in commercial areas and specializations in areas such as competitive intelligence and corporate finance and additionally a Black Belt level of Lean Six Sigma methodology, I bring an analytical and results-oriented approach to my projects. I am motivated by challenges that combine technology, data, and strategy, always seeking to optimize processes and promote organizational efficiency.</p>
+
+                            <p style="margin-bottom: 1.5rem;">My expertise in technology allows me to find tools or even develop custom tools for the problems and challenges I face on a daily basis. My in-depth technical and theoretical knowledge has allowed me to leverage various AI tools to optimize my deliverables. I specialize in <strong style="color: var(--neon-purple);">Machine Learning, Deep Learning, Data Analysis,</strong> and <strong style="color: var(--neon-purple);">Project Management</strong> with proficiency in both Portuguese (native) and English (professional level).</p>
+
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 2rem;">
+                                <div style="text-align: center;">
+                                    <div class="timeline-icon" style="margin: 0 auto 0.5rem;"><i class="fas fa-cogs"></i></div>
+                                    <strong style="color: var(--cyber-green);">Engineering</strong>
+                                    <div class="neon-progress" style="margin-top: 0.5rem;">
+                                        <div class="neon-progress-bar" style="width: 95%;"></div>
+                                    </div>
+                                </div>
+                                <div style="text-align: center;">
+                                    <div class="timeline-icon" style="margin: 0 auto 0.5rem;"><i class="fas fa-chart-line"></i></div>
+                                    <strong style="color: var(--cyber-green);">Commercial</strong>
+                                    <div class="neon-progress" style="margin-top: 0.5rem;">
+                                        <div class="neon-progress-bar" style="width: 92%;"></div>
+                                    </div>
+                                </div>
+                                <div style="text-align: center;">
+                                    <div class="timeline-icon" style="margin: 0 auto 0.5rem;"><i class="fas fa-robot"></i></div>
+                                    <strong style="color: var(--cyber-green);">Technology</strong>
+                                    <div class="neon-progress" style="margin-top: 0.5rem;">
+                                        <div class="neon-progress-bar" style="width: 98%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Education & Certifications -->
+                            <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(0, 255, 255, 0.3);">
+                                <h3 style="color: var(--electric-blue); margin-bottom: 1.5rem; text-align: center;"><i class="fas fa-graduation-cap"></i> Education & Certifications</h3>
+                                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+                                    <div style="text-align: center; padding: 1rem; background: rgba(0, 255, 255, 0.05); border-radius: 10px; border: 1px solid rgba(0, 255, 255, 0.2);">
+                                        <div class="timeline-icon" style="margin: 0 auto 0.5rem;"><i class="fas fa-university"></i></div>
+                                        <strong style="color: var(--cyber-green);">Mechanical Engineering</strong>
+                                        <p style="font-size: 0.9rem; margin: 0.5rem 0; color: #cbd5e1;">Universidade Federal de Goiás</p>
+                                        <span class="tech-tag" style="font-size: 0.7rem;">2009-2016</span>
+                                    </div>
+                                    <div style="text-align: center; padding: 1rem; background: rgba(0, 255, 255, 0.05); border-radius: 10px; border: 1px solid rgba(0, 255, 255, 0.2);">
+                                        <div class="timeline-icon" style="margin: 0 auto 0.5rem;"><i class="fas fa-award"></i></div>
+                                        <strong style="color: var(--cyber-green);">LSS Black Belt</strong>
+                                        <p style="font-size: 0.9rem; margin: 0.5rem 0; color: #cbd5e1;">Lean Six Sigma</p>
+                                        <span class="tech-tag" style="font-size: 0.7rem;">Certified</span>
+                                    </div>
+                                    <div style="text-align: center; padding: 1rem; background: rgba(0, 255, 255, 0.05); border-radius: 10px; border: 1px solid rgba(0, 255, 255, 0.2);">
+                                        <div class="timeline-icon" style="margin: 0 auto 0.5rem;"><i class="fas fa-brain"></i></div>
+                                        <strong style="color: var(--cyber-green);">AI for Business</strong>
+                                        <p style="font-size: 0.9rem; margin: 0.5rem 0; color: #cbd5e1;">Artificial Intelligence</p>
+                                        <span class="tech-tag" style="font-size: 0.7rem;">Specialized</span>
+                                    </div>
+                                    <div style="text-align: center; padding: 1rem; background: rgba(0, 255, 255, 0.05); border-radius: 10px; border: 1px solid rgba(0, 255, 255, 0.2);">
+                                        <div class="timeline-icon" style="margin: 0 auto 0.5rem;"><i class="fas fa-bullhorn"></i></div>
+                                        <strong style="color: var(--cyber-green);">Marketing</strong>
+                                        <p style="font-size: 0.9rem; margin: 0.5rem 0; color: #cbd5e1;">Branding & Performance</p>
+                                        <span class="tech-tag" style="font-size: 0.7rem;">Certified</span>
+                                    </div>
+                                    <div style="text-align: center; padding: 1rem; background: rgba(0, 255, 255, 0.05); border-radius: 10px; border: 1px solid rgba(0, 255, 255, 0.2);">
+                                        <div class="timeline-icon" style="margin: 0 auto 0.5rem;"><i class="fas fa-chart-pie"></i></div>
+                                        <strong style="color: var(--cyber-green);">CEA Certified</strong>
+                                        <p style="font-size: 0.9rem; margin: 0.5rem 0; color: #cbd5e1;">ANBIMA Certification</p>
+                                        <span class="tech-tag" style="font-size: 0.7rem;">Financial</span>
+                                    </div>
+                                    <div style="text-align: center; padding: 1rem; background: rgba(0, 255, 255, 0.05); border-radius: 10px; border: 1px solid rgba(0, 255, 255, 0.2);">
+                                        <div class="timeline-icon" style="margin: 0 auto 0.5rem;"><i class="fas fa-chart-bar"></i></div>
+                                        <strong style="color: var(--cyber-green);">PowerBI & Excel</strong>
+                                        <p style="font-size: 0.9rem; margin: 0.5rem 0; color: #cbd5e1;">Business Intelligence</p>
+                                        <span class="tech-tag" style="font-size: 0.7rem;">Expert</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </section>
 
-            <!-- Experience Section -->
-            <section id="experience" class="section">
-                <h1>Experiência</h1>
-                <div class="timeline">
-                    <div class="timeline-item hidden">
+            <!-- Experience -->
+            <section id="experiencia" class="section">
+                <h1 class="visible">Experience</h1>
+                <div class="timeline visible">
+                    <div class="timeline-item">
                         <div class="timeline-content">
-                            <h2><span class="timeline-icon"><i class="fas fa-bolt"></i></span> Executivo Sr Master</h2>
+                            <h2><span class="timeline-icon"><i class="fas fa-chart-bar"></i></span> Sales and Business Intelligence Manager</h2>
+                            <h3>ARTEMEC ENGENHARIA</h3>
+                            <p><strong style="color: var(--electric-blue);">2025 - Present</strong> • Leading sales strategies and business intelligence initiatives for engineering solutions. Responsible for market analysis, competitive intelligence, and strategic planning to drive revenue growth. Implementing data-driven approaches to optimize sales processes and develop comprehensive BI dashboards for executive decision-making. Managing cross-functional teams to align commercial objectives with technical capabilities in industrial engineering projects.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h2><span class="timeline-icon"><i class="fas fa-bolt"></i></span> Executivo Sr Master - Partnerships & Large Accounts</h2>
                             <h3>ÓRIGO ENERGIA</h3>
-                            <p>Início em 2024</p>
+                            <p><strong style="color: var(--electric-blue);">Nov 2024 - Present</strong> • Responsible for prospecting, negotiating, and managing sales partnerships for the Company, as well as handling large-scale and complex negotiations throughout Goiás state. Focus on BSB segments (commerce and industries) and Agribusiness sector. Leading strategic partnership development and managing high-value client relationships to drive revenue growth in the energy sector.</p>
                         </div>
                     </div>
-                    <div class="timeline-item hidden">
+                    <div class="timeline-item">
                         <div class="timeline-content">
-                            <h2><span class="timeline-icon"><i class="fas fa-graduation-cap"></i></span> Diretor Comercial</h2>
+                            <h2><span class="timeline-icon"><i class="fas fa-graduation-cap"></i></span> Commercial Director</h2>
                             <h3>UNIVERSIDADE UNICAMBURY</h3>
-                            <p>Início em 2024</p>
+                            <p><strong style="color: var(--electric-blue);">Aug 2024 - Nov 2024</strong> • Direct report to CEO. Responsible for General Commercial Coordination (CGC), leading 4 managers and 14 executives across Marketing, Acquisition, Telesales (GECATE), External Commercialization, and New Business (COMEN). Implemented strategies and partnerships for growth and goal achievement. Led commercial operations and Commercialization Task Force, focusing on student acquisition expansion and business diversification. Managed team selection and training, including personnel without sales expertise, and process optimization through modern software and tools. Managed Commercial Directorate costs and served as member of strategic board and University Modernization and Technology Committee.</p>
                         </div>
                     </div>
-                    <div class="timeline-item hidden">
+                    <div class="timeline-item">
                         <div class="timeline-content">
-                            <h2><span class="timeline-icon"><i class="fas fa-laptop-code"></i></span> Head Comercial e de Inteligência de Mercado</h2>
+                            <h2><span class="timeline-icon"><i class="fas fa-laptop-code"></i></span> Head of Commercial & Market Intelligence</h2>
                             <h3>ACCON SOFTWARE</h3>
-                            <p>Início em 2024</p>
+                            <p><strong style="color: var(--electric-blue);">Apr 2024 - Aug 2024</strong> • Direct report to CEO, leading selection, hiring, and training of inbound, outbound, and support commercial teams. Developed and implemented the company's outbound model. Structured PowerBI dashboards for KPI monitoring, organizing startup sector data. Negotiated with suppliers to optimize conditions and reduce costs. Collaborated with marketing on campaign definition and target audiences. Implemented ERP for business controls and trained team on CRM usage, generating Market Intelligence insights. Structured P&L, chart of accounts, and cost centers. Utilized big data and data modeling to guide team and investment decisions.</p>
                         </div>
                     </div>
-                    <div class="timeline-item hidden">
+                    <div class="timeline-item">
                         <div class="timeline-content">
-                            <h2><span class="timeline-icon"><i class="fas fa-credit-card"></i></span> Executivo Comercial Sênior</h2>
+                            <h2><span class="timeline-icon"><i class="fas fa-credit-card"></i></span> Senior Commercial Executive</h2>
                             <h3>GETNET ADQUIRÊNCIA S/A</h3>
-                            <p>Início em 2022</p>
+                            <p><strong style="color: var(--electric-blue);">Nov 2022 - Nov 2023</strong> • Responsible for prospecting, negotiating, and managing large Middle Corporate accounts in Goiânia, Rio Verde, Tocantins, and Triângulo Mineiro regions. Managed funnel of 16 Relationship Managers, 4 General Managers, and 2 Banco Santander Superintendents, with progress reports to leadership. Conducted personalized negotiations for large clients with pricing analysis and financial return assessment. Coordinated with backoffice areas to optimize customer experience. Analyzed KPIs, managed chargebacks, monitored churns, and conducted active prospecting, resulting in 10% above-budget revenue and 4% growth in active client base.</p>
                         </div>
                     </div>
-                    <div class="timeline-item hidden">
+                    <div class="timeline-item">
                         <div class="timeline-content">
-                            <h2><span class="timeline-icon"><i class="fas fa-chart-line"></i></span> Gerente Distrital</h2>
+                            <h2><span class="timeline-icon"><i class="fas fa-users"></i></span> Gerente Distrital</h2>
                             <h3>CAPPTA S/A</h3>
-                            <p>Início em 2021</p>
+                            <p><strong style="color: var(--electric-blue);">Mar 2021 - Oct 2022</strong> • Leading sales team of 20-25 professionals across 5 states (GO/DF/MT/MS/RO). Achieved exceptional results with 300% increase in TPV and 230% growth in Net Revenue within one year. Expanded active client base by 101% through strategic training programs and development initiatives. Managed comprehensive KPI tracking, performance evaluations, analytical reporting, and conducted regular 1:1 meetings for strategic alignment. Specialized in lead conversion training, pricing strategies, route visits, and new partner prospecting with focus on Cross-sell/Upsell opportunities.</p>
                         </div>
                     </div>
-                    <div class="timeline-item hidden">
+                    <div class="timeline-item">
                         <div class="timeline-content">
-                            <h2><span class="timeline-icon"><i class="fas fa-fire"></i></span> Consultor Comercial Sr</h2>
+                            <h2><span class="timeline-icon"><i class="fas fa-fire"></i></span> Senior Commercial Consultant (B2B)</h2>
                             <h3>COMPANHIA ULTRAGAZ S/A</h3>
-                            <p>Início em 2019</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item hidden">
-                        <div class="timeline-content">
-                            <h2><span class="timeline-icon"><i class="fas fa-fire"></i></span> Consultor Comercial Pl</h2>
-                            <h3>COMPANHIA ULTRAGAZ S/A</h3>
-                            <p>Início em 2015</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item hidden">
-                        <div class="timeline-content">
-                            <h2><span class="timeline-icon"><i class="fas fa-fire"></i></span> Estagiário Comercial</h2>
-                            <h3>COMPANHIA ULTRAGAZ S/A</h3>
-                            <p>Início em 2013</p>
+                            <p><strong style="color: var(--electric-blue);">Jun 2013 - May 2020</strong> • Managed key accounts in residential channel, leading the largest negotiation in the Company's Midwest region. Successfully converted main competitor's client, increasing served volume by 87% and strengthening brand presence in Goiás. Implemented strategic consulting for clients with indicator analysis and goal setting to boost reseller growth and profitability. Conducted prospecting in low-penetration areas and trained over 150 sales professionals to enhance performance. Managed commercial KPIs including volume, margin, Market Share, and EBITDA with focus on sustainable growth and market expansion.</p>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- Portfolio Section -->
+            <!-- Portfolio -->
             <section id="portfolio" class="section">
-                <h1>Portfólio</h1>
-                <div class="portfolio-grid">
-                    <!-- Substitua os títulos pelos nomes dos seus repositórios -->
-                    <div class="portfolio-item hidden">
-                        <div class="portfolio-item-placeholder"><span>BI</span></div>
-                        <div class="portfolio-item-title">Projeto de BI 1</div>
+                <h1 class="visible">Portfólio</h1>
+                <div class="portfolio-grid visible">
+                    <!-- Projeto 1: ThomasB-Vision Suite -->
+                    <div class="portfolio-item holo-card magnetic">
+                        <div class="timeline-content">
+                            <h2><span class="timeline-icon"><i class="fas fa-eye"></i></span> ThomasB-Vision Suite</h2>
+                            <p><strong>Sistema completo de visão computacional</strong> com versões nativa, web e mobile. IA avançada para reconhecimento e análise de imagens em tempo real.</p>
+                            <div style="margin: 1rem 0; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">React Native</span>
+                                <span class="tech-tag">TensorFlow</span>
+                                <span class="tech-tag">OpenCV</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin: 1rem 0;">
+                                <span style="color: var(--neon-purple);">🔥 Complexidade: Avançada</span>
+                                <span style="color: var(--cyber-green);">⭐ Relevância: Máxima</span>
+                            </div>
+                            <div class="neon-progress">
+                                <div class="neon-progress-bar" style="width: 98%;"></div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="portfolio-item hidden">
-                        <div class="portfolio-item-placeholder"><span>BI</span></div>
-                        <div class="portfolio-item-title">Projeto de BI 2</div>
+
+                    <!-- Projeto 2: Histórico Dados CVM -->
+                    <div class="portfolio-item holo-card magnetic">
+                        <div class="timeline-content">
+                            <h2><span class="timeline-icon"><i class="fas fa-chart-line"></i></span> Análise Dados CVM</h2>
+                            <p><strong>Sistema de análise financeira</strong> processando dados históricos da CVM. Analytics avançado para mercado de capitais e tomada de decisões de investimento.</p>
+                            <div style="margin: 1rem 0; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Pandas</span>
+                                <span class="tech-tag">APIs CVM</span>
+                                <span class="tech-tag">NumPy</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin: 1rem 0;">
+                                <span style="color: var(--neon-purple);">🔥 Complexidade: Avançada</span>
+                                <span style="color: var(--cyber-green);">⭐ Relevância: Alta</span>
+                            </div>
+                            <div class="neon-progress">
+                                <div class="neon-progress-bar" style="width: 94%;"></div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="portfolio-item hidden">
-                        <div class="portfolio-item-placeholder"><span>BI</span></div>
-                        <div class="portfolio-item-title">Projeto de BI 3</div>
+
+                    <!-- Projeto 3: OCR Tags Equipamentos -->
+                    <div class="portfolio-item holo-card magnetic">
+                        <div class="timeline-content">
+                            <h2><span class="timeline-icon"><i class="fas fa-industry"></i></span> OCR Industrial</h2>
+                            <p><strong>Sistema OCR para equipamentos industriais</strong>. Reconhecimento automático de tags e placas de identificação para inspeção e manutenção preventiva.</p>
+                            <div style="margin: 1rem 0; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Tesseract</span>
+                                <span class="tech-tag">OpenCV</span>
+                                <span class="tech-tag">PIL</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin: 1rem 0;">
+                                <span style="color: var(--neon-purple);">🔥 Complexidade: Avançada</span>
+                                <span style="color: var(--cyber-green);">⭐ Relevância: Alta</span>
+                            </div>
+                            <div class="neon-progress">
+                                <div class="neon-progress-bar" style="width: 91%;"></div>
+                            </div>
+                        </div>
                     </div>
-                    
-                    <!-- Adicione mais itens conforme necessário -->
+
+                    <!-- Projeto 4: Gerenciador Supabase -->
+                    <div class="portfolio-item holo-card magnetic">
+                        <div class="timeline-content">
+                            <h2><span class="timeline-icon"><i class="fas fa-database"></i></span> Gerenciador Supabase</h2>
+                            <p><strong>Sistema de gestão de dados escalável</strong> usando Supabase. Backend completo com APIs REST, autenticação e sincronização em tempo real.</p>
+                            <div style="margin: 1rem 0; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                                <span class="tech-tag">JavaScript</span>
+                                <span class="tech-tag">Supabase</span>
+                                <span class="tech-tag">PostgreSQL</span>
+                                <span class="tech-tag">APIs REST</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin: 1rem 0;">
+                                <span style="color: var(--neon-purple);">🔥 Complexidade: Avançada</span>
+                                <span style="color: var(--cyber-green);">⭐ Relevância: Alta</span>
+                            </div>
+                            <div class="neon-progress">
+                                <div class="neon-progress-bar" style="width: 89%;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Projeto 5: Sistema Propostas Comerciais -->
+                    <div class="portfolio-item holo-card magnetic">
+                        <div class="timeline-content">
+                            <h2><span class="timeline-icon"><i class="fas fa-handshake"></i></span> Propostas Comerciais</h2>
+                            <p><strong>Automação completa de propostas</strong> comerciais personalizadas. Geração automática, templates dinâmicos e integração com CRM.</p>
+                            <div style="margin: 1rem 0; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">JavaScript</span>
+                                <span class="tech-tag">Templates</span>
+                                <span class="tech-tag">APIs Office</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin: 1rem 0;">
+                                <span style="color: var(--neon-purple);">🔥 Complexidade: Intermediária</span>
+                                <span style="color: var(--cyber-green);">⭐ Relevância: Alta</span>
+                            </div>
+                            <div class="neon-progress">
+                                <div class="neon-progress-bar" style="width: 87%;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Projeto 6: Marketing Intelligence -->
+                    <div class="portfolio-item holo-card magnetic">
+                        <div class="timeline-content">
+                            <h2><span class="timeline-icon"><i class="fas fa-bullseye"></i></span> Marketing Intelligence</h2>
+                            <p><strong>Plataforma de inteligência de marketing</strong> com web scraping, segmentação assertiva e análise competitiva automatizada.</p>
+                            <div style="margin: 1rem 0; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Scrapy</span>
+                                <span class="tech-tag">BeautifulSoup</span>
+                                <span class="tech-tag">scikit-learn</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin: 1rem 0;">
+                                <span style="color: var(--neon-purple);">🔥 Complexidade: Intermediária</span>
+                                <span style="color: var(--cyber-green);">⭐ Relevância: Alta</span>
+                            </div>
+                            <div class="neon-progress">
+                                <div class="neon-progress-bar" style="width: 85%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Outros Projetos -->
+                <div style="margin: 3rem 0; text-align: center;">
+                    <h3 style="color: var(--electric-blue); margin-bottom: 2rem;">💼 Outros Projetos</h3>
+                    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                        <span class="tech-tag" style="padding: 0.8rem 1.5rem;">🔐 UTILS Encrypt - Criptografia</span>
+                        <span class="tech-tag" style="padding: 0.8rem 1.5rem;">🎨 Personalizar Apresentação</span>
+                        <span class="tech-tag" style="padding: 0.8rem 1.5rem;">🔄 Repositório N8N - Automação</span>
+                        <span class="tech-tag" style="padding: 0.8rem 1.5rem;">📊 Propostas Comerciais V2</span>
+                        <span class="tech-tag" style="padding: 0.8rem 1.5rem;">📝 Marketing Blog Scraping</span>
+                        <span class="tech-tag" style="padding: 0.8rem 1.5rem;">📋 Lista Assertiva Marketing</span>
+                        <span class="tech-tag" style="padding: 0.8rem 1.5rem;">⚙️ Ferramentas Diversas</span>
+                    </div>
                 </div>
             </section>
 
-            <!-- Contact Section -->
-            <section id="contact" class="section">
-                <h1>Contato</h1>
-                <p style="margin-bottom: 20px; font-size: 1.1em;">
-                    <a href="mailto:ffreitasb@pm.me" style="color: #e0e0e0; text-decoration: none;">ffreitasb@pm.me</a> | 
-                    <a href="https://linkedin.com/in/ffreitasb" target="_blank" style="color: #e53935; text-decoration: none;">linkedin.com/in/ffreitasb</a>
-                </p>
-                <p>Tem uma pergunta ou quer trabalhar comigo? Envie uma mensagem!</p>
-                <!-- 
-                    INSTRUÇÕES PARA O FORMULÁRIO DE CONTATO:
-                    1. Crie uma conta gratuita no site https://formspree.io
-                    2. Crie um novo formulário e copie a URL do endpoint.
-                    3. Cole a sua URL no atributo 'action' abaixo, substituindo 'https://formspree.io/f/your_endpoint_here'.
-                -->
-                <form class="contact-form" action="https://formspree.io/f/your_endpoint_here" method="POST">
-                    <input type="text" name="name" placeholder="Seu Nome" required>
-                    <input type="email" name="email" placeholder="Seu E-mail" required>
-                    <textarea name="message" rows="5" placeholder="Sua Mensagem" required></textarea>
-                    <button type="submit">Enviar Mensagem</button>
-                </form>
+            <!-- Contact -->
+            <section id="contato" class="section">
+                <h1 class="visible">Contato</h1>
+                <div class="contact-links visible">
+                    <a href="mailto:ffreitasb@pm.me">
+                        <i class="fas fa-envelope"></i>
+                        ffreitasb@pm.me
+                    </a>
+                    <a href="https://linkedin.com/in/ffreitasb" target="_blank">
+                        <i class="fab fa-linkedin"></i>
+                        LinkedIn
+                    </a>
+                </div>
+                <div class="portfolio-item holo-card magnetic" style="max-width: 600px; margin: 2rem auto;">
+                    <div class="timeline-content">
+                        <h2><span class="timeline-icon"><i class="fas fa-envelope"></i></span> Entre em Contato</h2>
+                        <p>Interessado em colaborar ou discutir oportunidades? Vamos conversar sobre como posso contribuir para seu projeto!</p>
+                        <form class="contact-form" style="margin-top: 2rem;">
+                            <input type="text" name="name" placeholder="Seu Nome" required>
+                            <input type="email" name="email" placeholder="Seu E-mail" required>
+                            <textarea name="message" rows="4" placeholder="Sua Mensagem" required></textarea>
+                            <button type="submit" class="neon-button magnetic">Enviar Mensagem</button>
+                        </form>
+                        <div class="neon-progress" style="margin-top: 1rem;">
+                            <div class="neon-progress-bar" style="width: 100%;"></div>
+                        </div>
+                    </div>
+                </div>
             </section>
         </main>
     </div>
 
-    <script src="script.js"></script>
-    <script src="typing-animation.js"></script>
-    <script src="scroll-animation.js"></script>
-    <a href="#home" id="back-to-top" title="Voltar ao topo">↑</a>
+    <!-- Back to Top -->
+    <a href="#home" class="back-to-top" id="backToTop">
+        <i class="fas fa-rocket"></i>
+    </a>
 
-    <!-- particles.js lib (JavaScript) -->
-    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script>
-        particlesJS('particles-js', {
-            "particles": {
-                "number": {
-                    "value": 80,
-                    "density": {
-                        "enable": true,
-                        "value_area": 800
-                    }
-                },
-                "color": {
-                    "value": "#ffffff"
-                },
-                "shape": {
-                    "type": "circle",
-                    "stroke": {
-                        "width": 0,
-                        "color": "#000000"
-                    },
-                    "polygon": {
-                        "nb_sides": 5
-                    },
-                    "image": {
-                        "src": "img/github.svg",
-                        "width": 100,
-                        "height": 100
-                    }
-                },
-                "opacity": {
-                    "value": 0.5,
-                    "random": false,
-                    "anim": {
-                        "enable": false,
-                        "speed": 1,
-                        "opacity_min": 0.1,
-                        "sync": false
-                    }
-                },
-                "size": {
-                    "value": 3,
-                    "random": true,
-                    "anim": {
-                        "enable": false,
-                        "speed": 40,
-                        "size_min": 0.1,
-                        "sync": false
-                    }
-                },
-                "line_linked": {
-                    "enable": true,
-                    "distance": 150,
-                    "color": "#ffffff",
-                    "opacity": 0.4,
-                    "width": 1
-                },
-                "move": {
-                    "enable": true,
-                    "speed": 6,
-                    "direction": "none",
-                    "random": false,
-                    "straight": false,
-                    "out_mode": "out",
-                    "bounce": false,
-                    "attract": {
-                        "enable": false,
-                        "rotateX": 600,
-                        "rotateY": 1200
-                    }
+        document.addEventListener('DOMContentLoaded', function() {
+            // Remove loading screen
+            setTimeout(() => {
+                document.getElementById('loading').style.opacity = '0';
+                setTimeout(() => {
+                    document.getElementById('loading').style.display = 'none';
+                }, 500);
+            }, 1500);
+
+            // Create floating particles
+            function createParticles() {
+                const particlesContainer = document.getElementById('particles');
+                const particleCount = 50;
+
+                for (let i = 0; i < particleCount; i++) {
+                    const particle = document.createElement('div');
+                    particle.className = 'particle';
+                    particle.style.left = Math.random() * 100 + '%';
+                    particle.style.animationDelay = Math.random() * 20 + 's';
+                    particle.style.animationDuration = (Math.random() * 10 + 15) + 's';
+
+                    // Random colors
+                    const colors = ['#00ffff', '#ff0080', '#ffff00', '#39ff14', '#9d4edd'];
+                    const randomColor = colors[Math.floor(Math.random() * colors.length)];
+                    particle.style.background = randomColor;
+                    particle.style.boxShadow = `0 0 10px ${randomColor}`;
+
+                    particlesContainer.appendChild(particle);
                 }
-            },
-            "interactivity": {
-                "detect_on": "canvas",
-                "events": {
-                    "onhover": {
-                        "enable": true,
-                        "mode": "grab"
-                    },
-                    "onclick": {
-                        "enable": true,
-                        "mode": "push"
-                    },
-                    "resize": true
-                },
-                "modes": {
-                    "grab": {
-                        "distance": 140,
-                        "line_linked": {
-                            "opacity": 1
-                        }
-                    },
-                    "bubble": {
-                        "distance": 400,
-                        "size": 40,
-                        "duration": 2,
-                        "opacity": 8,
-                        "speed": 3
-                    },
-                    "repulse": {
-                        "distance": 200,
-                        "duration": 0.4
-                    },
-                    "push": {
-                        "particles_nb": 4
-                    },
-                    "remove": {
-                        "particles_nb": 2
+            }
+
+            createParticles();
+
+            // Navigation
+            const navLinks = document.querySelectorAll('.nav-menu a');
+            const sections = document.querySelectorAll('.section');
+            const mainContent = document.querySelector('.main-content');
+            const backToTop = document.getElementById('backToTop');
+
+            // Smooth scroll navigation
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    if (targetSection) {
+                        targetSection.scrollIntoView({ behavior: 'smooth' });
                     }
+                });
+            });
+
+            // Active link highlighting
+            function updateActiveLink() {
+                let currentId = '';
+                sections.forEach(section => {
+                    const rect = section.getBoundingClientRect();
+                    if (rect.top <= 100 && rect.bottom >= 100) {
+                        currentId = '#' + section.id;
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === currentId) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+
+            // Back to top visibility
+            function updateBackToTop() {
+                if (mainContent.scrollTop > 300) {
+                    backToTop.classList.add('visible');
+                } else {
+                    backToTop.classList.remove('visible');
                 }
-            },
-            "retina_detect": true
+            }
+
+            // Scroll-triggered animations
+            function updateAnimations() {
+                const fadeElements = document.querySelectorAll('.fade-in');
+                fadeElements.forEach(element => {
+                    const rect = element.getBoundingClientRect();
+                    if (rect.top < window.innerHeight - 100) {
+                        element.classList.add('visible');
+                    }
+                });
+            }
+
+            // Scroll events
+            mainContent.addEventListener('scroll', function() {
+                updateActiveLink();
+                updateBackToTop();
+                updateAnimations();
+            });
+
+            // Back to top click
+            backToTop.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector('#home').scrollIntoView({ behavior: 'smooth' });
+            });
+
+            // Advanced typing animation with multiple colors
+            const typingText = document.getElementById('typing-text');
+            const words = [
+                'Data Science',
+                'AI & Tech',
+                'Business Intelligence',
+                'Lean Six Sigma',
+                'Market Intelligence',
+                'Strategic Planning',
+                'Innovation Management',
+                'Economic Engineering'
+            ];
+            let wordIndex = 0;
+            let charIndex = 0;
+            let isDeleting = false;
+
+            function typeWriter() {
+                const currentWord = words[wordIndex];
+
+                if (isDeleting) {
+                    typingText.textContent = currentWord.substring(0, charIndex - 1);
+                    charIndex--;
+                } else {
+                    typingText.textContent = currentWord.substring(0, charIndex + 1);
+                    charIndex++;
+                }
+
+                let typeSpeed = isDeleting ? 100 : 200;
+
+                if (!isDeleting && charIndex === currentWord.length) {
+                    typeSpeed = 2000;
+                    isDeleting = true;
+                } else if (isDeleting && charIndex === 0) {
+                    isDeleting = false;
+                    wordIndex = (wordIndex + 1) % words.length;
+                    typeSpeed = 500;
+                }
+
+                setTimeout(typeWriter, typeSpeed);
+            }
+
+            // Advanced 3D mouse movement effects
+            document.addEventListener('mousemove', function(e) {
+                const mouseX = e.clientX / window.innerWidth;
+                const mouseY = e.clientY / window.innerHeight;
+
+                // Parallax effect on sidebar
+                const sidebar = document.querySelector('.sidebar');
+                if (sidebar) {
+                    const rotateY = (mouseX - 0.5) * 10;
+                    sidebar.style.transform = `perspective(1000px) rotateY(${-5 + rotateY}deg)`;
+                }
+
+                // 3D effect on portfolio items
+                const portfolioItems = document.querySelectorAll('.portfolio-item');
+                portfolioItems.forEach(item => {
+                    const rect = item.getBoundingClientRect();
+                    const itemCenterX = rect.left + rect.width / 2;
+                    const itemCenterY = rect.top + rect.height / 2;
+
+                    const rotateX = (e.clientY - itemCenterY) / rect.height * 20;
+                    const rotateY = (e.clientX - itemCenterX) / rect.width * 20;
+
+                    item.style.transform = `perspective(1000px) rotateX(${10 - rotateX}deg) rotateY(${rotateY}deg)`;
+                });
+            });
+
+            // Advanced hover effects for timeline items
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            timelineItems.forEach(item => {
+                item.addEventListener('mouseenter', function() {
+                    this.style.transform = 'perspective(1000px) rotateY(0deg) scale(1.05) translateZ(20px)';
+                });
+
+                item.addEventListener('mouseleave', function() {
+                    this.style.transform = 'perspective(1000px) rotateY(5deg) scale(1) translateZ(0px)';
+                });
+            });
+
+            // Start typing animation
+            setTimeout(typeWriter, 2000);
+
+            // Contact Form Functionality
+            const contactForm = document.querySelector('.contact-form');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+
+                    const formData = new FormData(this);
+                    const name = formData.get('name');
+                    const email = formData.get('email');
+                    const message = formData.get('message');
+
+                    // Create mailto link with form data
+                    const subject = encodeURIComponent(`Contato de ${name} - Portfolio`);
+                    const body = encodeURIComponent(`Nome: ${name}\nE-mail: ${email}\n\nMensagem:\n${message}\n\n---\nEnviado através do portfólio: https://ffreitasb.github.io/`);
+                    const mailtoLink = `mailto:ffreitasb@pm.me?subject=${subject}&body=${body}`;
+
+                    // Show success feedback
+                    const button = this.querySelector('button');
+                    const originalText = button.innerHTML;
+                    button.innerHTML = '<i class="fas fa-check"></i> Abrindo cliente de e-mail...';
+                    button.style.background = 'linear-gradient(135deg, #10b981, #059669)';
+
+                    // Open email client
+                    window.location.href = mailtoLink;
+
+                    // Reset form and button after delay
+                    setTimeout(() => {
+                        this.reset();
+                        button.innerHTML = originalText;
+                        button.style.background = '';
+                    }, 3000);
+                });
+            }
+
+            // Magnetic Effect for Elements
+            function initMagneticEffect() {
+                const magneticElements = document.querySelectorAll('.magnetic');
+
+                magneticElements.forEach(element => {
+                    element.addEventListener('mousemove', function(e) {
+                        const rect = element.getBoundingClientRect();
+                        const x = e.clientX - rect.left - rect.width / 2;
+                        const y = e.clientY - rect.top - rect.height / 2;
+
+                        const moveX = x * 0.15;
+                        const moveY = y * 0.15;
+
+                        element.style.transform = `translate(${moveX}px, ${moveY}px) scale(1.05)`;
+                    });
+
+                    element.addEventListener('mouseleave', function() {
+                        element.style.transform = 'translate(0px, 0px) scale(1)';
+                    });
+                });
+            }
+
+            // Dynamic Cursor Effect
+            function initCustomCursor() {
+                if (window.innerWidth <= 768) return; // Skip on mobile
+
+                const cursor = document.createElement('div');
+                cursor.className = 'custom-cursor';
+                cursor.innerHTML = '<div class="cursor-dot"></div><div class="cursor-outline"></div>';
+                document.body.appendChild(cursor);
+
+                const cursorDot = cursor.querySelector('.cursor-dot');
+                const cursorOutline = cursor.querySelector('.cursor-outline');
+
+                document.addEventListener('mousemove', function(e) {
+                    const x = e.clientX;
+                    const y = e.clientY;
+
+                    cursorDot.style.transform = `translate(${x}px, ${y}px)`;
+                    cursorOutline.style.transform = `translate(${x}px, ${y}px)`;
+                });
+
+                // Add cursor styles
+                const cursorStyles = document.createElement('style');
+                cursorStyles.textContent = `
+                    .custom-cursor {
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        pointer-events: none;
+                        z-index: 9999;
+                    }
+                    .cursor-dot {
+                        width: 8px;
+                        height: 8px;
+                        background: var(--electric-blue, #00d4ff);
+                        border-radius: 50%;
+                        transform-origin: center;
+                        transition: transform 0.1s ease;
+                        box-shadow: 0 0 20px var(--electric-blue, #00d4ff);
+                    }
+                    .cursor-outline {
+                        width: 40px;
+                        height: 40px;
+                        border: 2px solid var(--electric-blue, #00d4ff);
+                        border-radius: 50%;
+                        position: absolute;
+                        top: -16px;
+                        left: -16px;
+                        transform-origin: center;
+                        transition: transform 0.3s ease, opacity 0.3s ease;
+                        opacity: 0.5;
+                    }
+                `;
+                document.head.appendChild(cursorStyles);
+            }
+
+            // Initialize advanced effects
+            initMagneticEffect();
+            initCustomCursor();
+
+            // Initial calls
+            updateActiveLink();
+            updateBackToTop();
+            updateAnimations();
+
+            // Performance optimization - throttle scroll events
+            let ticking = false;
+            mainContent.addEventListener('scroll', function() {
+                if (!ticking) {
+                    requestAnimationFrame(function() {
+                        updateActiveLink();
+                        updateBackToTop();
+                        updateAnimations();
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            });
         });
     </script>
 </body>
