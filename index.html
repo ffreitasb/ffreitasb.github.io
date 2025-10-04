@@ -1457,27 +1457,37 @@
             <!-- Contact -->
             <section id="contato" class="section">
                 <h1 class="visible">Contato</h1>
-                <div class="contact-links visible">
-                    <a href="mailto:ffreitasb@pm.me">
-                        <i class="fas fa-envelope"></i>
-                        ffreitasb@pm.me
-                    </a>
-                    <a href="https://linkedin.com/in/ffreitasb" target="_blank">
-                        <i class="fab fa-linkedin"></i>
-                        LinkedIn
-                    </a>
-                </div>
-                <div class="portfolio-item holo-card magnetic" style="max-width: 600px; margin: 2rem auto;">
+                <p class="visible" style="max-width: 800px; margin: 0 auto 3rem;">Interessado em colaborar ou discutir oportunidades? Entre em contato através dos canais abaixo!</p>
+
+                <div class="portfolio-item holo-card magnetic" style="max-width: 700px; margin: 0 auto;">
                     <div class="timeline-content">
-                        <h2><span class="timeline-icon"><i class="fas fa-envelope"></i></span> Entre em Contato</h2>
-                        <p>Interessado em colaborar ou discutir oportunidades? Vamos conversar sobre como posso contribuir para seu projeto!</p>
-                        <form class="contact-form" style="margin-top: 2rem;">
-                            <input type="text" name="name" placeholder="Seu Nome" required>
-                            <input type="email" name="email" placeholder="Seu E-mail" required>
-                            <textarea name="message" rows="4" placeholder="Sua Mensagem" required></textarea>
-                            <button type="submit" class="neon-button magnetic">Enviar Mensagem</button>
-                        </form>
-                        <div class="neon-progress" style="margin-top: 1rem;">
+                        <h2 style="margin-bottom: 2rem;"><span class="timeline-icon"><i class="fas fa-paper-plane"></i></span> Vamos Conectar!</h2>
+
+                        <div class="contact-links visible" style="flex-direction: column; gap: 1.5rem; margin: 0;">
+                            <a href="https://linkedin.com/in/ffreitasb" target="_blank" style="width: 100%; max-width: 500px; justify-content: center; padding: 1.5rem 2rem; font-size: 1.1rem;">
+                                <i class="fab fa-linkedin" style="font-size: 2rem;"></i>
+                                <div style="text-align: left;">
+                                    <div style="font-weight: 700; font-size: 1.2rem;">LinkedIn</div>
+                                    <div style="font-size: 0.95rem; opacity: 0.9;">linkedin.com/in/ffreitasb</div>
+                                </div>
+                            </a>
+                            <a href="mailto:ffreitasb@pm.me" style="width: 100%; max-width: 500px; justify-content: center; padding: 1.5rem 2rem; font-size: 1.1rem;">
+                                <i class="fas fa-envelope" style="font-size: 2rem;"></i>
+                                <div style="text-align: left;">
+                                    <div style="font-weight: 700; font-size: 1.2rem;">E-mail</div>
+                                    <div style="font-size: 0.95rem; opacity: 0.9;">ffreitasb@pm.me</div>
+                                </div>
+                            </a>
+                            <a href="https://wa.me/5511933443213?text=Ol%C3%A1%2C%20eu%20vim%20do%20seu%20site!%20Tenho%20interesse%20em%20trabalhar%20com%20voc%C3%AA." target="_blank" style="width: 100%; max-width: 500px; justify-content: center; padding: 1.5rem 2rem; font-size: 1.1rem;">
+                                <i class="fab fa-whatsapp" style="font-size: 2rem;"></i>
+                                <div style="text-align: left;">
+                                    <div style="font-weight: 700; font-size: 1.2rem;">WhatsApp</div>
+                                    <div style="font-size: 0.95rem; opacity: 0.9;">+55 11 93344-3213</div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="neon-progress" style="margin-top: 2rem;">
                             <div class="neon-progress-bar" style="width: 100%;"></div>
                         </div>
                     </div>
@@ -1675,40 +1685,6 @@
 
             // Start typing animation
             setTimeout(typeWriter, 2000);
-
-            // Contact Form Functionality
-            const contactForm = document.querySelector('.contact-form');
-            if (contactForm) {
-                contactForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-
-                    const formData = new FormData(this);
-                    const name = formData.get('name');
-                    const email = formData.get('email');
-                    const message = formData.get('message');
-
-                    // Create mailto link with form data
-                    const subject = encodeURIComponent(`Contato de ${name} - Portfolio`);
-                    const body = encodeURIComponent(`Nome: ${name}\nE-mail: ${email}\n\nMensagem:\n${message}\n\n---\nEnviado através do portfólio: https://ffreitasb.github.io/`);
-                    const mailtoLink = `mailto:ffreitasb@pm.me?subject=${subject}&body=${body}`;
-
-                    // Show success feedback
-                    const button = this.querySelector('button');
-                    const originalText = button.innerHTML;
-                    button.innerHTML = '<i class="fas fa-check"></i> Abrindo cliente de e-mail...';
-                    button.style.background = 'linear-gradient(135deg, #10b981, #059669)';
-
-                    // Open email client
-                    window.location.href = mailtoLink;
-
-                    // Reset form and button after delay
-                    setTimeout(() => {
-                        this.reset();
-                        button.innerHTML = originalText;
-                        button.style.background = '';
-                    }, 3000);
-                });
-            }
 
             // Magnetic Effect for Elements
             function initMagneticEffect() {
