@@ -960,10 +960,14 @@
             }
 
             .nav-menu a {
-                padding: 0.8rem;
+                padding: 1rem 0.5rem;
                 text-align: center;
-                font-size: 0.8rem;
+                font-size: 0.9rem;
                 margin: 0 0.2rem;
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
             }
 
             .main-content {
@@ -973,7 +977,7 @@
 
             .section {
                 min-height: calc(100vh - 80px);
-                padding: 2rem 1rem;
+                padding: 2rem 1.5rem;
             }
 
             .section h1 {
@@ -1008,6 +1012,60 @@
                 width: 100%;
                 max-width: 300px;
                 justify-content: center;
+            }
+
+            /* Disable 3D hover effects on touch devices */
+            .portfolio-item:hover,
+            .holo-card:hover,
+            .timeline-item:hover {
+                transform: none !important;
+                box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3) !important;
+            }
+
+            .portfolio-item:hover::before {
+                display: none;
+            }
+        }
+
+        /* Mobile-first optimization for small phones */
+        @media (max-width: 480px) {
+            .section h1 {
+                font-size: clamp(1.5rem, 5vw, 2.5rem);
+            }
+
+            .section p {
+                font-size: 1.05rem;
+            }
+
+            .bio-text {
+                font-size: 0.95rem;
+            }
+
+            .nav-menu a {
+                font-size: 0.75rem;
+                padding: 0.9rem 0.3rem;
+            }
+
+            .timeline-content h2 {
+                font-size: 1.2rem;
+            }
+
+            .portfolio-title {
+                font-size: 1rem;
+            }
+
+            .tech-tag {
+                font-size: 0.65rem;
+                padding: 0.25rem 0.5rem;
+            }
+
+            .contact-links a {
+                padding: 1rem 1.5rem;
+                font-size: 0.95rem;
+            }
+
+            .contact-links a i {
+                font-size: 1.2rem;
             }
         }
 
@@ -1686,8 +1744,10 @@
             // Start typing animation
             setTimeout(typeWriter, 2000);
 
-            // Magnetic Effect for Elements
+            // Magnetic Effect for Elements (disabled on mobile)
             function initMagneticEffect() {
+                if (window.innerWidth <= 768) return; // Skip on mobile devices
+
                 const magneticElements = document.querySelectorAll('.magnetic');
 
                 magneticElements.forEach(element => {
