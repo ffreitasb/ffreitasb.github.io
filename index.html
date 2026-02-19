@@ -57,6 +57,11 @@
             100% { background-position: 0% 50%; }
         }
 
+        @keyframes scanline {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
         /* Floating Particles */
         .particles {
             position: fixed;
@@ -1192,7 +1197,7 @@
                 <div class="bio-container fade-in">
                     <div class="bio-line">
                         <span class="bio-icon">🎓</span>
-                        <span class="bio-text">Mechanical & Economic Engineering</span>
+                        <span class="bio-text">Mechanical Engineering • Software Engineering</span>
                     </div>
                     <div class="bio-line">
                         <span class="bio-icon">📚</span>
@@ -1212,11 +1217,11 @@
                     </div>
                     <div class="bio-line">
                         <span class="bio-icon">🤖</span>
-                        <span class="bio-text">AI & Tech Enthusiast • Digital Transformation</span>
+                        <span class="bio-text">AI Agents • LLM Fine-Tuning • Hardware Hacking</span>
                     </div>
                     <div class="bio-line">
                         <span class="bio-icon">🏆</span>
-                        <span class="bio-text">Lean Six Sigma Black Belt • PowerBI & Excel • Process Excellence</span>
+                        <span class="bio-text">Lean Six Sigma Black Belt • CEA ANBIMA • Process Excellence</span>
                     </div>
                     <div class="bio-highlight">
                         <span class="highlight-text">13+ Years Experience ◈ R$300M+ Revenue Impact ◈ 5 Industries</span>
@@ -1231,13 +1236,13 @@
                     <div class="timeline-content">
                         <h2><span class="timeline-icon"><i class="fas fa-user-tie"></i></span> Professional Profile</h2>
                         <div style="text-align: left; line-height: 1.8; font-size: 1.1rem;">
-                            <p style="margin-bottom: 1.5rem;"><strong style="color: var(--electric-blue);">Mechanical Engineer by training, Commercial Professional by destiny, Tech Hard User by passion.</strong></p>
+                            <p style="margin-bottom: 1.5rem;"><strong style="color: var(--electric-blue);">Mechanical Engineer by training, Software Engineer by vocation.</strong></p>
 
-                            <p style="margin-bottom: 1.5rem;">As a Commercial Manager, I contribute to developing market strategies and innovation, integrating data analysis and competitive intelligence to boost corporate growth. My experience includes collaborating with teams to identify business opportunities and implement structured solutions that generate value for the organization.</p>
+                            <p style="margin-bottom: 1.5rem;">13+ years of experience across 5 industries: heavy manufacturing, energy, industrial automation, fintech, and tech. I operate at the exact intersection between atoms (hardware, sensors, industrial protocols) and bits (software, AI, data). From building CAN-Bus interceptors with ESP32 to orchestrating multi-agent AI swarms, I specialize in making things work beyond manufacturer specifications.</p>
 
-                            <p style="margin-bottom: 1.5rem;">With a strong background in commercial areas and specializations in areas such as competitive intelligence and corporate finance and additionally a Black Belt level of Lean Six Sigma methodology, I bring an analytical and results-oriented approach to my projects. I am motivated by challenges that combine technology, data, and strategy, always seeking to optimize processes and promote organizational efficiency.</p>
+                            <p style="margin-bottom: 1.5rem;">With a strong foundation in commercial strategy, competitive intelligence, and corporate finance — complemented by a Lean Six Sigma Black Belt (R$ 2.1M in savings) and CEA ANBIMA certification — I bring a rare combination of deep technical skills and business acumen. I translate complex technical concepts to business stakeholders and vice-versa.</p>
 
-                            <p style="margin-bottom: 1.5rem;">My expertise in technology allows me to find tools or even develop custom tools for the problems and challenges I face on a daily basis. My in-depth technical and theoretical knowledge has allowed me to leverage various AI tools to optimize my deliverables. I specialize in <strong style="color: var(--neon-purple);">Machine Learning, Deep Learning, Data Analysis,</strong> and <strong style="color: var(--neon-purple);">Project Management</strong> with proficiency in both Portuguese (native) and English (professional level).</p>
+                            <p style="margin-bottom: 1.5rem;">My expertise spans <strong style="color: var(--neon-purple);">AI Agents, LLM Fine-tuning, Computer Vision, Quant Finance,</strong> and <strong style="color: var(--neon-purple);">Hardware Hacking</strong>, with proficiency in both Portuguese (native) and English (professional level).</p>
 
                             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 2rem;">
                                 <div style="text-align: center;">
@@ -1497,20 +1502,116 @@
                     </div>
                 </div>
 
+                    <!-- Projeto 7: ECHO.2E - AI Doppelganger -->
+                    <div class="portfolio-item holo-card magnetic">
+                        <div class="timeline-content">
+                            <h2><span class="timeline-icon"><i class="fas fa-brain"></i></span> ECHO.2E — AI Doppelganger</h2>
+                            <p><strong>Personal AI system</strong> that replicates writing style, vocabulary, thought patterns and personality via In-Context Learning. ETL pipeline processes ~10GB of personal data (2010-2026) building a tri-layer corpus (CHAOS/EDITOR/SOUL). Computational stylometry engine quantifies writing fidelity across 35+ metrics. Target: 2M token context window with 747K curated corpus.</p>
+                            <div style="margin: 1rem 0; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Gemini 2.0</span>
+                                <span class="tech-tag">NLP</span>
+                                <span class="tech-tag">Stylometry</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin: 1rem 0;">
+                                <span style="color: var(--neon-purple);">🔥 Complexity: Expert</span>
+                                <span style="color: var(--cyber-green);">⭐ Relevance: Maximum</span>
+                            </div>
+                            <div class="neon-progress">
+                                <div class="neon-progress-bar" style="width: 99%;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Projeto 8: N8N Multi-Agent Phishing Triage -->
+                    <div class="portfolio-item holo-card magnetic">
+                        <div class="timeline-content">
+                            <h2><span class="timeline-icon"><i class="fas fa-robot"></i></span> N8N AI Agent Swarm</h2>
+                            <p><strong>Multi-agent orchestration</strong> via N8N for automated phishing email triage. Layered architecture: Agent 1 (Mistral-7B local via Ollama) handles initial binary classification, Agent 2 (GPT-4 API) analyzes ambiguous cases with reasoning chain. Detection rate: 97.3% with only 0.8% false positives. Reduced 6h/week of manual SOC analysis.</p>
+                            <div style="margin: 1rem 0; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                                <span class="tech-tag">N8N</span>
+                                <span class="tech-tag">Ollama</span>
+                                <span class="tech-tag">GPT-4</span>
+                                <span class="tech-tag">Supabase</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin: 1rem 0;">
+                                <span style="color: var(--neon-purple);">🔥 Complexity: Advanced</span>
+                                <span style="color: var(--cyber-green);">⭐ Relevance: Maximum</span>
+                            </div>
+                            <div class="neon-progress">
+                                <div class="neon-progress-bar" style="width: 97%;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Projeto 9: Algotrading Mean Reversion -->
+                    <div class="portfolio-item holo-card magnetic">
+                        <div class="timeline-content">
+                            <h2><span class="timeline-icon"><i class="fas fa-chart-area"></i></span> Algotrading Bot</h2>
+                            <p><strong>Algorithmic trading bot</strong> connected to B3 via MetaTrader 5 (MetaApi bridge). Strategy: mean reversion with adaptive Bollinger Bands + HMM regime filter. Backtested on 8 years of intraday data (1min candles). Results: Sharpe Ratio 1.87, max drawdown 12.3%, win rate 61%. Risk management via modified Kelly Criterion.</p>
+                            <div style="margin: 1rem 0; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">MetaTrader 5</span>
+                                <span class="tech-tag">NumPy</span>
+                                <span class="tech-tag">HMM</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin: 1rem 0;">
+                                <span style="color: var(--neon-purple);">🔥 Complexity: Expert</span>
+                                <span style="color: var(--cyber-green);">⭐ Relevance: High</span>
+                            </div>
+                            <div class="neon-progress">
+                                <div class="neon-progress-bar" style="width: 95%;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Projeto 10: Home Lab Cluster -->
+                    <div class="portfolio-item holo-card magnetic">
+                        <div class="timeline-content">
+                            <h2><span class="timeline-icon"><i class="fas fa-server"></i></span> Home Lab Cluster</h2>
+                            <p><strong>Proxmox VE cluster</strong> with 3 nodes (Dell OptiPlex 7050 + 64GB RAM each). Segmented network with PfSense (VLANs for lab, prod, IoT, DMZ). Container orchestration via k3s with Longhorn for distributed storage. Monitoring stack: Prometheus + Grafana + Alertmanager with Telegram notifications.</p>
+                            <div style="margin: 1rem 0; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                                <span class="tech-tag">Proxmox</span>
+                                <span class="tech-tag">k3s</span>
+                                <span class="tech-tag">PfSense</span>
+                                <span class="tech-tag">Grafana</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin: 1rem 0;">
+                                <span style="color: var(--neon-purple);">🔥 Complexity: Advanced</span>
+                                <span style="color: var(--cyber-green);">⭐ Relevance: High</span>
+                            </div>
+                            <div class="neon-progress">
+                                <div class="neon-progress-bar" style="width: 93%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Other Projects -->
                 <div style="margin: 3rem 0; text-align: center;">
                     <h3 style="color: var(--electric-blue); margin-bottom: 2rem;">💼 Other Projects</h3>
                     <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                        <span class="tech-tag" style="padding: 0.8rem 1.5rem;">🔐 UTILS Encrypt - Encryption</span>
-                        <span class="tech-tag" style="padding: 0.8rem 1.5rem;">🎨 Presentation Customizer</span>
-                        <span class="tech-tag" style="padding: 0.8rem 1.5rem;">🔄 N8N Repository - Automation</span>
-                        <span class="tech-tag" style="padding: 0.8rem 1.5rem;">📊 Commercial Proposals V2</span>
-                        <span class="tech-tag" style="padding: 0.8rem 1.5rem;">📝 Marketing Blog Scraper</span>
-                        <span class="tech-tag" style="padding: 0.8rem 1.5rem;">📋 Assertive Marketing List</span>
-                        <span class="tech-tag" style="padding: 0.8rem 1.5rem;">⚙️ Diverse Tools</span>
+                        <span class="tech-tag" style="padding: 0.8rem 1.5rem;">🧠 Llama-3 Fine-Tuning (Legal Domain)</span>
+                        <span class="tech-tag" style="padding: 0.8rem 1.5rem;">🚗 Toyota CAN-Bus Reverse Engineering</span>
+                        <span class="tech-tag" style="padding: 0.8rem 1.5rem;">📦 Post-Sale Logistics Automation</span>
+                        <span class="tech-tag" style="padding: 0.8rem 1.5rem;">🐠 Arduino Aquarium Failsafe</span>
+                        <span class="tech-tag" style="padding: 0.8rem 1.5rem;">📊 Fixed Income Radar (FOSS)</span>
+                        <span class="tech-tag" style="padding: 0.8rem 1.5rem;">🗃️ CRM Database Migration</span>
+                        <span class="tech-tag" style="padding: 0.8rem 1.5rem;">📈 Data Warehousing Pipeline</span>
                     </div>
                 </div>
             </section>
+
+            <!-- Fun Portfolio CTA -->
+            <div style="margin: 4rem 0; text-align: center; padding: 3rem 2rem; background: linear-gradient(135deg, rgba(0, 255, 65, 0.05), rgba(0, 212, 255, 0.08), rgba(157, 78, 221, 0.05)); border: 1px solid rgba(0, 255, 65, 0.3); border-radius: 15px; position: relative; overflow: hidden;">
+                <div style="position: absolute; top: 0; left: 0; width: 100%; height: 2px; background: linear-gradient(90deg, transparent, #00ff41, transparent); animation: scanline 3s linear infinite;"></div>
+                <p style="font-family: 'Orbitron', monospace; font-size: 0.85rem; color: #00ff41; letter-spacing: 3px; margin-bottom: 1rem; opacity: 0.7;">// INCOMING TRANSMISSION</p>
+                <a href="https://go.ffreitasb.cc/fun_portfolio" target="_blank" rel="noopener noreferrer" style="display: inline-block; font-family: 'Orbitron', monospace; font-size: 1.4rem; color: #ffffff; text-decoration: none; padding: 1.2rem 2.5rem; border: 2px solid #00ff41; border-radius: 8px; background: rgba(0, 255, 65, 0.1); transition: all 0.3s ease; letter-spacing: 1px;">
+                    Do you want something more... <span style="color: #00ff41; text-shadow: 0 0 10px #00ff41, 0 0 20px #00ff41;">fun!??</span>
+                </a>
+                <p style="font-size: 0.8rem; color: #888; margin-top: 1rem;">[ Click to access the tactical version of this portfolio ]</p>
+                <div style="position: absolute; bottom: 0; left: 0; width: 100%; height: 2px; background: linear-gradient(90deg, transparent, #00ff41, transparent); animation: scanline 3s linear infinite reverse;"></div>
+            </div>
 
             <!-- Contact -->
             <section id="contact" class="section">
@@ -1522,21 +1623,28 @@
                         <h2 style="margin-bottom: 2rem;"><span class="timeline-icon"><i class="fas fa-paper-plane"></i></span> Let's Connect!</h2>
 
                         <div class="contact-links visible" style="flex-direction: column; gap: 1.5rem; margin: 0; pointer-events: auto;">
-                            <a href="https://linkedin.com/in/ffreitasb" target="_blank" style="width: 100%; max-width: 500px; justify-content: center; padding: 1.5rem 2rem; font-size: 1.1rem;">
+                            <a href="https://linkedin.com/in/ffreitasb" target="_blank" rel="noopener noreferrer" style="width: 100%; max-width: 500px; justify-content: center; padding: 1.5rem 2rem; font-size: 1.1rem;">
                                 <i class="fab fa-linkedin" style="font-size: 2rem;"></i>
                                 <div style="text-align: left;">
                                     <div style="font-weight: 700; font-size: 1.2rem;">LinkedIn</div>
                                     <div style="font-size: 0.95rem; opacity: 0.9;">linkedin.com/in/ffreitasb</div>
                                 </div>
                             </a>
-                            <a href="mailto:ffreitasb@pm.me" style="width: 100%; max-width: 500px; justify-content: center; padding: 1.5rem 2rem; font-size: 1.1rem;">
+                            <a href="https://github.com/ffreitasb" target="_blank" rel="noopener noreferrer" style="width: 100%; max-width: 500px; justify-content: center; padding: 1.5rem 2rem; font-size: 1.1rem;">
+                                <i class="fab fa-github" style="font-size: 2rem;"></i>
+                                <div style="text-align: left;">
+                                    <div style="font-weight: 700; font-size: 1.2rem;">GitHub</div>
+                                    <div style="font-size: 0.95rem; opacity: 0.9;">github.com/ffreitasb</div>
+                                </div>
+                            </a>
+                            <a href="mailto:contact@ffreitasb.cc" style="width: 100%; max-width: 500px; justify-content: center; padding: 1.5rem 2rem; font-size: 1.1rem;">
                                 <i class="fas fa-envelope" style="font-size: 2rem;"></i>
                                 <div style="text-align: left;">
                                     <div style="font-weight: 700; font-size: 1.2rem;">E-mail</div>
-                                    <div style="font-size: 0.95rem; opacity: 0.9;">ffreitasb@pm.me</div>
+                                    <div style="font-size: 0.95rem; opacity: 0.9;">contact@ffreitasb.cc</div>
                                 </div>
                             </a>
-                            <a href="https://wa.me/5511933443213?text=Ol%C3%A1%2C%20eu%20vim%20do%20seu%20site!%20Tenho%20interesse%20em%20trabalhar%20com%20voc%C3%AA." target="_blank" style="width: 100%; max-width: 500px; justify-content: center; padding: 1.5rem 2rem; font-size: 1.1rem;">
+                            <a href="https://wa.me/5511933443213?text=Ol%C3%A1%2C%20eu%20vim%20do%20seu%20site!%20Tenho%20interesse%20em%20trabalhar%20com%20voc%C3%AA." target="_blank" rel="noopener noreferrer" style="width: 100%; max-width: 500px; justify-content: center; padding: 1.5rem 2rem; font-size: 1.1rem;">
                                 <i class="fab fa-whatsapp" style="font-size: 2rem;"></i>
                                 <div style="text-align: left;">
                                     <div style="font-weight: 700; font-size: 1.2rem;">WhatsApp</div>
@@ -1665,14 +1773,14 @@
             // Advanced typing animation with multiple colors
             const typingText = document.getElementById('typing-text');
             const words = [
-                'Data Science',
-                'AI & Tech',
+                'AI Agents & Automation',
+                'Hardware Hacking',
+                'Data Science & Python',
+                'Quant Finance',
                 'Business Intelligence',
                 'Lean Six Sigma',
-                'Market Intelligence',
-                'Strategic Planning',
-                'Innovation Management',
-                'Economic Engineering'
+                'Software Engineering',
+                'Prompt Engineering'
             ];
             let wordIndex = 0;
             let charIndex = 0;
