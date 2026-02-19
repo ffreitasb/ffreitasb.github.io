@@ -13,26 +13,24 @@
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="manifest" href="manifest.json">
 
-    <!-- Fonts -->
+    <!-- Fonts: Space Grotesk (display) + JetBrains Mono (data) + Inter (body) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Styles -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+    <!-- CRT Scanline -->
+    <div class="scanline"></div>
+
     <!-- Navigation -->
     <nav class="nav">
         <div class="nav-inner">
             <a href="#hero" class="nav-logo">Felipe Freitas</a>
-            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
-                <i class="fas fa-bars"></i>
-            </button>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">&#9776;</button>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#about">About</a></li>
                 <li><a href="#experience">Experience</a></li>
@@ -45,35 +43,45 @@
     <main>
         <!-- Hero -->
         <section class="hero" id="hero">
+            <div class="hero-path">~/home/felipe</div>
             <h1 class="hero-name">Felipe Freitas</h1>
             <p class="hero-title">Tech Lead &middot; Revenue Architect &middot; LLM Specialist</p>
             <div class="hero-typing">
-                <span id="typing-text"></span><span class="cursor">|</span>
+                <span id="typing-text"></span><span class="cursor">_</span>
             </div>
             <p class="hero-bio">
                 Engineer by training, Revenue Architect by trade. Bridging Engineering &amp; Sales
                 with Python, AI Automation and data-driven strategies. From CAN-Bus interceptors
                 to multi-agent LLM swarms. LSS Black Belt, CEA ANBIMA, 5&times; MBA.
             </p>
-            <div class="hero-stats">
-                <div class="hero-stat">
-                    <span class="hero-stat-value">13+</span>
-                    <span class="hero-stat-label">Years</span>
+
+            <div class="panel hero-stats-panel">
+                <div class="panel-header">
+                    <span class="panel-title">METRICS</span>
+                    <span class="panel-status">[LIVE]</span>
                 </div>
-                <div class="hero-stat">
-                    <span class="hero-stat-value">5</span>
-                    <span class="hero-stat-label">Industries</span>
-                </div>
-                <div class="hero-stat">
-                    <span class="hero-stat-value">R$300M+</span>
-                    <span class="hero-stat-label">Revenue Impact</span>
+                <div class="panel-body">
+                    <div class="hero-stats">
+                        <div class="hero-stat">
+                            <span class="hero-stat-value">13+</span>
+                            <span class="hero-stat-label">Years</span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="hero-stat-value">5</span>
+                            <span class="hero-stat-label">Industries</span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="hero-stat-value">R$300M+</span>
+                            <span class="hero-stat-label">Revenue Impact</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- About -->
         <section class="section" id="about">
-            <span class="section-label">// About</span>
+            <span class="section-label">~/about</span>
             <h2 class="section-title">Professional Profile</h2>
             <div class="about-grid">
                 <div class="about-text">
@@ -83,58 +91,73 @@
                     <p>Expertise spans <strong>AI Agents, LLM Fine-tuning, Computer Vision, Quant Finance,</strong> and <strong>Hardware Hacking</strong>. Proficient in Portuguese (native) and English (professional).</p>
                 </div>
                 <div>
-                    <div class="stack-section">
-                        <h3 class="stack-heading">AI & Data</h3>
-                        <div class="stack-tags">
-                            <span class="tag">Python</span>
-                            <span class="tag">LangChain</span>
-                            <span class="tag">Ollama</span>
-                            <span class="tag">PyTorch</span>
-                            <span class="tag">Gemini</span>
-                            <span class="tag">N8N</span>
-                            <span class="tag">Pandas</span>
-                            <span class="tag">Scikit-Learn</span>
+                    <div class="panel panel--static">
+                        <div class="panel-header">
+                            <span class="panel-title">STACK</span>
+                            <span class="panel-status">[LOADED]</span>
                         </div>
-                    </div>
-                    <div class="stack-section">
-                        <h3 class="stack-heading">Infrastructure</h3>
-                        <div class="stack-tags">
-                            <span class="tag">Proxmox</span>
-                            <span class="tag">k3s</span>
-                            <span class="tag">Docker</span>
-                            <span class="tag">PfSense</span>
-                            <span class="tag">PostgreSQL</span>
-                            <span class="tag">Supabase</span>
-                        </div>
-                    </div>
-                    <div class="stack-section">
-                        <h3 class="stack-heading">Business</h3>
-                        <div class="stack-tags">
-                            <span class="tag">PowerBI</span>
-                            <span class="tag">Pipedrive</span>
-                            <span class="tag">RevOps</span>
-                            <span class="tag">Lean Six Sigma</span>
-                            <span class="tag">CEA ANBIMA</span>
+                        <div class="panel-body">
+                            <div class="stack-section">
+                                <h3 class="stack-heading">AI &amp; Data</h3>
+                                <div class="stack-tags">
+                                    <span class="tag">Python</span>
+                                    <span class="tag">LangChain</span>
+                                    <span class="tag">Ollama</span>
+                                    <span class="tag">PyTorch</span>
+                                    <span class="tag">Gemini</span>
+                                    <span class="tag">N8N</span>
+                                    <span class="tag">Pandas</span>
+                                    <span class="tag">Scikit-Learn</span>
+                                </div>
+                            </div>
+                            <div class="stack-section">
+                                <h3 class="stack-heading">Infrastructure</h3>
+                                <div class="stack-tags">
+                                    <span class="tag">Proxmox</span>
+                                    <span class="tag">k3s</span>
+                                    <span class="tag">Docker</span>
+                                    <span class="tag">PfSense</span>
+                                    <span class="tag">PostgreSQL</span>
+                                    <span class="tag">Supabase</span>
+                                </div>
+                            </div>
+                            <div class="stack-section">
+                                <h3 class="stack-heading">Business</h3>
+                                <div class="stack-tags">
+                                    <span class="tag">PowerBI</span>
+                                    <span class="tag">Pipedrive</span>
+                                    <span class="tag">RevOps</span>
+                                    <span class="tag">Lean Six Sigma</span>
+                                    <span class="tag">CEA ANBIMA</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    <h3 class="education-heading">Education & Certifications</h3>
-                    <div class="education-grid">
-                        <div class="education-item">
-                            <div class="education-item-title">Mechanical Engineering</div>
-                            <div class="education-item-sub">UFG &mdash; 2009&ndash;2016</div>
+                    <div class="panel panel--static" style="margin-top: 0.625rem;">
+                        <div class="panel-header">
+                            <span class="panel-title">CERTS</span>
+                            <span class="panel-status">[VERIFIED]</span>
                         </div>
-                        <div class="education-item">
-                            <div class="education-item-title">LSS Black Belt</div>
-                            <div class="education-item-sub">Lean Six Sigma</div>
-                        </div>
-                        <div class="education-item">
-                            <div class="education-item-title">CEA Certified</div>
-                            <div class="education-item-sub">ANBIMA</div>
-                        </div>
-                        <div class="education-item">
-                            <div class="education-item-title">5&times; MBA</div>
-                            <div class="education-item-sub">Big Data, CI, Finance, Econ Eng, Strategy</div>
+                        <div class="panel-body">
+                            <div class="education-grid">
+                                <div class="education-item">
+                                    <div class="education-item-title">Mechanical Engineering</div>
+                                    <div class="education-item-sub">UFG &mdash; 2009&ndash;2016</div>
+                                </div>
+                                <div class="education-item">
+                                    <div class="education-item-title">LSS Black Belt</div>
+                                    <div class="education-item-sub">Lean Six Sigma</div>
+                                </div>
+                                <div class="education-item">
+                                    <div class="education-item-title">CEA Certified</div>
+                                    <div class="education-item-sub">ANBIMA</div>
+                                </div>
+                                <div class="education-item">
+                                    <div class="education-item-title">5&times; MBA</div>
+                                    <div class="education-item-sub">Big Data, CI, Finance, Econ Eng, Strategy</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -143,231 +166,325 @@
 
         <!-- Experience -->
         <section class="section" id="experience">
-            <span class="section-label">// Experience</span>
+            <span class="section-label">~/experience</span>
             <h2 class="section-title">Career</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <h3 class="timeline-role">Sales and Business Intelligence Manager</h3>
-                    <div class="timeline-company">Artemec Engenharia</div>
-                    <div class="timeline-date">2025 &mdash; Present</div>
-                    <p class="timeline-desc">Leading sales strategies and business intelligence initiatives for engineering solutions. Responsible for market analysis, competitive intelligence, and strategic planning to drive revenue growth. Implementing data-driven approaches to optimize sales processes and develop comprehensive BI dashboards for executive decision-making.</p>
+            <div class="panel panel--static">
+                <div class="panel-header">
+                    <span class="panel-title">CAREER.LOG</span>
+                    <span class="panel-status">[7 ENTRIES]</span>
                 </div>
+                <div class="panel-body">
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <h3 class="timeline-role"><span class="timeline-prompt">&gt;</span> Sales and Business Intelligence Manager</h3>
+                            <div class="timeline-company">Artemec Engenharia</div>
+                            <div class="timeline-date">[2025 &mdash; Present]</div>
+                            <p class="timeline-desc">Leading sales strategies and business intelligence initiatives for engineering solutions. Responsible for market analysis, competitive intelligence, and strategic planning to drive revenue growth. Implementing data-driven approaches to optimize sales processes and develop comprehensive BI dashboards for executive decision-making.</p>
+                        </div>
 
-                <div class="timeline-item">
-                    <h3 class="timeline-role">Senior Master Executive &mdash; Partnerships & Large Accounts</h3>
-                    <div class="timeline-company">&Oacute;rigo Energia</div>
-                    <div class="timeline-date">Nov 2024 &mdash; May 2025</div>
-                    <p class="timeline-desc">Responsible for prospecting, negotiating, and managing sales partnerships, as well as handling large-scale negotiations throughout Goi&aacute;s state. Focus on BSB segments (commerce and industries) and Agribusiness sector. Leading strategic partnership development and managing high-value client relationships in the energy sector.</p>
-                </div>
+                        <div class="timeline-item">
+                            <h3 class="timeline-role"><span class="timeline-prompt">&gt;</span> Senior Master Executive &mdash; Partnerships &amp; Large Accounts</h3>
+                            <div class="timeline-company">&Oacute;rigo Energia</div>
+                            <div class="timeline-date">[Nov 2024 &mdash; May 2025]</div>
+                            <p class="timeline-desc">Responsible for prospecting, negotiating, and managing sales partnerships, as well as handling large-scale negotiations throughout Goi&aacute;s state. Focus on BSB segments (commerce and industries) and Agribusiness sector. Leading strategic partnership development and managing high-value client relationships in the energy sector.</p>
+                        </div>
 
-                <div class="timeline-item">
-                    <h3 class="timeline-role">Commercial Director</h3>
-                    <div class="timeline-company">Universidade Unicambury</div>
-                    <div class="timeline-date">Aug &mdash; Nov 2024</div>
-                    <p class="timeline-desc">Direct report to CEO. Led General Commercial Coordination with 4 managers and 14 executives across Marketing, Acquisition, Telesales, External Commercialization, and New Business. Managed commercial operations, team training, and process optimization. Member of strategic board and University Modernization Committee.</p>
-                </div>
+                        <div class="timeline-item">
+                            <h3 class="timeline-role"><span class="timeline-prompt">&gt;</span> Commercial Director</h3>
+                            <div class="timeline-company">Universidade Unicambury</div>
+                            <div class="timeline-date">[Aug &mdash; Nov 2024]</div>
+                            <p class="timeline-desc">Direct report to CEO. Led General Commercial Coordination with 4 managers and 14 executives across Marketing, Acquisition, Telesales, External Commercialization, and New Business. Managed commercial operations, team training, and process optimization. Member of strategic board and University Modernization Committee.</p>
+                        </div>
 
-                <div class="timeline-item">
-                    <h3 class="timeline-role">Head of Commercial & Market Intelligence</h3>
-                    <div class="timeline-company">Accon Software</div>
-                    <div class="timeline-date">Apr &mdash; Aug 2024</div>
-                    <p class="timeline-desc">Direct report to CEO. Led hiring and training of inbound, outbound, and support commercial teams. Developed the company's outbound model. Structured PowerBI dashboards for KPI monitoring. Implemented ERP for business controls, structured P&L and cost centers. Utilized big data and data modeling to guide investment decisions.</p>
-                </div>
+                        <div class="timeline-item">
+                            <h3 class="timeline-role"><span class="timeline-prompt">&gt;</span> Head of Commercial &amp; Market Intelligence</h3>
+                            <div class="timeline-company">Accon Software</div>
+                            <div class="timeline-date">[Apr &mdash; Aug 2024]</div>
+                            <p class="timeline-desc">Direct report to CEO. Led hiring and training of inbound, outbound, and support commercial teams. Developed the company's outbound model. Structured PowerBI dashboards for KPI monitoring. Implemented ERP for business controls, structured P&amp;L and cost centers. Utilized big data and data modeling to guide investment decisions.</p>
+                        </div>
 
-                <div class="timeline-item">
-                    <h3 class="timeline-role">Senior Commercial Executive</h3>
-                    <div class="timeline-company">Getnet Adquir&ecirc;ncia (Santander)</div>
-                    <div class="timeline-date">Nov 2022 &mdash; Nov 2023</div>
-                    <p class="timeline-desc">Managed large Middle Corporate accounts across Goi&acirc;nia, Rio Verde, Tocantins, and Tri&acirc;ngulo Mineiro. Coordinated funnel of 16 Relationship Managers and 4 General Managers. Achieved 10% above-budget revenue and 4% growth in active client base through personalized negotiations and active prospecting.</p>
-                </div>
+                        <div class="timeline-item">
+                            <h3 class="timeline-role"><span class="timeline-prompt">&gt;</span> Senior Commercial Executive</h3>
+                            <div class="timeline-company">Getnet Adquir&ecirc;ncia (Santander)</div>
+                            <div class="timeline-date">[Nov 2022 &mdash; Nov 2023]</div>
+                            <p class="timeline-desc">Managed large Middle Corporate accounts across Goi&acirc;nia, Rio Verde, Tocantins, and Tri&acirc;ngulo Mineiro. Coordinated funnel of 16 Relationship Managers and 4 General Managers. Achieved 10% above-budget revenue and 4% growth in active client base through personalized negotiations and active prospecting.</p>
+                        </div>
 
-                <div class="timeline-item">
-                    <h3 class="timeline-role">District Manager</h3>
-                    <div class="timeline-company">Cappta S/A</div>
-                    <div class="timeline-date">Mar 2021 &mdash; Oct 2022</div>
-                    <p class="timeline-desc">Led sales team of 20&ndash;25 professionals across 5 states (GO/DF/MT/MS/RO). Achieved 300% increase in TPV and 230% growth in Net Revenue within one year. Expanded active client base by 101% through strategic training programs and development initiatives.</p>
-                </div>
+                        <div class="timeline-item">
+                            <h3 class="timeline-role"><span class="timeline-prompt">&gt;</span> District Manager</h3>
+                            <div class="timeline-company">Cappta S/A</div>
+                            <div class="timeline-date">[Mar 2021 &mdash; Oct 2022]</div>
+                            <p class="timeline-desc">Led sales team of 20&ndash;25 professionals across 5 states (GO/DF/MT/MS/RO). Achieved 300% increase in TPV and 230% growth in Net Revenue within one year. Expanded active client base by 101% through strategic training programs and development initiatives.</p>
+                        </div>
 
-                <div class="timeline-item">
-                    <h3 class="timeline-role">Senior Commercial Consultant (B2B)</h3>
-                    <div class="timeline-company">Companhia Ultragaz S/A</div>
-                    <div class="timeline-date">Jun 2013 &mdash; May 2020</div>
-                    <p class="timeline-desc">Managed key accounts in residential channel, leading the largest negotiation in the Company's Midwest region. Increased served volume by 87% through strategic client conversion. Implemented indicator analysis and goal setting programs to boost reseller growth. Trained 150+ sales professionals to enhance performance.</p>
+                        <div class="timeline-item">
+                            <h3 class="timeline-role"><span class="timeline-prompt">&gt;</span> Senior Commercial Consultant (B2B)</h3>
+                            <div class="timeline-company">Companhia Ultragaz S/A</div>
+                            <div class="timeline-date">[Jun 2013 &mdash; May 2020]</div>
+                            <p class="timeline-desc">Managed key accounts in residential channel, leading the largest negotiation in the Company's Midwest region. Increased served volume by 87% through strategic client conversion. Implemented indicator analysis and goal setting programs to boost reseller growth. Trained 150+ sales professionals to enhance performance.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Portfolio -->
         <section class="section" id="portfolio">
-            <span class="section-label">// Portfolio</span>
+            <span class="section-label">~/portfolio</span>
             <h2 class="section-title">Selected Projects</h2>
             <div class="portfolio-grid">
-                <div class="project-card">
-                    <h3 class="project-title">ECHO.2E &mdash; AI Doppelganger</h3>
-                    <p class="project-desc">Personal AI system that replicates writing style, vocabulary, thought patterns and personality via In-Context Learning. ETL pipeline processes ~10GB of personal data (2010&ndash;2026) building a tri-layer corpus (CHAOS/EDITOR/SOUL). Computational stylometry engine quantifies writing fidelity across 35+ metrics. Target: 2M token context window with 747K curated corpus.</p>
-                    <div class="project-tags">
-                        <span class="tag">Python</span>
-                        <span class="tag">Gemini 2.0</span>
-                        <span class="tag">NLP</span>
-                        <span class="tag">Stylometry</span>
+                <div class="panel project-card">
+                    <div class="panel-header">
+                        <span class="panel-title">01 ECHO.2E</span>
+                        <span class="panel-status">[README]</span>
+                    </div>
+                    <div class="panel-body">
+                        <p class="project-desc">Personal AI system that replicates writing style, vocabulary, thought patterns and personality via In-Context Learning. ETL pipeline processes ~10GB of personal data (2010&ndash;2026) building a tri-layer corpus (CHAOS/EDITOR/SOUL). Computational stylometry engine quantifies writing fidelity across 35+ metrics. Target: 2M token context window with 747K curated corpus.</p>
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Gemini 2.0</span>
+                            <span class="tag">NLP</span>
+                            <span class="tag">Stylometry</span>
+                        </div>
                     </div>
                 </div>
 
-                <div class="project-card">
-                    <h3 class="project-title">N8N AI Agent Swarm</h3>
-                    <p class="project-desc">Multi-agent orchestration for automated phishing email triage. Agent 1 (Mistral-7B local via Ollama) handles initial binary classification, Agent 2 (GPT-4 API) analyzes ambiguous cases with reasoning chain. 97.3% detection rate with only 0.8% false positives. Reduced 6h/week of manual SOC analysis.</p>
-                    <div class="project-tags">
-                        <span class="tag">N8N</span>
-                        <span class="tag">Ollama</span>
-                        <span class="tag">GPT-4</span>
-                        <span class="tag">Supabase</span>
+                <div class="panel project-card">
+                    <div class="panel-header">
+                        <span class="panel-title">02 N8N AGENT SWARM</span>
+                        <span class="panel-status">[README]</span>
+                    </div>
+                    <div class="panel-body">
+                        <p class="project-desc">Multi-agent orchestration for automated phishing email triage. Agent 1 (Mistral-7B local via Ollama) handles initial binary classification, Agent 2 (GPT-4 API) analyzes ambiguous cases with reasoning chain. 97.3% detection rate with only 0.8% false positives. Reduced 6h/week of manual SOC analysis.</p>
+                        <div class="project-tags">
+                            <span class="tag">N8N</span>
+                            <span class="tag">Ollama</span>
+                            <span class="tag">GPT-4</span>
+                            <span class="tag">Supabase</span>
+                        </div>
                     </div>
                 </div>
 
-                <div class="project-card">
-                    <h3 class="project-title">ThomasB-Vision Suite</h3>
-                    <p class="project-desc">Complete computer vision system with native, web (WebRTC), and mobile (React Native) deployments. EfficientNet-B4 with transfer learning, optimized with TensorRT for &lt; 50ms latency on edge GPU (Jetson Nano). Production accuracy: 94.7% mAP@0.5.</p>
-                    <div class="project-tags">
-                        <span class="tag">Python</span>
-                        <span class="tag">TensorFlow</span>
-                        <span class="tag">React Native</span>
-                        <span class="tag">OpenCV</span>
+                <div class="panel project-card">
+                    <div class="panel-header">
+                        <span class="panel-title">03 THOMASB-VISION</span>
+                        <span class="panel-status">[README]</span>
+                    </div>
+                    <div class="panel-body">
+                        <p class="project-desc">Complete computer vision system with native, web (WebRTC), and mobile (React Native) deployments. EfficientNet-B4 with transfer learning, optimized with TensorRT for &lt; 50ms latency on edge GPU (Jetson Nano). Production accuracy: 94.7% mAP@0.5.</p>
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">TensorFlow</span>
+                            <span class="tag">React Native</span>
+                            <span class="tag">OpenCV</span>
+                        </div>
                     </div>
                 </div>
 
-                <div class="project-card">
-                    <h3 class="project-title">Algotrading Bot</h3>
-                    <p class="project-desc">Algorithmic trading bot connected to B3 via MetaTrader 5 (MetaApi bridge). Mean reversion strategy with adaptive Bollinger Bands + HMM regime filter. Backtested on 8 years of intraday data (1min candles). Sharpe 1.87, max drawdown 12.3%, win rate 61%.</p>
-                    <div class="project-tags">
-                        <span class="tag">Python</span>
-                        <span class="tag">MetaTrader 5</span>
-                        <span class="tag">NumPy</span>
-                        <span class="tag">HMM</span>
+                <div class="panel project-card">
+                    <div class="panel-header">
+                        <span class="panel-title">04 ALGOTRADING BOT</span>
+                        <span class="panel-status">[README]</span>
+                    </div>
+                    <div class="panel-body">
+                        <p class="project-desc">Algorithmic trading bot connected to B3 via MetaTrader 5 (MetaApi bridge). Mean reversion strategy with adaptive Bollinger Bands + HMM regime filter. Backtested on 8 years of intraday data (1min candles). Sharpe 1.87, max drawdown 12.3%, win rate 61%.</p>
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">MetaTrader 5</span>
+                            <span class="tag">NumPy</span>
+                            <span class="tag">HMM</span>
+                        </div>
                     </div>
                 </div>
 
-                <div class="project-card">
-                    <h3 class="project-title">CVM Data Analysis</h3>
-                    <p class="project-desc">Processing pipeline for 15 years of Brazilian capital market data (CVM + B3). Analysis of 2.3M records with Pandas for fund flow pattern identification across asset classes. Interactive Plotly Dash dashboards for correlation and seasonality analysis.</p>
-                    <div class="project-tags">
-                        <span class="tag">Python</span>
-                        <span class="tag">Pandas</span>
-                        <span class="tag">CVM APIs</span>
-                        <span class="tag">Plotly</span>
+                <div class="panel project-card">
+                    <div class="panel-header">
+                        <span class="panel-title">05 CVM DATA ANALYSIS</span>
+                        <span class="panel-status">[README]</span>
+                    </div>
+                    <div class="panel-body">
+                        <p class="project-desc">Processing pipeline for 15 years of Brazilian capital market data (CVM + B3). Analysis of 2.3M records with Pandas for fund flow pattern identification across asset classes. Interactive Plotly Dash dashboards for correlation and seasonality analysis.</p>
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Pandas</span>
+                            <span class="tag">CVM APIs</span>
+                            <span class="tag">Plotly</span>
+                        </div>
                     </div>
                 </div>
 
-                <div class="project-card">
-                    <h3 class="project-title">Home Lab Cluster</h3>
-                    <p class="project-desc">Proxmox VE cluster with 3 nodes (Dell OptiPlex 7050 + 64GB RAM each). Segmented network with PfSense (VLANs for lab, prod, IoT, DMZ). Container orchestration via k3s with Longhorn for distributed storage. Prometheus + Grafana monitoring stack.</p>
-                    <div class="project-tags">
-                        <span class="tag">Proxmox</span>
-                        <span class="tag">k3s</span>
-                        <span class="tag">PfSense</span>
-                        <span class="tag">Grafana</span>
+                <div class="panel project-card">
+                    <div class="panel-header">
+                        <span class="panel-title">06 HOME LAB CLUSTER</span>
+                        <span class="panel-status">[README]</span>
+                    </div>
+                    <div class="panel-body">
+                        <p class="project-desc">Proxmox VE cluster with 3 nodes (Dell OptiPlex 7050 + 64GB RAM each). Segmented network with PfSense (VLANs for lab, prod, IoT, DMZ). Container orchestration via k3s with Longhorn for distributed storage. Prometheus + Grafana monitoring stack.</p>
+                        <div class="project-tags">
+                            <span class="tag">Proxmox</span>
+                            <span class="tag">k3s</span>
+                            <span class="tag">PfSense</span>
+                            <span class="tag">Grafana</span>
+                        </div>
                     </div>
                 </div>
 
-                <div class="project-card">
-                    <h3 class="project-title">Industrial OCR</h3>
-                    <p class="project-desc">Computer vision for automatic recognition of metallic tags on industrial equipment. Custom Tesseract 5 model trained on 12k samples with adaptive binarization and perspective correction. 40% reduction in maintenance shutdown inventory time, 200+ tags/hour.</p>
-                    <div class="project-tags">
-                        <span class="tag">Python</span>
-                        <span class="tag">Tesseract</span>
-                        <span class="tag">OpenCV</span>
-                        <span class="tag">PIL</span>
+                <div class="panel project-card">
+                    <div class="panel-header">
+                        <span class="panel-title">07 INDUSTRIAL OCR</span>
+                        <span class="panel-status">[README]</span>
+                    </div>
+                    <div class="panel-body">
+                        <p class="project-desc">Computer vision for automatic recognition of metallic tags on industrial equipment. Custom Tesseract 5 model trained on 12k samples with adaptive binarization and perspective correction. 40% reduction in maintenance shutdown inventory time, 200+ tags/hour.</p>
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Tesseract</span>
+                            <span class="tag">OpenCV</span>
+                            <span class="tag">PIL</span>
+                        </div>
                     </div>
                 </div>
 
-                <div class="project-card">
-                    <h3 class="project-title">Supabase Backend</h3>
-                    <p class="project-desc">Centralized data backend on Supabase (PostgreSQL 15) serving multiple crawlers and dashboards. Auto-generated REST APIs with Row Level Security, JWT auth, and real-time WebSocket subscriptions. 47-table normalized schema with 3-year retention.</p>
-                    <div class="project-tags">
-                        <span class="tag">Supabase</span>
-                        <span class="tag">PostgreSQL</span>
-                        <span class="tag">REST APIs</span>
-                        <span class="tag">WebSocket</span>
+                <div class="panel project-card">
+                    <div class="panel-header">
+                        <span class="panel-title">08 SUPABASE BACKEND</span>
+                        <span class="panel-status">[README]</span>
+                    </div>
+                    <div class="panel-body">
+                        <p class="project-desc">Centralized data backend on Supabase (PostgreSQL 15) serving multiple crawlers and dashboards. Auto-generated REST APIs with Row Level Security, JWT auth, and real-time WebSocket subscriptions. 47-table normalized schema with 3-year retention.</p>
+                        <div class="project-tags">
+                            <span class="tag">Supabase</span>
+                            <span class="tag">PostgreSQL</span>
+                            <span class="tag">REST APIs</span>
+                            <span class="tag">WebSocket</span>
+                        </div>
                     </div>
                 </div>
 
-                <div class="project-card">
-                    <h3 class="project-title">Proposal Engine</h3>
-                    <p class="project-desc">Dynamic commercial proposal generator eliminating 80% of manual drafting time. Python backend with python-docx for template manipulation, bidirectional CRM integration via Pipedrive API. Average processing: 4.2 seconds per 15-page proposal.</p>
-                    <div class="project-tags">
-                        <span class="tag">Python</span>
-                        <span class="tag">python-docx</span>
-                        <span class="tag">Pipedrive API</span>
-                        <span class="tag">PDF</span>
+                <div class="panel project-card">
+                    <div class="panel-header">
+                        <span class="panel-title">09 PROPOSAL ENGINE</span>
+                        <span class="panel-status">[README]</span>
+                    </div>
+                    <div class="panel-body">
+                        <p class="project-desc">Dynamic commercial proposal generator eliminating 80% of manual drafting time. Python backend with python-docx for template manipulation, bidirectional CRM integration via Pipedrive API. Average processing: 4.2 seconds per 15-page proposal.</p>
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">python-docx</span>
+                            <span class="tag">Pipedrive API</span>
+                            <span class="tag">PDF</span>
+                        </div>
                     </div>
                 </div>
 
-                <div class="project-card">
-                    <h3 class="project-title">Market Intelligence</h3>
-                    <p class="project-desc">Competitive intelligence platform using Scrapy + BeautifulSoup monitoring 340+ sources (tender portals, business registries, industry news). NLP entity extraction with spaCy. Coverage across 12 industrial segments with daily automated updates.</p>
-                    <div class="project-tags">
-                        <span class="tag">Scrapy</span>
-                        <span class="tag">spaCy</span>
-                        <span class="tag">Celery</span>
-                        <span class="tag">scikit-learn</span>
+                <div class="panel project-card">
+                    <div class="panel-header">
+                        <span class="panel-title">10 MARKET INTEL</span>
+                        <span class="panel-status">[README]</span>
+                    </div>
+                    <div class="panel-body">
+                        <p class="project-desc">Competitive intelligence platform using Scrapy + BeautifulSoup monitoring 340+ sources (tender portals, business registries, industry news). NLP entity extraction with spaCy. Coverage across 12 industrial segments with daily automated updates.</p>
+                        <div class="project-tags">
+                            <span class="tag">Scrapy</span>
+                            <span class="tag">spaCy</span>
+                            <span class="tag">Celery</span>
+                            <span class="tag">scikit-learn</span>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="other-projects">
-                <div class="other-projects-title">Other projects</div>
-                <div class="other-projects-tags">
-                    <span class="other-tag">Llama-3 Fine-Tuning (Legal Domain)</span>
-                    <span class="other-tag">Toyota CAN-Bus Reverse Engineering</span>
-                    <span class="other-tag">Post-Sale Logistics Automation</span>
-                    <span class="other-tag">Arduino Aquarium Failsafe</span>
-                    <span class="other-tag">Fixed Income Radar (FOSS)</span>
-                    <span class="other-tag">CRM Database Migration</span>
-                    <span class="other-tag">Data Warehousing Pipeline</span>
+            <div class="panel panel--static other-projects-panel">
+                <div class="panel-header">
+                    <span class="panel-title">OTHER</span>
+                    <span class="panel-status">[7 MORE]</span>
+                </div>
+                <div class="panel-body">
+                    <div class="other-projects-tags">
+                        <span class="other-tag">Llama-3 Fine-Tuning (Legal Domain)</span>
+                        <span class="other-tag">Toyota CAN-Bus Reverse Engineering</span>
+                        <span class="other-tag">Post-Sale Logistics Automation</span>
+                        <span class="other-tag">Arduino Aquarium Failsafe</span>
+                        <span class="other-tag">Fixed Income Radar (FOSS)</span>
+                        <span class="other-tag">CRM Database Migration</span>
+                        <span class="other-tag">Data Warehousing Pipeline</span>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Fun CTA -->
-        <div class="fun-cta">
-            <div class="fun-cta-label">Incoming transmission</div>
-            <a href="https://go.ffreitasb.cc/fun_portfolio" target="_blank" rel="noopener noreferrer" class="fun-cta-link">
-                Do you want something more... <span>fun!??</span>
-            </a>
-            <div class="fun-cta-sub">The tactical version of this portfolio</div>
+        <div class="fun-cta-wrapper">
+            <div class="panel fun-cta-panel">
+                <div class="panel-header">
+                    <span class="panel-title">TRANSMISSION</span>
+                    <span class="panel-status">[INCOMING]</span>
+                </div>
+                <div class="panel-body fun-cta-body">
+                    <a href="https://go.ffreitasb.cc/fun_portfolio" target="_blank" rel="noopener noreferrer" class="fun-cta-link">
+                        Do you want something more... <span class="fun-highlight">fun!??</span>
+                    </a>
+                    <div class="fun-cta-sub">The tactical version of this portfolio</div>
+                </div>
+            </div>
         </div>
 
         <!-- Contact -->
         <section class="section" id="contact">
-            <span class="section-label">// Contact</span>
+            <span class="section-label">~/contact</span>
             <h2 class="section-title">Let's connect</h2>
             <p class="contact-intro">Interested in collaborating or discussing opportunities?</p>
             <div class="contact-grid">
-                <a href="https://linkedin.com/in/ffreitasb" target="_blank" rel="noopener noreferrer" class="contact-item">
-                    <i class="fab fa-linkedin contact-icon"></i>
-                    <div>
-                        <span class="contact-label">LinkedIn</span>
-                        <span class="contact-value">linkedin.com/in/ffreitasb</span>
+                <a href="https://linkedin.com/in/ffreitasb" target="_blank" rel="noopener noreferrer" class="contact-item panel">
+                    <div class="panel-header">
+                        <span class="panel-title">LINKEDIN</span>
+                        <span class="panel-status">[ONLINE]</span>
+                    </div>
+                    <div class="panel-body">
+                        <span class="contact-symbol">[in]</span>
+                        <div>
+                            <span class="contact-label">LinkedIn</span>
+                            <span class="contact-value">linkedin.com/in/ffreitasb</span>
+                        </div>
                     </div>
                 </a>
-                <a href="https://github.com/ffreitasb" target="_blank" rel="noopener noreferrer" class="contact-item">
-                    <i class="fab fa-github contact-icon"></i>
-                    <div>
-                        <span class="contact-label">GitHub</span>
-                        <span class="contact-value">github.com/ffreitasb</span>
+                <a href="https://github.com/ffreitasb" target="_blank" rel="noopener noreferrer" class="contact-item panel">
+                    <div class="panel-header">
+                        <span class="panel-title">GITHUB</span>
+                        <span class="panel-status">[ONLINE]</span>
+                    </div>
+                    <div class="panel-body">
+                        <span class="contact-symbol">&lt;/&gt;</span>
+                        <div>
+                            <span class="contact-label">GitHub</span>
+                            <span class="contact-value">github.com/ffreitasb</span>
+                        </div>
                     </div>
                 </a>
-                <a href="mailto:contact@ffreitasb.cc" class="contact-item">
-                    <i class="fas fa-envelope contact-icon"></i>
-                    <div>
-                        <span class="contact-label">Email</span>
-                        <span class="contact-value">contact@ffreitasb.cc</span>
+                <a href="mailto:contact@ffreitasb.cc" class="contact-item panel">
+                    <div class="panel-header">
+                        <span class="panel-title">EMAIL</span>
+                        <span class="panel-status">[ONLINE]</span>
+                    </div>
+                    <div class="panel-body">
+                        <span class="contact-symbol">@</span>
+                        <div>
+                            <span class="contact-label">Email</span>
+                            <span class="contact-value">contact@ffreitasb.cc</span>
+                        </div>
                     </div>
                 </a>
-                <a href="https://wa.me/5511933443213?text=Ol%C3%A1%2C%20eu%20vim%20do%20seu%20site!%20Tenho%20interesse%20em%20trabalhar%20com%20voc%C3%AA." target="_blank" rel="noopener noreferrer" class="contact-item">
-                    <i class="fab fa-whatsapp contact-icon"></i>
-                    <div>
-                        <span class="contact-label">WhatsApp</span>
-                        <span class="contact-value">+55 11 93344-3213</span>
+                <a href="https://wa.me/5511933443213?text=Ol%C3%A1%2C%20eu%20vim%20do%20seu%20site!%20Tenho%20interesse%20em%20trabalhar%20com%20voc%C3%AA." target="_blank" rel="noopener noreferrer" class="contact-item panel">
+                    <div class="panel-header">
+                        <span class="panel-title">WHATSAPP</span>
+                        <span class="panel-status">[ONLINE]</span>
+                    </div>
+                    <div class="panel-body">
+                        <span class="contact-symbol">#</span>
+                        <div>
+                            <span class="contact-label">WhatsApp</span>
+                            <span class="contact-value">+55 11 93344-3213</span>
+                        </div>
                     </div>
                 </a>
             </div>
@@ -375,23 +492,24 @@
     </main>
 
     <footer class="footer">
-        &copy; 2026 Felipe Freitas
+        <div class="footer-line">&copy; 2026 Felipe Freitas &middot; SYS.TIME: <span id="sys-time">--:--:--</span> UTC-3</div>
+        <div class="footer-eof">[EOF]</div>
     </footer>
 
     <script>
+        // Nav toggle
         document.getElementById('navToggle').addEventListener('click', function () {
             document.getElementById('navLinks').classList.toggle('open');
         });
-
         document.querySelectorAll('.nav-links a').forEach(function (link) {
             link.addEventListener('click', function () {
                 document.getElementById('navLinks').classList.remove('open');
             });
         });
 
+        // Scroll spy
         var sections = document.querySelectorAll('section[id]');
         var navAnchors = document.querySelectorAll('.nav-links a');
-
         window.addEventListener('scroll', function () {
             var current = '';
             sections.forEach(function (section) {
@@ -404,6 +522,7 @@
             });
         });
 
+        // Typing animation
         var typingEl = document.getElementById('typing-text');
         var words = [
             'RevOps & SalesOps',
@@ -435,8 +554,19 @@
 
             setTimeout(type, speed);
         }
-
         setTimeout(type, 800);
+
+        // Footer live clock (UTC-3)
+        function updateClock() {
+            var now = new Date();
+            var utc3 = new Date(now.getTime() + (-3 * 60 * 60 * 1000) - (now.getTimezoneOffset() * 60 * 1000));
+            var h = String(utc3.getHours()).padStart(2, '0');
+            var m = String(utc3.getMinutes()).padStart(2, '0');
+            var s = String(utc3.getSeconds()).padStart(2, '0');
+            document.getElementById('sys-time').textContent = h + ':' + m + ':' + s;
+        }
+        updateClock();
+        setInterval(updateClock, 1000);
     </script>
 </body>
 </html>
