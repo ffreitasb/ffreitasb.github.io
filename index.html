@@ -1,1959 +1,431 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ffreitasb's portfolio</title>
-    <link rel="icon" href="logo_FF.png" type="image/png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="style-ultra-effects.css">
+    <meta name="description" content="Felipe Freitas — Mechanical Engineer and Software Engineer. 13+ years across manufacturing, energy, fintech, and tech. AI agents, hardware hacking, quant finance.">
+    <title>Felipe Freitas — Engineer & Builder</title>
+
+    <!-- Favicons -->
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="favicon-32x32.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="favicon-16x16.png" sizes="16x16" type="image/png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-glow: #00ffff;
-            --secondary-glow: #ff0080;
-            --tertiary-glow: #ffff00;
-            --neon-blue: #00d4ff;
-            --neon-pink: #ff1493;
-            --neon-purple: #9d4edd;
-            --neon-green: #39ff14;
-            --dark-bg: #0a0a0a;
-            --glass-bg: rgba(255, 255, 255, 0.1);
-            --glass-border: rgba(255, 255, 255, 0.2);
-        }
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background: var(--dark-bg);
-            color: #ffffff;
-            overflow-x: hidden;
-            line-height: 1.6;
-        }
-
-        /* Animated Background */
-        .animated-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -2;
-            background: linear-gradient(45deg, #0a0a0a, #1a0033, #000066, #0a0a0a);
-            background-size: 400% 400%;
-            animation: gradientShift 15s ease infinite;
-        }
-
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        @keyframes scanline {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
-        }
-
-        /* Floating Particles */
-        .particles {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            pointer-events: none;
-        }
-
-        .particle {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: var(--primary-glow);
-            border-radius: 50%;
-            animation: float 20s infinite linear;
-            box-shadow: 0 0 10px var(--primary-glow);
-        }
-
-        @keyframes float {
-            0% {
-                transform: translateY(100vh) rotate(0deg);
-                opacity: 0;
-            }
-            10% {
-                opacity: 1;
-            }
-            90% {
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-100vh) rotate(360deg);
-                opacity: 0;
-            }
-        }
-
-        /* Container */
-        .container {
-            display: flex;
-            min-height: 100vh;
-            position: relative;
-        }
-
-        /* Ultra Fancy Sidebar */
-        .sidebar {
-            width: 320px;
-            height: 100vh;
-            position: fixed;
-            background: linear-gradient(135deg,
-                rgba(0, 255, 255, 0.1) 0%,
-                rgba(255, 0, 128, 0.1) 50%,
-                rgba(255, 255, 0, 0.1) 100%);
-            backdrop-filter: blur(30px);
-            border: 1px solid var(--glass-border);
-            border-left: none;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 2rem 1.5rem;
-            z-index: 100;
-            transform: perspective(1000px) rotateY(-5deg);
-            transform-origin: right;
-            box-shadow:
-                0 0 50px rgba(0, 255, 255, 0.3),
-                inset 0 0 50px rgba(255, 255, 255, 0.1);
-        }
-
-        /* Ultra Fancy Logo Container - Formato Otimizado */
-        .logo-container {
-            width: 140px;
-            height: 140px;
-            margin-bottom: 2rem;
-            border-radius: 15px;
-            position: relative;
-            transform-style: preserve-3d;
-            animation: logoFloat 4s ease-in-out infinite;
-            background: linear-gradient(135deg,
-                var(--primary-glow) 0deg,
-                var(--secondary-glow) 45deg,
-                var(--tertiary-glow) 90deg,
-                var(--neon-purple) 135deg,
-                var(--primary-glow) 180deg
-            );
-            background-size: 200% 200%;
-            animation: logoFloat 4s ease-in-out infinite, gradientShift 6s ease-in-out infinite;
-            padding: 6px;
-            box-shadow:
-                0 0 40px rgba(0, 255, 255, 0.6),
-                0 0 80px rgba(255, 0, 128, 0.4),
-                inset 0 0 20px rgba(255, 255, 255, 0.2);
-        }
-
-        @keyframes logoFloat {
-            0%, 100% {
-                transform: translateY(0px) scale(1) rotateZ(0deg);
-                box-shadow:
-                    0 0 40px rgba(0, 255, 255, 0.6),
-                    0 0 80px rgba(255, 0, 128, 0.4);
-            }
-            50% {
-                transform: translateY(-8px) scale(1.05) rotateZ(2deg);
-                box-shadow:
-                    0 0 60px rgba(0, 255, 255, 0.8),
-                    0 0 120px rgba(255, 0, 128, 0.6);
-            }
-        }
-
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        .logo-container::before {
-            content: '';
-            position: absolute;
-            inset: -8px;
-            border-radius: 20px;
-            background: linear-gradient(45deg,
-                var(--primary-glow) 0deg,
-                var(--secondary-glow) 120deg,
-                var(--tertiary-glow) 240deg,
-                var(--primary-glow) 360deg
-            );
-            animation: logoRotate 8s linear infinite;
-            z-index: -1;
-            opacity: 0.6;
-            filter: blur(15px);
-        }
-
-        .logo-container::after {
-            content: '';
-            position: absolute;
-            inset: 3px;
-            border-radius: 12px;
-            background: var(--dark-bg);
-            z-index: 0;
-            box-shadow: inset 0 0 30px rgba(0, 255, 255, 0.3);
-        }
-
-        @keyframes logoRotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .logo-container img {
-            width: calc(100% - 12px);
-            height: calc(100% - 12px);
-            object-fit: contain;
-            border-radius: 10px;
-            position: relative;
-            z-index: 2;
-            margin: 6px;
-            filter: brightness(1.1) contrast(1.2) saturate(1.1) drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            transition: all 0.3s ease;
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(10px);
-            padding: 8px;
-        }
-
-        .logo-container:hover img {
-            filter: brightness(1.3) contrast(1.3) saturate(1.3) drop-shadow(0 0 20px rgba(0, 255, 255, 0.8));
-            transform: scale(1.05);
-            box-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
-        }
-
-        /* Holographic Typing Display */
-        .typing-display {
-            width: 100%;
-            min-height: 80px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 2rem;
-            padding: 1.5rem;
-            background: linear-gradient(135deg,
-                rgba(0, 255, 255, 0.2),
-                rgba(255, 0, 128, 0.2),
-                rgba(255, 255, 0, 0.2));
-            border: 2px solid transparent;
-            border-radius: 15px;
-            position: relative;
-            overflow: hidden;
-            backdrop-filter: blur(20px);
-        }
-
-        .typing-display::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg,
-                transparent,
-                rgba(255, 255, 255, 0.4),
-                transparent);
-            animation: holographicScan 3s infinite;
-        }
-
-        @keyframes holographicScan {
-            0% { left: -100%; }
-            100% { left: 100%; }
-        }
-
-        .typing-text {
-            font-family: 'Orbitron', monospace;
-            font-weight: 700;
-            font-size: 1.1rem;
-            background: linear-gradient(45deg,
-                var(--primary-glow),
-                var(--secondary-glow),
-                var(--tertiary-glow));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
-            animation: textGlow 2s ease-in-out infinite alternate;
-        }
-
-        @keyframes textGlow {
-            from {
-                filter: drop-shadow(0 0 5px var(--primary-glow));
-            }
-            to {
-                filter: drop-shadow(0 0 15px var(--secondary-glow));
-            }
-        }
-
-        /* Futuristic Navigation */
-        .nav-menu {
-            list-style: none;
-            width: 100%;
-        }
-
-        .nav-menu li {
-            margin-bottom: 1rem;
-        }
-
-        .nav-menu a {
-            display: block;
-            padding: 1.2rem 1.5rem;
-            color: #ffffff;
-            text-decoration: none;
-            border-radius: 15px;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative;
-            background: linear-gradient(135deg,
-                rgba(255, 255, 255, 0.1),
-                rgba(255, 255, 255, 0.05));
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px);
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            overflow: hidden;
-        }
-
-        .nav-menu a::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg,
-                transparent,
-                rgba(0, 255, 255, 0.3),
-                transparent);
-            transition: left 0.5s;
-        }
-
-        .nav-menu a:hover::before,
-        .nav-menu a.active::before {
-            left: 100%;
-        }
-
-        .nav-menu a:hover,
-        .nav-menu a.active {
-            background: linear-gradient(135deg,
-                rgba(0, 255, 255, 0.3),
-                rgba(255, 0, 128, 0.3));
-            box-shadow:
-                0 0 20px rgba(0, 255, 255, 0.5),
-                inset 0 0 20px rgba(255, 255, 255, 0.1);
-            transform: translateX(10px) scale(1.05);
-            border-color: var(--primary-glow);
-        }
-
-        /* Main Content with 3D Transform */
-        .main-content {
-            margin-left: 320px;
-            flex: 1;
-            overflow-y: auto;
-            scroll-behavior: smooth;
-            transform-style: preserve-3d;
-        }
-
-        /* Sections with Depth */
-        .section {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 4rem 3rem;
-            text-align: center;
-            position: relative;
-            backdrop-filter: blur(10px);
-        }
-
-        .section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg,
-                rgba(0, 255, 255, 0.05) 0%,
-                rgba(255, 0, 128, 0.05) 50%,
-                rgba(255, 255, 0, 0.05) 100%);
-            z-index: -1;
-        }
-
-        /* Ultra Fancy Headings */
-        .section h1 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: clamp(3rem, 8vw, 6rem);
-            font-weight: 900;
-            margin-bottom: 2rem;
-            background: linear-gradient(45deg,
-                var(--primary-glow),
-                var(--secondary-glow),
-                var(--tertiary-glow),
-                var(--neon-purple));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
-            animation: titlePulse 4s ease-in-out infinite;
-            transform: perspective(500px) rotateX(15deg);
-            text-transform: uppercase;
-            letter-spacing: 3px;
-        }
-
-        @keyframes titlePulse {
-            0%, 100% {
-                filter: drop-shadow(0 0 10px var(--primary-glow));
-                transform: perspective(500px) rotateX(15deg) scale(1);
-            }
-            50% {
-                filter: drop-shadow(0 0 30px var(--secondary-glow));
-                transform: perspective(500px) rotateX(15deg) scale(1.05);
-            }
-        }
-
-        .section p {
-            font-size: 1.3rem;
-            max-width: 900px;
-            margin-bottom: 2rem;
-            color: #e0e0e0;
-            line-height: 1.8;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
-            animation: textFloat 3s ease-in-out infinite;
-        }
-
-        @keyframes textFloat {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-5px); }
-        }
-
-        /* 3D Timeline */
-        .timeline {
-            max-width: 1000px;
-            width: 100%;
-            margin: 3rem 0;
-            position: relative;
-            padding-left: 3rem;
-            transform-style: preserve-3d;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 4px;
-            background: linear-gradient(180deg,
-                var(--primary-glow),
-                var(--secondary-glow),
-                var(--tertiary-glow));
-            border-radius: 2px;
-            box-shadow: 0 0 20px var(--primary-glow);
-            animation: timelineGlow 3s ease-in-out infinite alternate;
-        }
-
-        @keyframes timelineGlow {
-            from { box-shadow: 0 0 20px var(--primary-glow); }
-            to { box-shadow: 0 0 40px var(--secondary-glow); }
-        }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: 3rem;
-            padding-left: 3rem;
-            transform: perspective(1000px) rotateY(5deg);
-            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        .timeline-item:hover {
-            transform: perspective(1000px) rotateY(0deg) scale(1.05);
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -15px;
-            top: 30px;
-            width: 30px;
-            height: 30px;
-            background: radial-gradient(circle, var(--primary-glow), var(--secondary-glow));
-            border-radius: 50%;
-            border: 4px solid var(--dark-bg);
-            box-shadow: 0 0 30px var(--primary-glow);
-            animation: pulseOrb 2s ease-in-out infinite;
-        }
-
-        @keyframes pulseOrb {
-            0%, 100% {
-                transform: scale(1);
-                box-shadow: 0 0 30px var(--primary-glow);
-            }
-            50% {
-                transform: scale(1.2);
-                box-shadow: 0 0 50px var(--secondary-glow);
-            }
-        }
-
-        .timeline-content {
-            background: linear-gradient(135deg,
-                rgba(0, 255, 255, 0.1),
-                rgba(255, 0, 128, 0.1),
-                rgba(255, 255, 0, 0.1));
-            padding: 2rem;
-            border-radius: 20px;
-            border: 2px solid var(--glass-border);
-            backdrop-filter: blur(20px);
-            box-shadow:
-                0 10px 40px rgba(0, 0, 0, 0.3),
-                inset 0 0 20px rgba(255, 255, 255, 0.1);
-            transition: all 0.4s ease;
-        }
-
-        .timeline-content:hover {
-            box-shadow:
-                0 20px 60px rgba(0, 255, 255, 0.3),
-                inset 0 0 30px rgba(255, 255, 255, 0.2);
-        }
-
-        .timeline-content h2 {
-            color: var(--primary-glow);
-            margin-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            font-size: 1.5rem;
-            font-weight: 700;
-        }
-
-        .timeline-icon {
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, var(--primary-glow), var(--secondary-glow));
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--dark-bg);
-            font-size: 1.2rem;
-            box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
-            animation: iconSpin 10s linear infinite;
-        }
-
-        @keyframes iconSpin {
-            0% { transform: rotateY(0deg); }
-            100% { transform: rotateY(360deg); }
-        }
-
-        /* Holographic Portfolio Grid */
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            width: 100%;
-            max-width: 1400px;
-            margin: 3rem 0;
-            transform-style: preserve-3d;
-        }
-
-        .portfolio-item {
-            background: linear-gradient(135deg,
-                rgba(0, 255, 255, 0.1),
-                rgba(255, 0, 128, 0.1));
-            border: 2px solid var(--glass-border);
-            border-radius: 20px;
-            overflow: hidden;
-            transition: all 0.4s ease;
-            backdrop-filter: blur(20px);
-            transform: perspective(1000px) rotateX(5deg);
-            position: relative;
-        }
-
-        .portfolio-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg,
-                transparent,
-                rgba(255, 255, 255, 0.3),
-                transparent);
-            transition: left 0.6s;
-        }
-
-        .portfolio-item:hover::before {
-            left: 100%;
-        }
-
-        .portfolio-item:hover {
-            transform: perspective(1000px) rotateX(0deg) translateY(-10px) scale(1.02);
-            box-shadow:
-                0 30px 60px rgba(0, 255, 255, 0.3),
-                0 0 50px rgba(255, 0, 128, 0.2);
-            border-color: var(--primary-glow);
-        }
-
-        .portfolio-placeholder {
-            height: 250px;
-            background: linear-gradient(135deg,
-                rgba(0, 255, 255, 0.3),
-                rgba(255, 0, 128, 0.3),
-                rgba(255, 255, 0, 0.3));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            font-weight: 900;
-            font-family: 'Orbitron', monospace;
-            background: linear-gradient(45deg,
-                var(--primary-glow),
-                var(--secondary-glow));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .portfolio-placeholder::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg,
-                rgba(0, 255, 255, 0.2),
-                rgba(255, 0, 128, 0.2),
-                rgba(255, 255, 0, 0.2));
-            animation: portfolioShimmer 3s ease-in-out infinite;
-        }
-
-        @keyframes portfolioShimmer {
-            0%, 100% { opacity: 0.3; }
-            50% { opacity: 0.7; }
-        }
-
-        .portfolio-title {
-            padding: 1.5rem;
-            font-weight: 700;
-            text-align: center;
-            font-size: 1.2rem;
-            background: linear-gradient(45deg,
-                var(--primary-glow),
-                var(--secondary-glow));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        /* Cyberpunk Contact Form */
-        .contact-form {
-            display: flex;
-            flex-direction: column;
-            width: 100%;
-            max-width: 600px;
-            gap: 1.5rem;
-            margin-top: 3rem;
-        }
-
-        .contact-form input,
-        .contact-form textarea {
-            padding: 1.5rem;
-            background: linear-gradient(135deg,
-                rgba(0, 255, 255, 0.1),
-                rgba(255, 0, 128, 0.1));
-            border: 2px solid var(--glass-border);
-            border-radius: 15px;
-            color: #ffffff;
-            font-family: inherit;
-            font-size: 1.1rem;
-            backdrop-filter: blur(20px);
-            transition: all 0.4s ease;
-            outline: none;
-        }
-
-        .contact-form input:focus,
-        .contact-form textarea:focus {
-            border-color: var(--primary-glow);
-            box-shadow:
-                0 0 30px rgba(0, 255, 255, 0.3),
-                inset 0 0 20px rgba(255, 255, 255, 0.1);
-            transform: scale(1.02);
-        }
-
-        .contact-form input::placeholder,
-        .contact-form textarea::placeholder {
-            color: rgba(255, 255, 255, 0.6);
-        }
-
-        .contact-form button {
-            padding: 1.5rem;
-            background: linear-gradient(135deg,
-                var(--primary-glow),
-                var(--secondary-glow),
-                var(--tertiary-glow));
-            border: none;
-            border-radius: 15px;
-            color: var(--dark-bg);
-            font-weight: 700;
-            font-size: 1.2rem;
-            cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .contact-form button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg,
-                transparent,
-                rgba(255, 255, 255, 0.4),
-                transparent);
-            transition: left 0.6s;
-        }
-
-        .contact-form button:hover::before {
-            left: 100%;
-        }
-
-        .contact-form button:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow:
-                0 20px 40px rgba(0, 255, 255, 0.4),
-                0 0 50px rgba(255, 0, 128, 0.3);
-        }
-
-        /* Floating Back to Top */
-        .back-to-top {
-            position: fixed;
-            bottom: 3rem;
-            right: 3rem;
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg,
-                var(--primary-glow),
-                var(--secondary-glow));
-            color: var(--dark-bg);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            opacity: 0;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            z-index: 1000;
-            box-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
-            font-size: 1.5rem;
-        }
-
-        .back-to-top.visible {
-            opacity: 1;
-            animation: floatButton 3s ease-in-out infinite;
-        }
-
-        @keyframes floatButton {
-            0%, 100% {
-                transform: translateY(0px) rotate(0deg);
-            }
-            50% {
-                transform: translateY(-10px) rotate(180deg);
-            }
-        }
-
-        .back-to-top:hover {
-            transform: scale(1.2) rotate(360deg);
-            box-shadow: 0 0 50px rgba(0, 255, 255, 0.8);
-        }
-
-        /* Bio Container Styles */
-        .bio-container {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: left;
-            padding: 2rem;
-            background: linear-gradient(135deg,
-                rgba(0, 255, 255, 0.05),
-                rgba(255, 0, 128, 0.05));
-            border: 1px solid var(--glass-border);
-            border-radius: 20px;
-            backdrop-filter: blur(20px);
-            box-shadow:
-                0 0 40px rgba(0, 255, 255, 0.2),
-                inset 0 0 40px rgba(255, 255, 255, 0.05);
-        }
-
-        .bio-line {
-            display: flex;
-            align-items: center;
-            margin: 1rem 0;
-            padding: 0.8rem 1.2rem;
-            background: linear-gradient(90deg,
-                rgba(0, 255, 255, 0.1),
-                rgba(255, 0, 128, 0.05));
-            border-left: 3px solid var(--electric-blue);
-            border-radius: 10px;
-            transition: all 0.3s ease;
-        }
-
-        .bio-line:hover {
-            transform: translateX(10px);
-            background: linear-gradient(90deg,
-                rgba(0, 255, 255, 0.2),
-                rgba(255, 0, 128, 0.1));
-            box-shadow: 0 5px 20px rgba(0, 255, 255, 0.3);
-        }
-
-        .bio-icon {
-            font-size: 1.5rem;
-            margin-right: 1rem;
-            min-width: 2rem;
-            text-align: center;
-            filter: drop-shadow(0 0 10px currentColor);
-        }
-
-        .bio-text {
-            font-size: 1.1rem;
-            font-weight: 500;
-            color: var(--text-light);
-            letter-spacing: 0.5px;
-        }
-
-        .bio-highlight {
-            margin-top: 2rem;
-            padding: 1.5rem;
-            text-align: center;
-            background: linear-gradient(135deg,
-                rgba(0, 255, 255, 0.15),
-                rgba(255, 0, 128, 0.15));
-            border: 2px solid var(--neon-purple);
-            border-radius: 15px;
-            box-shadow:
-                0 0 30px rgba(255, 0, 128, 0.4),
-                inset 0 0 30px rgba(0, 255, 255, 0.1);
-        }
-
-        .highlight-text {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--electric-blue);
-            text-shadow: 0 0 10px currentColor;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.7; transform: scale(1.1); }
-        }
-
-        @media (max-width: 768px) {
-            .bio-container {
-                padding: 1.5rem;
-                margin: 1rem;
-            }
-
-            .bio-line {
-                padding: 0.6rem 1rem;
-                margin: 0.8rem 0;
-            }
-
-            .bio-icon {
-                font-size: 1.2rem;
-                margin-right: 0.8rem;
-                min-width: 1.5rem;
-            }
-
-            .bio-text {
-                font-size: 1rem;
-            }
-
-            .bio-highlight {
-                padding: 1rem;
-            }
-
-            .highlight-text {
-                font-size: 1rem;
-            }
-        }
-
-        /* Contact Links */
-        .contact-links {
-            display: flex;
-            gap: 2rem;
-            margin: 2rem 0;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .contact-links a {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 1rem 2rem;
-            background: linear-gradient(135deg,
-                rgba(0, 255, 255, 0.2),
-                rgba(255, 0, 128, 0.2));
-            border: 2px solid var(--glass-border);
-            border-radius: 25px;
-            color: #ffffff;
-            text-decoration: none;
-            transition: all 0.4s ease;
-            backdrop-filter: blur(20px);
-            font-weight: 500;
-        }
-
-        .contact-links a:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 15px 30px rgba(0, 255, 255, 0.3);
-            border-color: var(--primary-glow);
-        }
-
-        .contact-links a i {
-            font-size: 1.5rem;
-            background: linear-gradient(45deg,
-                var(--primary-glow),
-                var(--secondary-glow));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        /* Mobile Responsiveness */
-        @media (max-width: 768px) {
-            .sidebar {
-                width: 100%;
-                height: auto;
-                position: fixed;
-                bottom: 0;
-                top: auto;
-                flex-direction: row;
-                justify-content: space-around;
-                padding: 1rem;
-                transform: none;
-                backdrop-filter: blur(30px);
-            }
-
-            .logo-container,
-            .typing-display {
-                display: none;
-            }
-
-            .nav-menu {
-                display: flex;
-                width: 100%;
-                justify-content: space-around;
-            }
-
-            .nav-menu li {
-                margin: 0;
-                flex: 1;
-            }
-
-            .nav-menu a {
-                padding: 1rem 0.5rem;
-                text-align: center;
-                font-size: 0.9rem;
-                margin: 0 0.2rem;
-                min-height: 44px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-
-            .main-content {
-                margin-left: 0;
-                margin-bottom: 80px;
-            }
-
-            .section {
-                min-height: calc(100vh - 80px);
-                padding: 2rem 1.5rem;
-            }
-
-            .section h1 {
-                font-size: clamp(2rem, 6vw, 3rem);
-            }
-
-            .timeline {
-                padding-left: 2rem;
-            }
-
-            .timeline-item {
-                padding-left: 2rem;
-                transform: none;
-            }
-
-            .portfolio-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-
-            .portfolio-item {
-                transform: none;
-            }
-
-            .contact-links {
-                flex-direction: column;
-                align-items: center;
-                gap: 1rem;
-            }
-
-            .contact-links a {
-                width: 100%;
-                max-width: 300px;
-                justify-content: center;
-            }
-
-            /* Disable 3D hover effects on touch devices */
-            .portfolio-item:hover,
-            .holo-card:hover,
-            .timeline-item:hover {
-                transform: none !important;
-                box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3) !important;
-            }
-
-            .portfolio-item:hover::before {
-                display: none;
-            }
-        }
-
-        /* Mobile-first optimization for small phones */
-        @media (max-width: 480px) {
-            .section h1 {
-                font-size: clamp(1.5rem, 5vw, 2.5rem);
-            }
-
-            .section p {
-                font-size: 1.05rem;
-            }
-
-            .bio-text {
-                font-size: 0.95rem;
-            }
-
-            .nav-menu a {
-                font-size: 0.75rem;
-                padding: 0.9rem 0.3rem;
-            }
-
-            .timeline-content h2 {
-                font-size: 1.2rem;
-            }
-
-            .portfolio-title {
-                font-size: 1rem;
-            }
-
-            .tech-tag {
-                font-size: 0.65rem;
-                padding: 0.25rem 0.5rem;
-            }
-
-            .contact-links a {
-                padding: 1rem 1.5rem;
-                font-size: 0.95rem;
-            }
-
-            .contact-links a i {
-                font-size: 1.2rem;
-            }
-        }
-
-        /* Loading Animation */
-        .loading-screen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--dark-bg);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 9999;
-            transition: opacity 0.5s ease;
-        }
-
-        .loading-animation {
-            width: 100px;
-            height: 100px;
-            border: 3px solid transparent;
-            border-top: 3px solid var(--primary-glow);
-            border-right: 3px solid var(--secondary-glow);
-            border-radius: 50%;
-            animation: loadingSpin 1s linear infinite;
-        }
-
-        @keyframes loadingSpin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        /* Tech Tags */
-        .tech-tag {
-            display: inline-block;
-            background: linear-gradient(135deg,
-                rgba(0, 255, 255, 0.2),
-                rgba(255, 0, 128, 0.2));
-            border: 1px solid rgba(0, 255, 255, 0.3);
-            border-radius: 20px;
-            padding: 0.3rem 0.8rem;
-            font-size: 0.8rem;
-            color: var(--primary-glow);
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-            box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
-        }
-
-        .tech-tag:hover {
-            background: linear-gradient(135deg,
-                rgba(0, 255, 255, 0.4),
-                rgba(255, 0, 128, 0.4));
-            border-color: var(--primary-glow);
-            box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
-            transform: scale(1.05);
-        }
-
-        /* Scroll-triggered animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    </style>
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Loading Screen -->
-    <div class="loading-screen" id="loading">
-        <div class="loading-animation"></div>
-    </div>
 
-    <!-- Animated Background -->
-    <div class="animated-bg"></div>
-
-    <!-- Floating Particles -->
-    <div class="particles" id="particles"></div>
-
-    <!-- Floating Particles System -->
-    <div class="particles-container">
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-    </div>
-
-    <!-- Morphing Background Shapes -->
-    <div class="morphing-shape"></div>
-    <div class="morphing-shape"></div>
-    <div class="morphing-shape"></div>
-
-    <div class="container">
-        <!-- Ultra Fancy Sidebar -->
-        <nav class="sidebar">
-            <div class="logo-container">
-                <img src="logo_FF.png" alt="@ffreitasb">
-            </div>
-            <div class="typing-display">
-                <span class="typing-text" id="typing-text"></span>
-            </div>
-            <ul class="nav-menu">
-                <li><a href="#home" class="active magnetic">Home</a></li>
-                <li><a href="#about" class="magnetic">About</a></li>
-                <li><a href="#experience" class="magnetic">Experience</a></li>
-                <li><a href="#portfolio" class="magnetic">Portfolio</a></li>
-                <li><a href="#contact" class="magnetic">Contact</a></li>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="#hero" class="nav-logo">Felipe Freitas</a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
-        </nav>
+        </div>
+    </nav>
 
-        <!-- Main Content -->
-        <main class="main-content">
-            <!-- Home -->
-            <section id="home" class="section">
-                <h1 class="neon-title fade-in" data-text="@ffreitasb">@ffreitasb</h1>
-                <div class="bio-container fade-in">
-                    <div class="bio-line">
-                        <span class="bio-icon">🎓</span>
-                        <span class="bio-text">Mechanical Engineering • Software Engineering</span>
-                    </div>
-                    <div class="bio-line">
-                        <span class="bio-icon">📚</span>
-                        <span class="bio-text">5 MBAs: Competitive Intelligence • Big Data & Python • Corporate Finance • Economic Engineering • Strategic Management</span>
-                    </div>
-                    <div class="bio-line">
-                        <span class="bio-icon">💼</span>
-                        <span class="bio-text">Senior Executive • Sales Leadership • Business Intelligence</span>
-                    </div>
-                    <div class="bio-line">
-                        <span class="bio-icon">🎯</span>
-                        <span class="bio-text">Strategic Management • Market Intelligence • Innovation</span>
-                    </div>
-                    <div class="bio-line">
-                        <span class="bio-icon">📊</span>
-                        <span class="bio-text">Data Science • Python • Advanced Analytics</span>
-                    </div>
-                    <div class="bio-line">
-                        <span class="bio-icon">🤖</span>
-                        <span class="bio-text">AI Agents • LLM Fine-Tuning • Hardware Hacking</span>
-                    </div>
-                    <div class="bio-line">
-                        <span class="bio-icon">🏆</span>
-                        <span class="bio-text">Lean Six Sigma Black Belt • CEA ANBIMA • Process Excellence</span>
-                    </div>
-                    <div class="bio-highlight">
-                        <span class="highlight-text">13+ Years Experience ◈ R$300M+ Revenue Impact ◈ 5 Industries</span>
-                    </div>
+    <main>
+        <!-- Hero -->
+        <section class="hero" id="hero">
+            <h1 class="hero-name">Felipe Freitas</h1>
+            <p class="hero-title">Mechanical Engineer &times; Software Engineer</p>
+            <div class="hero-typing">
+                <span id="typing-text"></span><span class="cursor">|</span>
+            </div>
+            <p class="hero-bio">
+                Operating at the intersection of atoms and bits &mdash; from CAN-Bus interceptors
+                with ESP32 to multi-agent AI swarms. Lean Six Sigma Black Belt, CEA ANBIMA
+                certified, 5&times; MBA.
+            </p>
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <span class="hero-stat-value">13+</span>
+                    <span class="hero-stat-label">Years</span>
                 </div>
-            </section>
+                <div class="hero-stat">
+                    <span class="hero-stat-value">5</span>
+                    <span class="hero-stat-label">Industries</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-value">R$300M+</span>
+                    <span class="hero-stat-label">Revenue Impact</span>
+                </div>
+            </div>
+        </section>
 
-            <!-- About -->
-            <section id="about" class="section">
-                <h1 class="visible">About Me</h1>
-                <div class="portfolio-item holo-card magnetic" style="max-width: 1000px; margin: 0 auto;">
-                    <div class="timeline-content">
-                        <h2><span class="timeline-icon"><i class="fas fa-user-tie"></i></span> Professional Profile</h2>
-                        <div style="text-align: left; line-height: 1.8; font-size: 1.1rem;">
-                            <p style="margin-bottom: 1.5rem;"><strong style="color: var(--electric-blue);">Mechanical Engineer by training, Software Engineer by vocation.</strong></p>
-
-                            <p style="margin-bottom: 1.5rem;">13+ years of experience across 5 industries: heavy manufacturing, energy, industrial automation, fintech, and tech. I operate at the exact intersection between atoms (hardware, sensors, industrial protocols) and bits (software, AI, data). From building CAN-Bus interceptors with ESP32 to orchestrating multi-agent AI swarms, I specialize in making things work beyond manufacturer specifications.</p>
-
-                            <p style="margin-bottom: 1.5rem;">With a strong foundation in commercial strategy, competitive intelligence, and corporate finance — complemented by a Lean Six Sigma Black Belt (R$ 2.1M in savings) and CEA ANBIMA certification — I bring a rare combination of deep technical skills and business acumen. I translate complex technical concepts to business stakeholders and vice-versa.</p>
-
-                            <p style="margin-bottom: 1.5rem;">My expertise spans <strong style="color: var(--neon-purple);">AI Agents, LLM Fine-tuning, Computer Vision, Quant Finance,</strong> and <strong style="color: var(--neon-purple);">Hardware Hacking</strong>, with proficiency in both Portuguese (native) and English (professional level).</p>
-
-                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 2rem;">
-                                <div style="text-align: center;">
-                                    <div class="timeline-icon" style="margin: 0 auto 0.5rem;"><i class="fas fa-cogs"></i></div>
-                                    <strong style="color: var(--cyber-green);">Engineering</strong>
-                                    <div class="neon-progress" style="margin-top: 0.5rem;">
-                                        <div class="neon-progress-bar" style="width: 95%;"></div>
-                                    </div>
-                                </div>
-                                <div style="text-align: center;">
-                                    <div class="timeline-icon" style="margin: 0 auto 0.5rem;"><i class="fas fa-chart-line"></i></div>
-                                    <strong style="color: var(--cyber-green);">Commercial</strong>
-                                    <div class="neon-progress" style="margin-top: 0.5rem;">
-                                        <div class="neon-progress-bar" style="width: 92%;"></div>
-                                    </div>
-                                </div>
-                                <div style="text-align: center;">
-                                    <div class="timeline-icon" style="margin: 0 auto 0.5rem;"><i class="fas fa-robot"></i></div>
-                                    <strong style="color: var(--cyber-green);">Technology</strong>
-                                    <div class="neon-progress" style="margin-top: 0.5rem;">
-                                        <div class="neon-progress-bar" style="width: 98%;"></div>
-                                    </div>
-                                </div>
+        <!-- About -->
+        <section class="section" id="about">
+            <span class="section-label">About</span>
+            <h2 class="section-title">Professional Profile</h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p><strong>Mechanical Engineer by training, Software Engineer by vocation.</strong></p>
+                    <p>13+ years of experience across 5 industries: heavy manufacturing, energy, industrial automation, fintech, and tech. I operate at the exact intersection between atoms (hardware, sensors, industrial protocols) and bits (software, AI, data). From building CAN-Bus interceptors with ESP32 to orchestrating multi-agent AI swarms, I specialize in making things work beyond manufacturer specifications.</p>
+                    <p>With a strong foundation in commercial strategy, competitive intelligence, and corporate finance &mdash; complemented by a Lean Six Sigma Black Belt (R$ 2.1M in savings) and CEA ANBIMA certification &mdash; I bring a rare combination of deep technical skills and business acumen. I translate complex technical concepts to business stakeholders and vice-versa.</p>
+                    <p>Expertise spans <strong>AI Agents, LLM Fine-tuning, Computer Vision, Quant Finance,</strong> and <strong>Hardware Hacking</strong>. Proficient in Portuguese (native) and English (professional).</p>
+                </div>
+                <div>
+                    <div class="skills-list">
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Engineering</span>
+                                <span class="skill-value">95%</span>
                             </div>
-
-                            <!-- Education & Certifications -->
-                            <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(0, 255, 255, 0.3);">
-                                <h3 style="color: var(--electric-blue); margin-bottom: 1.5rem; text-align: center;"><i class="fas fa-graduation-cap"></i> Education & Certifications</h3>
-                                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
-                                    <div style="text-align: center; padding: 1rem; background: rgba(0, 255, 255, 0.05); border-radius: 10px; border: 1px solid rgba(0, 255, 255, 0.2);">
-                                        <div class="timeline-icon" style="margin: 0 auto 0.5rem;"><i class="fas fa-university"></i></div>
-                                        <strong style="color: var(--cyber-green);">Mechanical Engineering</strong>
-                                        <p style="font-size: 0.9rem; margin: 0.5rem 0; color: #cbd5e1;">Universidade Federal de Goiás</p>
-                                        <span class="tech-tag" style="font-size: 0.7rem;">2009-2016</span>
-                                    </div>
-                                    <div style="text-align: center; padding: 1rem; background: rgba(0, 255, 255, 0.05); border-radius: 10px; border: 1px solid rgba(0, 255, 255, 0.2);">
-                                        <div class="timeline-icon" style="margin: 0 auto 0.5rem;"><i class="fas fa-award"></i></div>
-                                        <strong style="color: var(--cyber-green);">LSS Black Belt</strong>
-                                        <p style="font-size: 0.9rem; margin: 0.5rem 0; color: #cbd5e1;">Lean Six Sigma</p>
-                                        <span class="tech-tag" style="font-size: 0.7rem;">Certified</span>
-                                    </div>
-                                    <div style="text-align: center; padding: 1rem; background: rgba(0, 255, 255, 0.05); border-radius: 10px; border: 1px solid rgba(0, 255, 255, 0.2);">
-                                        <div class="timeline-icon" style="margin: 0 auto 0.5rem;"><i class="fas fa-brain"></i></div>
-                                        <strong style="color: var(--cyber-green);">AI for Business</strong>
-                                        <p style="font-size: 0.9rem; margin: 0.5rem 0; color: #cbd5e1;">Artificial Intelligence</p>
-                                        <span class="tech-tag" style="font-size: 0.7rem;">Specialized</span>
-                                    </div>
-                                    <div style="text-align: center; padding: 1rem; background: rgba(0, 255, 255, 0.05); border-radius: 10px; border: 1px solid rgba(0, 255, 255, 0.2);">
-                                        <div class="timeline-icon" style="margin: 0 auto 0.5rem;"><i class="fas fa-bullhorn"></i></div>
-                                        <strong style="color: var(--cyber-green);">Marketing</strong>
-                                        <p style="font-size: 0.9rem; margin: 0.5rem 0; color: #cbd5e1;">Branding & Performance</p>
-                                        <span class="tech-tag" style="font-size: 0.7rem;">Certified</span>
-                                    </div>
-                                    <div style="text-align: center; padding: 1rem; background: rgba(0, 255, 255, 0.05); border-radius: 10px; border: 1px solid rgba(0, 255, 255, 0.2);">
-                                        <div class="timeline-icon" style="margin: 0 auto 0.5rem;"><i class="fas fa-chart-pie"></i></div>
-                                        <strong style="color: var(--cyber-green);">CEA Certified</strong>
-                                        <p style="font-size: 0.9rem; margin: 0.5rem 0; color: #cbd5e1;">ANBIMA Certification</p>
-                                        <span class="tech-tag" style="font-size: 0.7rem;">Financial</span>
-                                    </div>
-                                    <div style="text-align: center; padding: 1rem; background: rgba(0, 255, 255, 0.05); border-radius: 10px; border: 1px solid rgba(0, 255, 255, 0.2);">
-                                        <div class="timeline-icon" style="margin: 0 auto 0.5rem;"><i class="fas fa-chart-bar"></i></div>
-                                        <strong style="color: var(--cyber-green);">PowerBI & Excel</strong>
-                                        <p style="font-size: 0.9rem; margin: 0.5rem 0; color: #cbd5e1;">Business Intelligence</p>
-                                        <span class="tech-tag" style="font-size: 0.7rem;">Expert</span>
-                                    </div>
-                                </div>
+                            <div class="skill-bar"><div class="skill-fill" style="width: 95%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Commercial</span>
+                                <span class="skill-value">92%</span>
                             </div>
+                            <div class="skill-bar"><div class="skill-fill" style="width: 92%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Technology</span>
+                                <span class="skill-value">98%</span>
+                            </div>
+                            <div class="skill-bar"><div class="skill-fill" style="width: 98%"></div></div>
+                        </div>
+                    </div>
+
+                    <h3 class="education-heading">Education & Certifications</h3>
+                    <div class="education-grid">
+                        <div class="education-item">
+                            <div class="education-item-title">Mechanical Engineering</div>
+                            <div class="education-item-sub">UFG &mdash; 2009&ndash;2016</div>
+                        </div>
+                        <div class="education-item">
+                            <div class="education-item-title">LSS Black Belt</div>
+                            <div class="education-item-sub">Lean Six Sigma</div>
+                        </div>
+                        <div class="education-item">
+                            <div class="education-item-title">CEA Certified</div>
+                            <div class="education-item-sub">ANBIMA</div>
+                        </div>
+                        <div class="education-item">
+                            <div class="education-item-title">5&times; MBA</div>
+                            <div class="education-item-sub">Big Data, CI, Finance, Econ Eng, Strategy</div>
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <!-- Experience -->
-            <section id="experience" class="section">
-                <h1 class="visible">Experience</h1>
-                <div class="timeline visible">
-                    <div class="timeline-item">
-                        <div class="timeline-content">
-                            <h2><span class="timeline-icon"><i class="fas fa-chart-bar"></i></span> Sales and Business Intelligence Manager</h2>
-                            <h3>ARTEMEC ENGENHARIA</h3>
-                            <p><strong style="color: var(--electric-blue);">2025 - Present</strong> • Leading sales strategies and business intelligence initiatives for engineering solutions. Responsible for market analysis, competitive intelligence, and strategic planning to drive revenue growth. Implementing data-driven approaches to optimize sales processes and develop comprehensive BI dashboards for executive decision-making. Managing cross-functional teams to align commercial objectives with technical capabilities in industrial engineering projects.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-content">
-                            <h2><span class="timeline-icon"><i class="fas fa-bolt"></i></span> Senior Master Executive - Partnerships & Large Accounts</h2>
-                            <h3>ÓRIGO ENERGIA</h3>
-                            <p><strong style="color: var(--electric-blue);">Nov 2024 - May 2025</strong> • Responsible for prospecting, negotiating, and managing sales partnerships for the Company, as well as handling large-scale and complex negotiations throughout Goiás state. Focus on BSB segments (commerce and industries) and Agribusiness sector. Leading strategic partnership development and managing high-value client relationships to drive revenue growth in the energy sector.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-content">
-                            <h2><span class="timeline-icon"><i class="fas fa-graduation-cap"></i></span> Commercial Director</h2>
-                            <h3>UNIVERSIDADE UNICAMBURY</h3>
-                            <p><strong style="color: var(--electric-blue);">Aug 2024 - Nov 2024</strong> • Direct report to CEO. Responsible for General Commercial Coordination (CGC), leading 4 managers and 14 executives across Marketing, Acquisition, Telesales (GECATE), External Commercialization, and New Business (COMEN). Implemented strategies and partnerships for growth and goal achievement. Led commercial operations and Commercialization Task Force, focusing on student acquisition expansion and business diversification. Managed team selection and training, including personnel without sales expertise, and process optimization through modern software and tools. Managed Commercial Directorate costs and served as member of strategic board and University Modernization and Technology Committee.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-content">
-                            <h2><span class="timeline-icon"><i class="fas fa-laptop-code"></i></span> Head of Commercial & Market Intelligence</h2>
-                            <h3>ACCON SOFTWARE</h3>
-                            <p><strong style="color: var(--electric-blue);">Apr 2024 - Aug 2024</strong> • Direct report to CEO, leading selection, hiring, and training of inbound, outbound, and support commercial teams. Developed and implemented the company's outbound model. Structured PowerBI dashboards for KPI monitoring, organizing startup sector data. Negotiated with suppliers to optimize conditions and reduce costs. Collaborated with marketing on campaign definition and target audiences. Implemented ERP for business controls and trained team on CRM usage, generating Market Intelligence insights. Structured P&L, chart of accounts, and cost centers. Utilized big data and data modeling to guide team and investment decisions.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-content">
-                            <h2><span class="timeline-icon"><i class="fas fa-credit-card"></i></span> Senior Commercial Executive</h2>
-                            <h3>GETNET ADQUIRÊNCIA S/A</h3>
-                            <p><strong style="color: var(--electric-blue);">Nov 2022 - Nov 2023</strong> • Responsible for prospecting, negotiating, and managing large Middle Corporate accounts in Goiânia, Rio Verde, Tocantins, and Triângulo Mineiro regions. Managed funnel of 16 Relationship Managers, 4 General Managers, and 2 Banco Santander Superintendents, with progress reports to leadership. Conducted personalized negotiations for large clients with pricing analysis and financial return assessment. Coordinated with backoffice areas to optimize customer experience. Analyzed KPIs, managed chargebacks, monitored churns, and conducted active prospecting, resulting in 10% above-budget revenue and 4% growth in active client base.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-content">
-                            <h2><span class="timeline-icon"><i class="fas fa-users"></i></span> District Manager</h2>
-                            <h3>CAPPTA S/A</h3>
-                            <p><strong style="color: var(--electric-blue);">Mar 2021 - Oct 2022</strong> • Leading sales team of 20-25 professionals across 5 states (GO/DF/MT/MS/RO). Achieved exceptional results with 300% increase in TPV and 230% growth in Net Revenue within one year. Expanded active client base by 101% through strategic training programs and development initiatives. Managed comprehensive KPI tracking, performance evaluations, analytical reporting, and conducted regular 1:1 meetings for strategic alignment. Specialized in lead conversion training, pricing strategies, route visits, and new partner prospecting with focus on Cross-sell/Upsell opportunities.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-content">
-                            <h2><span class="timeline-icon"><i class="fas fa-fire"></i></span> Senior Commercial Consultant (B2B)</h2>
-                            <h3>COMPANHIA ULTRAGAZ S/A</h3>
-                            <p><strong style="color: var(--electric-blue);">Jun 2013 - May 2020</strong> • Managed key accounts in residential channel, leading the largest negotiation in the Company's Midwest region. Successfully converted main competitor's client, increasing served volume by 87% and strengthening brand presence in Goiás. Implemented strategic consulting for clients with indicator analysis and goal setting to boost reseller growth and profitability. Conducted prospecting in low-penetration areas and trained over 150 sales professionals to enhance performance. Managed commercial KPIs including volume, margin, Market Share, and EBITDA with focus on sustainable growth and market expansion.</p>
-                        </div>
-                    </div>
+        <!-- Experience -->
+        <section class="section" id="experience">
+            <span class="section-label">Experience</span>
+            <h2 class="section-title">Career</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3 class="timeline-role">Sales and Business Intelligence Manager</h3>
+                    <div class="timeline-company">Artemec Engenharia</div>
+                    <div class="timeline-date">2025 &mdash; Present</div>
+                    <p class="timeline-desc">Leading sales strategies and business intelligence initiatives for engineering solutions. Responsible for market analysis, competitive intelligence, and strategic planning to drive revenue growth. Implementing data-driven approaches to optimize sales processes and develop comprehensive BI dashboards for executive decision-making.</p>
                 </div>
-            </section>
 
-            <!-- Portfolio -->
-            <section id="portfolio" class="section">
-                <h1 class="visible">Portfolio</h1>
-                <div class="portfolio-grid visible">
-                    <!-- Projeto 1: ThomasB-Vision Suite -->
-                    <div class="portfolio-item holo-card magnetic">
-                        <div class="timeline-content">
-                            <h2><span class="timeline-icon"><i class="fas fa-eye"></i></span> ThomasB-Vision Suite</h2>
-                            <p><strong>Complete computer vision system</strong> with native, web, and mobile versions. Advanced AI for real-time image recognition and analysis.</p>
-                            <div style="margin: 1rem 0; display: flex; gap: 0.5rem; flex-wrap: wrap;">
-                                <span class="tech-tag">Python</span>
-                                <span class="tech-tag">React Native</span>
-                                <span class="tech-tag">TensorFlow</span>
-                                <span class="tech-tag">OpenCV</span>
-                            </div>
-                            <div style="display: flex; justify-content: space-between; margin: 1rem 0;">
-                                <span style="color: var(--neon-purple);">🔥 Complexity: Advanced</span>
-                                <span style="color: var(--cyber-green);">⭐ Relevance: Maximum</span>
-                            </div>
-                            <div class="neon-progress">
-                                <div class="neon-progress-bar" style="width: 98%;"></div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="timeline-item">
+                    <h3 class="timeline-role">Senior Master Executive &mdash; Partnerships & Large Accounts</h3>
+                    <div class="timeline-company">&Oacute;rigo Energia</div>
+                    <div class="timeline-date">Nov 2024 &mdash; May 2025</div>
+                    <p class="timeline-desc">Responsible for prospecting, negotiating, and managing sales partnerships, as well as handling large-scale negotiations throughout Goi&aacute;s state. Focus on BSB segments (commerce and industries) and Agribusiness sector. Leading strategic partnership development and managing high-value client relationships in the energy sector.</p>
+                </div>
 
-                    <!-- Projeto 2: Histórico Dados CVM -->
-                    <div class="portfolio-item holo-card magnetic">
-                        <div class="timeline-content">
-                            <h2><span class="timeline-icon"><i class="fas fa-chart-line"></i></span> CVM Data Analysis</h2>
-                            <p><strong>Financial analysis system</strong> processing historical CVM data. Advanced analytics for capital markets and investment decision-making.</p>
-                            <div style="margin: 1rem 0; display: flex; gap: 0.5rem; flex-wrap: wrap;">
-                                <span class="tech-tag">Python</span>
-                                <span class="tech-tag">Pandas</span>
-                                <span class="tech-tag">APIs CVM</span>
-                                <span class="tech-tag">NumPy</span>
-                            </div>
-                            <div style="display: flex; justify-content: space-between; margin: 1rem 0;">
-                                <span style="color: var(--neon-purple);">🔥 Complexity: Advanced</span>
-                                <span style="color: var(--cyber-green);">⭐ Relevance: High</span>
-                            </div>
-                            <div class="neon-progress">
-                                <div class="neon-progress-bar" style="width: 94%;"></div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="timeline-item">
+                    <h3 class="timeline-role">Commercial Director</h3>
+                    <div class="timeline-company">Universidade Unicambury</div>
+                    <div class="timeline-date">Aug &mdash; Nov 2024</div>
+                    <p class="timeline-desc">Direct report to CEO. Led General Commercial Coordination with 4 managers and 14 executives across Marketing, Acquisition, Telesales, External Commercialization, and New Business. Managed commercial operations, team training, and process optimization. Member of strategic board and University Modernization Committee.</p>
+                </div>
 
-                    <!-- Projeto 3: OCR Tags Equipamentos -->
-                    <div class="portfolio-item holo-card magnetic">
-                        <div class="timeline-content">
-                            <h2><span class="timeline-icon"><i class="fas fa-industry"></i></span> Industrial OCR</h2>
-                            <p><strong>OCR system for industrial equipment</strong>. Automatic recognition of identification tags and plates for inspection and preventive maintenance.</p>
-                            <div style="margin: 1rem 0; display: flex; gap: 0.5rem; flex-wrap: wrap;">
-                                <span class="tech-tag">Python</span>
-                                <span class="tech-tag">Tesseract</span>
-                                <span class="tech-tag">OpenCV</span>
-                                <span class="tech-tag">PIL</span>
-                            </div>
-                            <div style="display: flex; justify-content: space-between; margin: 1rem 0;">
-                                <span style="color: var(--neon-purple);">🔥 Complexity: Advanced</span>
-                                <span style="color: var(--cyber-green);">⭐ Relevance: High</span>
-                            </div>
-                            <div class="neon-progress">
-                                <div class="neon-progress-bar" style="width: 91%;"></div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="timeline-item">
+                    <h3 class="timeline-role">Head of Commercial & Market Intelligence</h3>
+                    <div class="timeline-company">Accon Software</div>
+                    <div class="timeline-date">Apr &mdash; Aug 2024</div>
+                    <p class="timeline-desc">Direct report to CEO. Led hiring and training of inbound, outbound, and support commercial teams. Developed the company's outbound model. Structured PowerBI dashboards for KPI monitoring. Implemented ERP for business controls, structured P&L and cost centers. Utilized big data and data modeling to guide investment decisions.</p>
+                </div>
 
-                    <!-- Projeto 4: Gerenciador Supabase -->
-                    <div class="portfolio-item holo-card magnetic">
-                        <div class="timeline-content">
-                            <h2><span class="timeline-icon"><i class="fas fa-database"></i></span> Supabase Manager</h2>
-                            <p><strong>Scalable data management system</strong> using Supabase. Complete backend with REST APIs, authentication, and real-time synchronization.</p>
-                            <div style="margin: 1rem 0; display: flex; gap: 0.5rem; flex-wrap: wrap;">
-                                <span class="tech-tag">JavaScript</span>
-                                <span class="tech-tag">Supabase</span>
-                                <span class="tech-tag">PostgreSQL</span>
-                                <span class="tech-tag">APIs REST</span>
-                            </div>
-                            <div style="display: flex; justify-content: space-between; margin: 1rem 0;">
-                                <span style="color: var(--neon-purple);">🔥 Complexity: Advanced</span>
-                                <span style="color: var(--cyber-green);">⭐ Relevance: High</span>
-                            </div>
-                            <div class="neon-progress">
-                                <div class="neon-progress-bar" style="width: 89%;"></div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="timeline-item">
+                    <h3 class="timeline-role">Senior Commercial Executive</h3>
+                    <div class="timeline-company">Getnet Adquir&ecirc;ncia (Santander)</div>
+                    <div class="timeline-date">Nov 2022 &mdash; Nov 2023</div>
+                    <p class="timeline-desc">Managed large Middle Corporate accounts across Goi&acirc;nia, Rio Verde, Tocantins, and Tri&acirc;ngulo Mineiro. Coordinated funnel of 16 Relationship Managers and 4 General Managers. Achieved 10% above-budget revenue and 4% growth in active client base through personalized negotiations and active prospecting.</p>
+                </div>
 
-                    <!-- Projeto 5: Sistema Propostas Comerciais -->
-                    <div class="portfolio-item holo-card magnetic">
-                        <div class="timeline-content">
-                            <h2><span class="timeline-icon"><i class="fas fa-handshake"></i></span> Commercial Proposals</h2>
-                            <p><strong>Complete proposal automation</strong> with personalized commercial templates. Automatic generation, dynamic templates, and CRM integration.</p>
-                            <div style="margin: 1rem 0; display: flex; gap: 0.5rem; flex-wrap: wrap;">
-                                <span class="tech-tag">Python</span>
-                                <span class="tech-tag">JavaScript</span>
-                                <span class="tech-tag">Templates</span>
-                                <span class="tech-tag">APIs Office</span>
-                            </div>
-                            <div style="display: flex; justify-content: space-between; margin: 1rem 0;">
-                                <span style="color: var(--neon-purple);">🔥 Complexity: Intermediate</span>
-                                <span style="color: var(--cyber-green);">⭐ Relevância: Alta</span>
-                            </div>
-                            <div class="neon-progress">
-                                <div class="neon-progress-bar" style="width: 87%;"></div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="timeline-item">
+                    <h3 class="timeline-role">District Manager</h3>
+                    <div class="timeline-company">Cappta S/A</div>
+                    <div class="timeline-date">Mar 2021 &mdash; Oct 2022</div>
+                    <p class="timeline-desc">Led sales team of 20&ndash;25 professionals across 5 states (GO/DF/MT/MS/RO). Achieved 300% increase in TPV and 230% growth in Net Revenue within one year. Expanded active client base by 101% through strategic training programs and development initiatives.</p>
+                </div>
 
-                    <!-- Projeto 6: Marketing Intelligence -->
-                    <div class="portfolio-item holo-card magnetic">
-                        <div class="timeline-content">
-                            <h2><span class="timeline-icon"><i class="fas fa-bullseye"></i></span> Marketing Intelligence</h2>
-                            <p><strong>Marketing intelligence platform</strong> with web scraping, assertive segmentation, and automated competitive analysis.</p>
-                            <div style="margin: 1rem 0; display: flex; gap: 0.5rem; flex-wrap: wrap;">
-                                <span class="tech-tag">Python</span>
-                                <span class="tech-tag">Scrapy</span>
-                                <span class="tech-tag">BeautifulSoup</span>
-                                <span class="tech-tag">scikit-learn</span>
-                            </div>
-                            <div style="display: flex; justify-content: space-between; margin: 1rem 0;">
-                                <span style="color: var(--neon-purple);">🔥 Complexity: Intermediate</span>
-                                <span style="color: var(--cyber-green);">⭐ Relevância: Alta</span>
-                            </div>
-                            <div class="neon-progress">
-                                <div class="neon-progress-bar" style="width: 85%;"></div>
-                            </div>
-                        </div>
+                <div class="timeline-item">
+                    <h3 class="timeline-role">Senior Commercial Consultant (B2B)</h3>
+                    <div class="timeline-company">Companhia Ultragaz S/A</div>
+                    <div class="timeline-date">Jun 2013 &mdash; May 2020</div>
+                    <p class="timeline-desc">Managed key accounts in residential channel, leading the largest negotiation in the Company's Midwest region. Increased served volume by 87% through strategic client conversion. Implemented indicator analysis and goal setting programs to boost reseller growth. Trained 150+ sales professionals to enhance performance.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio -->
+        <section class="section" id="portfolio">
+            <span class="section-label">Portfolio</span>
+            <h2 class="section-title">Selected Projects</h2>
+            <div class="portfolio-grid">
+                <div class="project-card">
+                    <h3 class="project-title">ECHO.2E &mdash; AI Doppelganger</h3>
+                    <p class="project-desc">Personal AI system that replicates writing style, vocabulary, thought patterns and personality via In-Context Learning. ETL pipeline processes ~10GB of personal data (2010&ndash;2026) building a tri-layer corpus (CHAOS/EDITOR/SOUL). Computational stylometry engine quantifies writing fidelity across 35+ metrics. Target: 2M token context window with 747K curated corpus.</p>
+                    <div class="project-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">Gemini 2.0</span>
+                        <span class="tag">NLP</span>
+                        <span class="tag">Stylometry</span>
                     </div>
                 </div>
 
-                    <!-- Projeto 7: ECHO.2E - AI Doppelganger -->
-                    <div class="portfolio-item holo-card magnetic">
-                        <div class="timeline-content">
-                            <h2><span class="timeline-icon"><i class="fas fa-brain"></i></span> ECHO.2E — AI Doppelganger</h2>
-                            <p><strong>Personal AI system</strong> that replicates writing style, vocabulary, thought patterns and personality via In-Context Learning. ETL pipeline processes ~10GB of personal data (2010-2026) building a tri-layer corpus (CHAOS/EDITOR/SOUL). Computational stylometry engine quantifies writing fidelity across 35+ metrics. Target: 2M token context window with 747K curated corpus.</p>
-                            <div style="margin: 1rem 0; display: flex; gap: 0.5rem; flex-wrap: wrap;">
-                                <span class="tech-tag">Python</span>
-                                <span class="tech-tag">Gemini 2.0</span>
-                                <span class="tech-tag">NLP</span>
-                                <span class="tech-tag">Stylometry</span>
-                            </div>
-                            <div style="display: flex; justify-content: space-between; margin: 1rem 0;">
-                                <span style="color: var(--neon-purple);">🔥 Complexity: Expert</span>
-                                <span style="color: var(--cyber-green);">⭐ Relevance: Maximum</span>
-                            </div>
-                            <div class="neon-progress">
-                                <div class="neon-progress-bar" style="width: 99%;"></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Projeto 8: N8N Multi-Agent Phishing Triage -->
-                    <div class="portfolio-item holo-card magnetic">
-                        <div class="timeline-content">
-                            <h2><span class="timeline-icon"><i class="fas fa-robot"></i></span> N8N AI Agent Swarm</h2>
-                            <p><strong>Multi-agent orchestration</strong> via N8N for automated phishing email triage. Layered architecture: Agent 1 (Mistral-7B local via Ollama) handles initial binary classification, Agent 2 (GPT-4 API) analyzes ambiguous cases with reasoning chain. Detection rate: 97.3% with only 0.8% false positives. Reduced 6h/week of manual SOC analysis.</p>
-                            <div style="margin: 1rem 0; display: flex; gap: 0.5rem; flex-wrap: wrap;">
-                                <span class="tech-tag">N8N</span>
-                                <span class="tech-tag">Ollama</span>
-                                <span class="tech-tag">GPT-4</span>
-                                <span class="tech-tag">Supabase</span>
-                            </div>
-                            <div style="display: flex; justify-content: space-between; margin: 1rem 0;">
-                                <span style="color: var(--neon-purple);">🔥 Complexity: Advanced</span>
-                                <span style="color: var(--cyber-green);">⭐ Relevance: Maximum</span>
-                            </div>
-                            <div class="neon-progress">
-                                <div class="neon-progress-bar" style="width: 97%;"></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Projeto 9: Algotrading Mean Reversion -->
-                    <div class="portfolio-item holo-card magnetic">
-                        <div class="timeline-content">
-                            <h2><span class="timeline-icon"><i class="fas fa-chart-area"></i></span> Algotrading Bot</h2>
-                            <p><strong>Algorithmic trading bot</strong> connected to B3 via MetaTrader 5 (MetaApi bridge). Strategy: mean reversion with adaptive Bollinger Bands + HMM regime filter. Backtested on 8 years of intraday data (1min candles). Results: Sharpe Ratio 1.87, max drawdown 12.3%, win rate 61%. Risk management via modified Kelly Criterion.</p>
-                            <div style="margin: 1rem 0; display: flex; gap: 0.5rem; flex-wrap: wrap;">
-                                <span class="tech-tag">Python</span>
-                                <span class="tech-tag">MetaTrader 5</span>
-                                <span class="tech-tag">NumPy</span>
-                                <span class="tech-tag">HMM</span>
-                            </div>
-                            <div style="display: flex; justify-content: space-between; margin: 1rem 0;">
-                                <span style="color: var(--neon-purple);">🔥 Complexity: Expert</span>
-                                <span style="color: var(--cyber-green);">⭐ Relevance: High</span>
-                            </div>
-                            <div class="neon-progress">
-                                <div class="neon-progress-bar" style="width: 95%;"></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Projeto 10: Home Lab Cluster -->
-                    <div class="portfolio-item holo-card magnetic">
-                        <div class="timeline-content">
-                            <h2><span class="timeline-icon"><i class="fas fa-server"></i></span> Home Lab Cluster</h2>
-                            <p><strong>Proxmox VE cluster</strong> with 3 nodes (Dell OptiPlex 7050 + 64GB RAM each). Segmented network with PfSense (VLANs for lab, prod, IoT, DMZ). Container orchestration via k3s with Longhorn for distributed storage. Monitoring stack: Prometheus + Grafana + Alertmanager with Telegram notifications.</p>
-                            <div style="margin: 1rem 0; display: flex; gap: 0.5rem; flex-wrap: wrap;">
-                                <span class="tech-tag">Proxmox</span>
-                                <span class="tech-tag">k3s</span>
-                                <span class="tech-tag">PfSense</span>
-                                <span class="tech-tag">Grafana</span>
-                            </div>
-                            <div style="display: flex; justify-content: space-between; margin: 1rem 0;">
-                                <span style="color: var(--neon-purple);">🔥 Complexity: Advanced</span>
-                                <span style="color: var(--cyber-green);">⭐ Relevance: High</span>
-                            </div>
-                            <div class="neon-progress">
-                                <div class="neon-progress-bar" style="width: 93%;"></div>
-                            </div>
-                        </div>
+                <div class="project-card">
+                    <h3 class="project-title">N8N AI Agent Swarm</h3>
+                    <p class="project-desc">Multi-agent orchestration for automated phishing email triage. Agent 1 (Mistral-7B local via Ollama) handles initial binary classification, Agent 2 (GPT-4 API) analyzes ambiguous cases with reasoning chain. 97.3% detection rate with only 0.8% false positives. Reduced 6h/week of manual SOC analysis.</p>
+                    <div class="project-tags">
+                        <span class="tag">N8N</span>
+                        <span class="tag">Ollama</span>
+                        <span class="tag">GPT-4</span>
+                        <span class="tag">Supabase</span>
                     </div>
                 </div>
 
-                <!-- Other Projects -->
-                <div style="margin: 3rem 0; text-align: center;">
-                    <h3 style="color: var(--electric-blue); margin-bottom: 2rem;">💼 Other Projects</h3>
-                    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                        <span class="tech-tag" style="padding: 0.8rem 1.5rem;">🧠 Llama-3 Fine-Tuning (Legal Domain)</span>
-                        <span class="tech-tag" style="padding: 0.8rem 1.5rem;">🚗 Toyota CAN-Bus Reverse Engineering</span>
-                        <span class="tech-tag" style="padding: 0.8rem 1.5rem;">📦 Post-Sale Logistics Automation</span>
-                        <span class="tech-tag" style="padding: 0.8rem 1.5rem;">🐠 Arduino Aquarium Failsafe</span>
-                        <span class="tech-tag" style="padding: 0.8rem 1.5rem;">📊 Fixed Income Radar (FOSS)</span>
-                        <span class="tech-tag" style="padding: 0.8rem 1.5rem;">🗃️ CRM Database Migration</span>
-                        <span class="tech-tag" style="padding: 0.8rem 1.5rem;">📈 Data Warehousing Pipeline</span>
+                <div class="project-card">
+                    <h3 class="project-title">ThomasB-Vision Suite</h3>
+                    <p class="project-desc">Complete computer vision system with native, web (WebRTC), and mobile (React Native) deployments. EfficientNet-B4 with transfer learning, optimized with TensorRT for &lt; 50ms latency on edge GPU (Jetson Nano). Production accuracy: 94.7% mAP@0.5.</p>
+                    <div class="project-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">TensorFlow</span>
+                        <span class="tag">React Native</span>
+                        <span class="tag">OpenCV</span>
                     </div>
                 </div>
-            </section>
 
-            <!-- Fun Portfolio CTA -->
-            <div style="margin: 4rem 0; text-align: center; padding: 3rem 2rem; background: linear-gradient(135deg, rgba(0, 255, 65, 0.05), rgba(0, 212, 255, 0.08), rgba(157, 78, 221, 0.05)); border: 1px solid rgba(0, 255, 65, 0.3); border-radius: 15px; position: relative; overflow: hidden;">
-                <div style="position: absolute; top: 0; left: 0; width: 100%; height: 2px; background: linear-gradient(90deg, transparent, #00ff41, transparent); animation: scanline 3s linear infinite;"></div>
-                <p style="font-family: 'Orbitron', monospace; font-size: 0.85rem; color: #00ff41; letter-spacing: 3px; margin-bottom: 1rem; opacity: 0.7;">// INCOMING TRANSMISSION</p>
-                <a href="https://go.ffreitasb.cc/fun_portfolio" target="_blank" rel="noopener noreferrer" style="display: inline-block; font-family: 'Orbitron', monospace; font-size: 1.4rem; color: #ffffff; text-decoration: none; padding: 1.2rem 2.5rem; border: 2px solid #00ff41; border-radius: 8px; background: rgba(0, 255, 65, 0.1); transition: all 0.3s ease; letter-spacing: 1px;">
-                    Do you want something more... <span style="color: #00ff41; text-shadow: 0 0 10px #00ff41, 0 0 20px #00ff41;">fun!??</span>
-                </a>
-                <p style="font-size: 0.8rem; color: #888; margin-top: 1rem;">[ Click to access the tactical version of this portfolio ]</p>
-                <div style="position: absolute; bottom: 0; left: 0; width: 100%; height: 2px; background: linear-gradient(90deg, transparent, #00ff41, transparent); animation: scanline 3s linear infinite reverse;"></div>
+                <div class="project-card">
+                    <h3 class="project-title">Algotrading Bot</h3>
+                    <p class="project-desc">Algorithmic trading bot connected to B3 via MetaTrader 5 (MetaApi bridge). Mean reversion strategy with adaptive Bollinger Bands + HMM regime filter. Backtested on 8 years of intraday data (1min candles). Sharpe 1.87, max drawdown 12.3%, win rate 61%.</p>
+                    <div class="project-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">MetaTrader 5</span>
+                        <span class="tag">NumPy</span>
+                        <span class="tag">HMM</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3 class="project-title">CVM Data Analysis</h3>
+                    <p class="project-desc">Processing pipeline for 15 years of Brazilian capital market data (CVM + B3). Analysis of 2.3M records with Pandas for fund flow pattern identification across asset classes. Interactive Plotly Dash dashboards for correlation and seasonality analysis.</p>
+                    <div class="project-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">Pandas</span>
+                        <span class="tag">CVM APIs</span>
+                        <span class="tag">Plotly</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3 class="project-title">Home Lab Cluster</h3>
+                    <p class="project-desc">Proxmox VE cluster with 3 nodes (Dell OptiPlex 7050 + 64GB RAM each). Segmented network with PfSense (VLANs for lab, prod, IoT, DMZ). Container orchestration via k3s with Longhorn for distributed storage. Prometheus + Grafana monitoring stack.</p>
+                    <div class="project-tags">
+                        <span class="tag">Proxmox</span>
+                        <span class="tag">k3s</span>
+                        <span class="tag">PfSense</span>
+                        <span class="tag">Grafana</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3 class="project-title">Industrial OCR</h3>
+                    <p class="project-desc">Computer vision for automatic recognition of metallic tags on industrial equipment. Custom Tesseract 5 model trained on 12k samples with adaptive binarization and perspective correction. 40% reduction in maintenance shutdown inventory time, 200+ tags/hour.</p>
+                    <div class="project-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">Tesseract</span>
+                        <span class="tag">OpenCV</span>
+                        <span class="tag">PIL</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3 class="project-title">Supabase Backend</h3>
+                    <p class="project-desc">Centralized data backend on Supabase (PostgreSQL 15) serving multiple crawlers and dashboards. Auto-generated REST APIs with Row Level Security, JWT auth, and real-time WebSocket subscriptions. 47-table normalized schema with 3-year retention.</p>
+                    <div class="project-tags">
+                        <span class="tag">Supabase</span>
+                        <span class="tag">PostgreSQL</span>
+                        <span class="tag">REST APIs</span>
+                        <span class="tag">WebSocket</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3 class="project-title">Proposal Engine</h3>
+                    <p class="project-desc">Dynamic commercial proposal generator eliminating 80% of manual drafting time. Python backend with python-docx for template manipulation, bidirectional CRM integration via Pipedrive API. Average processing: 4.2 seconds per 15-page proposal.</p>
+                    <div class="project-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">python-docx</span>
+                        <span class="tag">Pipedrive API</span>
+                        <span class="tag">PDF</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3 class="project-title">Market Intelligence</h3>
+                    <p class="project-desc">Competitive intelligence platform using Scrapy + BeautifulSoup monitoring 340+ sources (tender portals, business registries, industry news). NLP entity extraction with spaCy. Coverage across 12 industrial segments with daily automated updates.</p>
+                    <div class="project-tags">
+                        <span class="tag">Scrapy</span>
+                        <span class="tag">spaCy</span>
+                        <span class="tag">Celery</span>
+                        <span class="tag">scikit-learn</span>
+                    </div>
+                </div>
             </div>
 
-            <!-- Contact -->
-            <section id="contact" class="section">
-                <h1 class="visible">Contact</h1>
-                <p class="visible" style="max-width: 800px; margin: 0 auto 3rem;">Interested in collaborating or discussing opportunities? Get in touch through the channels below!</p>
-
-                <div class="portfolio-item holo-card" style="max-width: 700px; margin: 0 auto;">
-                    <div class="timeline-content">
-                        <h2 style="margin-bottom: 2rem;"><span class="timeline-icon"><i class="fas fa-paper-plane"></i></span> Let's Connect!</h2>
-
-                        <div class="contact-links visible" style="flex-direction: column; gap: 1.5rem; margin: 0; pointer-events: auto;">
-                            <a href="https://linkedin.com/in/ffreitasb" target="_blank" rel="noopener noreferrer" style="width: 100%; max-width: 500px; justify-content: center; padding: 1.5rem 2rem; font-size: 1.1rem;">
-                                <i class="fab fa-linkedin" style="font-size: 2rem;"></i>
-                                <div style="text-align: left;">
-                                    <div style="font-weight: 700; font-size: 1.2rem;">LinkedIn</div>
-                                    <div style="font-size: 0.95rem; opacity: 0.9;">linkedin.com/in/ffreitasb</div>
-                                </div>
-                            </a>
-                            <a href="https://github.com/ffreitasb" target="_blank" rel="noopener noreferrer" style="width: 100%; max-width: 500px; justify-content: center; padding: 1.5rem 2rem; font-size: 1.1rem;">
-                                <i class="fab fa-github" style="font-size: 2rem;"></i>
-                                <div style="text-align: left;">
-                                    <div style="font-weight: 700; font-size: 1.2rem;">GitHub</div>
-                                    <div style="font-size: 0.95rem; opacity: 0.9;">github.com/ffreitasb</div>
-                                </div>
-                            </a>
-                            <a href="mailto:contact@ffreitasb.cc" style="width: 100%; max-width: 500px; justify-content: center; padding: 1.5rem 2rem; font-size: 1.1rem;">
-                                <i class="fas fa-envelope" style="font-size: 2rem;"></i>
-                                <div style="text-align: left;">
-                                    <div style="font-weight: 700; font-size: 1.2rem;">E-mail</div>
-                                    <div style="font-size: 0.95rem; opacity: 0.9;">contact@ffreitasb.cc</div>
-                                </div>
-                            </a>
-                            <a href="https://wa.me/5511933443213?text=Ol%C3%A1%2C%20eu%20vim%20do%20seu%20site!%20Tenho%20interesse%20em%20trabalhar%20com%20voc%C3%AA." target="_blank" rel="noopener noreferrer" style="width: 100%; max-width: 500px; justify-content: center; padding: 1.5rem 2rem; font-size: 1.1rem;">
-                                <i class="fab fa-whatsapp" style="font-size: 2rem;"></i>
-                                <div style="text-align: left;">
-                                    <div style="font-weight: 700; font-size: 1.2rem;">WhatsApp</div>
-                                    <div style="font-size: 0.95rem; opacity: 0.9;">+55 11 93344-3213</div>
-                                </div>
-                            </a>
-                        </div>
-
-                        <div class="neon-progress" style="margin-top: 2rem;">
-                            <div class="neon-progress-bar" style="width: 100%;"></div>
-                        </div>
-                    </div>
+            <div class="other-projects">
+                <div class="other-projects-title">Other projects</div>
+                <div class="other-projects-tags">
+                    <span class="other-tag">Llama-3 Fine-Tuning (Legal Domain)</span>
+                    <span class="other-tag">Toyota CAN-Bus Reverse Engineering</span>
+                    <span class="other-tag">Post-Sale Logistics Automation</span>
+                    <span class="other-tag">Arduino Aquarium Failsafe</span>
+                    <span class="other-tag">Fixed Income Radar (FOSS)</span>
+                    <span class="other-tag">CRM Database Migration</span>
+                    <span class="other-tag">Data Warehousing Pipeline</span>
                 </div>
-            </section>
-        </main>
-    </div>
+            </div>
+        </section>
 
-    <!-- Back to Top -->
-    <a href="#home" class="back-to-top" id="backToTop">
-        <i class="fas fa-rocket"></i>
-    </a>
+        <!-- Fun CTA -->
+        <div class="fun-cta">
+            <div class="fun-cta-label">Incoming transmission</div>
+            <a href="https://go.ffreitasb.cc/fun_portfolio" target="_blank" rel="noopener noreferrer" class="fun-cta-link">
+                Do you want something more... <span>fun!??</span>
+            </a>
+            <div class="fun-cta-sub">The tactical version of this portfolio</div>
+        </div>
+
+        <!-- Contact -->
+        <section class="section" id="contact">
+            <span class="section-label">Contact</span>
+            <h2 class="section-title">Let's connect</h2>
+            <p class="contact-intro">Interested in collaborating or discussing opportunities?</p>
+            <div class="contact-grid">
+                <a href="https://linkedin.com/in/ffreitasb" target="_blank" rel="noopener noreferrer" class="contact-item">
+                    <i class="fab fa-linkedin contact-icon"></i>
+                    <div>
+                        <span class="contact-label">LinkedIn</span>
+                        <span class="contact-value">linkedin.com/in/ffreitasb</span>
+                    </div>
+                </a>
+                <a href="https://github.com/ffreitasb" target="_blank" rel="noopener noreferrer" class="contact-item">
+                    <i class="fab fa-github contact-icon"></i>
+                    <div>
+                        <span class="contact-label">GitHub</span>
+                        <span class="contact-value">github.com/ffreitasb</span>
+                    </div>
+                </a>
+                <a href="mailto:contact@ffreitasb.cc" class="contact-item">
+                    <i class="fas fa-envelope contact-icon"></i>
+                    <div>
+                        <span class="contact-label">Email</span>
+                        <span class="contact-value">contact@ffreitasb.cc</span>
+                    </div>
+                </a>
+                <a href="https://wa.me/5511933443213?text=Ol%C3%A1%2C%20eu%20vim%20do%20seu%20site!%20Tenho%20interesse%20em%20trabalhar%20com%20voc%C3%AA." target="_blank" rel="noopener noreferrer" class="contact-item">
+                    <i class="fab fa-whatsapp contact-icon"></i>
+                    <div>
+                        <span class="contact-label">WhatsApp</span>
+                        <span class="contact-value">+55 11 93344-3213</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        &copy; 2026 Felipe Freitas
+    </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Remove loading screen
-            setTimeout(() => {
-                document.getElementById('loading').style.opacity = '0';
-                setTimeout(() => {
-                    document.getElementById('loading').style.display = 'none';
-                }, 500);
-            }, 1500);
+        document.getElementById('navToggle').addEventListener('click', function () {
+            document.getElementById('navLinks').classList.toggle('open');
+        });
 
-            // Create floating particles
-            function createParticles() {
-                const particlesContainer = document.getElementById('particles');
-                const particleCount = 50;
-
-                for (let i = 0; i < particleCount; i++) {
-                    const particle = document.createElement('div');
-                    particle.className = 'particle';
-                    particle.style.left = Math.random() * 100 + '%';
-                    particle.style.animationDelay = Math.random() * 20 + 's';
-                    particle.style.animationDuration = (Math.random() * 10 + 15) + 's';
-
-                    // Random colors
-                    const colors = ['#00ffff', '#ff0080', '#ffff00', '#39ff14', '#9d4edd'];
-                    const randomColor = colors[Math.floor(Math.random() * colors.length)];
-                    particle.style.background = randomColor;
-                    particle.style.boxShadow = `0 0 10px ${randomColor}`;
-
-                    particlesContainer.appendChild(particle);
-                }
-            }
-
-            createParticles();
-
-            // Navigation
-            const navLinks = document.querySelectorAll('.nav-menu a');
-            const sections = document.querySelectorAll('.section');
-            const mainContent = document.querySelector('.main-content');
-            const backToTop = document.getElementById('backToTop');
-
-            // Smooth scroll navigation
-            navLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const targetId = this.getAttribute('href');
-                    const targetSection = document.querySelector(targetId);
-                    if (targetSection) {
-                        targetSection.scrollIntoView({ behavior: 'smooth' });
-                    }
-                });
-            });
-
-            // Active link highlighting
-            function updateActiveLink() {
-                let currentId = '';
-                sections.forEach(section => {
-                    const rect = section.getBoundingClientRect();
-                    if (rect.top <= 100 && rect.bottom >= 100) {
-                        currentId = '#' + section.id;
-                    }
-                });
-
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href') === currentId) {
-                        link.classList.add('active');
-                    }
-                });
-            }
-
-            // Back to top visibility
-            function updateBackToTop() {
-                if (mainContent.scrollTop > 300) {
-                    backToTop.classList.add('visible');
-                } else {
-                    backToTop.classList.remove('visible');
-                }
-            }
-
-            // Scroll-triggered animations
-            function updateAnimations() {
-                const fadeElements = document.querySelectorAll('.fade-in');
-                fadeElements.forEach(element => {
-                    const rect = element.getBoundingClientRect();
-                    if (rect.top < window.innerHeight - 100) {
-                        element.classList.add('visible');
-                    }
-                });
-            }
-
-            // Scroll events
-            mainContent.addEventListener('scroll', function() {
-                updateActiveLink();
-                updateBackToTop();
-                updateAnimations();
-            });
-
-            // Back to top click
-            backToTop.addEventListener('click', function(e) {
-                e.preventDefault();
-                document.querySelector('#home').scrollIntoView({ behavior: 'smooth' });
-            });
-
-            // Advanced typing animation with multiple colors
-            const typingText = document.getElementById('typing-text');
-            const words = [
-                'AI Agents & Automation',
-                'Hardware Hacking',
-                'Data Science & Python',
-                'Quant Finance',
-                'Business Intelligence',
-                'Lean Six Sigma',
-                'Software Engineering',
-                'Prompt Engineering'
-            ];
-            let wordIndex = 0;
-            let charIndex = 0;
-            let isDeleting = false;
-
-            function typeWriter() {
-                const currentWord = words[wordIndex];
-
-                if (isDeleting) {
-                    typingText.textContent = currentWord.substring(0, charIndex - 1);
-                    charIndex--;
-                } else {
-                    typingText.textContent = currentWord.substring(0, charIndex + 1);
-                    charIndex++;
-                }
-
-                let typeSpeed = isDeleting ? 100 : 200;
-
-                if (!isDeleting && charIndex === currentWord.length) {
-                    typeSpeed = 2000;
-                    isDeleting = true;
-                } else if (isDeleting && charIndex === 0) {
-                    isDeleting = false;
-                    wordIndex = (wordIndex + 1) % words.length;
-                    typeSpeed = 500;
-                }
-
-                setTimeout(typeWriter, typeSpeed);
-            }
-
-            // Advanced 3D mouse movement effects
-            document.addEventListener('mousemove', function(e) {
-                const mouseX = e.clientX / window.innerWidth;
-                const mouseY = e.clientY / window.innerHeight;
-
-                // Parallax effect on sidebar
-                const sidebar = document.querySelector('.sidebar');
-                if (sidebar) {
-                    const rotateY = (mouseX - 0.5) * 10;
-                    sidebar.style.transform = `perspective(1000px) rotateY(${-5 + rotateY}deg)`;
-                }
-
-                // 3D effect on portfolio items
-                const portfolioItems = document.querySelectorAll('.portfolio-item');
-                portfolioItems.forEach(item => {
-                    const rect = item.getBoundingClientRect();
-                    const itemCenterX = rect.left + rect.width / 2;
-                    const itemCenterY = rect.top + rect.height / 2;
-
-                    const rotateX = (e.clientY - itemCenterY) / rect.height * 20;
-                    const rotateY = (e.clientX - itemCenterX) / rect.width * 20;
-
-                    item.style.transform = `perspective(1000px) rotateX(${10 - rotateX}deg) rotateY(${rotateY}deg)`;
-                });
-            });
-
-            // Advanced hover effects for timeline items
-            const timelineItems = document.querySelectorAll('.timeline-item');
-            timelineItems.forEach(item => {
-                item.addEventListener('mouseenter', function() {
-                    this.style.transform = 'perspective(1000px) rotateY(0deg) scale(1.05) translateZ(20px)';
-                });
-
-                item.addEventListener('mouseleave', function() {
-                    this.style.transform = 'perspective(1000px) rotateY(5deg) scale(1) translateZ(0px)';
-                });
-            });
-
-            // Start typing animation
-            setTimeout(typeWriter, 2000);
-
-            // Magnetic Effect for Elements (disabled on mobile)
-            function initMagneticEffect() {
-                if (window.innerWidth <= 768) return; // Skip on mobile devices
-
-                const magneticElements = document.querySelectorAll('.magnetic');
-
-                magneticElements.forEach(element => {
-                    element.addEventListener('mousemove', function(e) {
-                        const rect = element.getBoundingClientRect();
-                        const x = e.clientX - rect.left - rect.width / 2;
-                        const y = e.clientY - rect.top - rect.height / 2;
-
-                        const moveX = x * 0.15;
-                        const moveY = y * 0.15;
-
-                        element.style.transform = `translate(${moveX}px, ${moveY}px) scale(1.05)`;
-                    });
-
-                    element.addEventListener('mouseleave', function() {
-                        element.style.transform = 'translate(0px, 0px) scale(1)';
-                    });
-                });
-            }
-
-            // Dynamic Cursor Effect
-            function initCustomCursor() {
-                if (window.innerWidth <= 768) return; // Skip on mobile
-
-                const cursor = document.createElement('div');
-                cursor.className = 'custom-cursor';
-                cursor.innerHTML = '<div class="cursor-dot"></div><div class="cursor-outline"></div>';
-                document.body.appendChild(cursor);
-
-                const cursorDot = cursor.querySelector('.cursor-dot');
-                const cursorOutline = cursor.querySelector('.cursor-outline');
-
-                document.addEventListener('mousemove', function(e) {
-                    const x = e.clientX;
-                    const y = e.clientY;
-
-                    cursorDot.style.transform = `translate(${x}px, ${y}px)`;
-                    cursorOutline.style.transform = `translate(${x}px, ${y}px)`;
-                });
-
-                // Add cursor styles
-                const cursorStyles = document.createElement('style');
-                cursorStyles.textContent = `
-                    .custom-cursor {
-                        position: fixed;
-                        top: 0;
-                        left: 0;
-                        pointer-events: none;
-                        z-index: 9999;
-                    }
-                    .cursor-dot {
-                        width: 8px;
-                        height: 8px;
-                        background: var(--electric-blue, #00d4ff);
-                        border-radius: 50%;
-                        transform-origin: center;
-                        transition: transform 0.1s ease;
-                        box-shadow: 0 0 20px var(--electric-blue, #00d4ff);
-                    }
-                    .cursor-outline {
-                        width: 40px;
-                        height: 40px;
-                        border: 2px solid var(--electric-blue, #00d4ff);
-                        border-radius: 50%;
-                        position: absolute;
-                        top: -16px;
-                        left: -16px;
-                        transform-origin: center;
-                        transition: transform 0.3s ease, opacity 0.3s ease;
-                        opacity: 0.5;
-                    }
-                `;
-                document.head.appendChild(cursorStyles);
-            }
-
-            // Initialize advanced effects
-            initMagneticEffect();
-            initCustomCursor();
-
-            // Initial calls
-            updateActiveLink();
-            updateBackToTop();
-            updateAnimations();
-
-            // Performance optimization - throttle scroll events
-            let ticking = false;
-            mainContent.addEventListener('scroll', function() {
-                if (!ticking) {
-                    requestAnimationFrame(function() {
-                        updateActiveLink();
-                        updateBackToTop();
-                        updateAnimations();
-                        ticking = false;
-                    });
-                    ticking = true;
-                }
+        document.querySelectorAll('.nav-links a').forEach(function (link) {
+            link.addEventListener('click', function () {
+                document.getElementById('navLinks').classList.remove('open');
             });
         });
+
+        var sections = document.querySelectorAll('section[id]');
+        var navAnchors = document.querySelectorAll('.nav-links a');
+
+        window.addEventListener('scroll', function () {
+            var current = '';
+            sections.forEach(function (section) {
+                if (window.scrollY >= section.offsetTop - 100) {
+                    current = '#' + section.id;
+                }
+            });
+            navAnchors.forEach(function (a) {
+                a.classList.toggle('active', a.getAttribute('href') === current);
+            });
+        });
+
+        var typingEl = document.getElementById('typing-text');
+        var words = [
+            'AI Agents & Automation',
+            'Hardware Hacking',
+            'Data Science & Python',
+            'Quant Finance',
+            'Business Intelligence',
+            'Lean Six Sigma',
+            'Software Engineering',
+            'Prompt Engineering'
+        ];
+        var wordIdx = 0, charIdx = 0, deleting = false;
+
+        function type() {
+            var word = words[wordIdx];
+            if (deleting) { charIdx--; } else { charIdx++; }
+            typingEl.textContent = word.substring(0, charIdx);
+
+            var speed = deleting ? 60 : 120;
+
+            if (!deleting && charIdx === word.length) {
+                speed = 2200;
+                deleting = true;
+            } else if (deleting && charIdx === 0) {
+                deleting = false;
+                wordIdx = (wordIdx + 1) % words.length;
+                speed = 400;
+            }
+
+            setTimeout(type, speed);
+        }
+
+        setTimeout(type, 800);
     </script>
 </body>
 </html>
