@@ -11,10 +11,10 @@
   --text: #fafafa;
   --text-secondary: #a1a1aa;
   --text-muted: #63636e;
-  --accent: #3b82f6;
-  --accent-light: #60a5fa;
-  --accent-dim: rgba(59, 130, 246, 0.1);
-  --accent-glow: rgba(59, 130, 246, 0.15);
+  --accent: #00FF41;
+  --accent-light: #33ff6a;
+  --accent-dim: rgba(0, 255, 65, 0.08);
+  --accent-glow: rgba(0, 255, 65, 0.12);
   --border: #1e1e22;
   --border-subtle: #2a2a30;
   --border-hover: #3b3b44;
@@ -45,8 +45,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-image:
-    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(59, 130, 246, 0.08), transparent),
-    radial-gradient(ellipse 60% 40% at 80% 60%, rgba(59, 130, 246, 0.03), transparent);
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(0, 255, 65, 0.06), transparent),
+    radial-gradient(ellipse 60% 40% at 80% 60%, rgba(0, 255, 65, 0.03), transparent);
 }
 
 ::selection {
@@ -185,7 +185,7 @@ body {
   letter-spacing: -0.04em;
   line-height: 1.1;
   margin-bottom: 0.75rem;
-  background: linear-gradient(135deg, #ffffff 0%, #a1a1aa 50%, var(--accent-light) 100%);
+  background: linear-gradient(135deg, #ffffff 0%, #a1a1aa 50%, var(--accent) 100%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -492,7 +492,7 @@ body {
   background: var(--accent-dim);
   color: var(--accent-light);
   font-weight: 500;
-  border: 1px solid rgba(59, 130, 246, 0.15);
+  border: 1px solid rgba(0, 255, 65, 0.12);
 }
 
 .other-projects {
@@ -568,7 +568,7 @@ body {
 .fun-cta-link:hover {
   border-color: var(--accent);
   background: var(--accent-dim);
-  box-shadow: 0 0 20px var(--accent-glow), 0 0 40px rgba(59, 130, 246, 0.05);
+  box-shadow: 0 0 20px var(--accent-glow), 0 0 40px rgba(0, 255, 65, 0.05);
   transform: translateY(-1px);
 }
 
