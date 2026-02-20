@@ -106,7 +106,7 @@
                     <span class="typing-prefix">&gt;</span>
                     <span id="typing-text"></span><span class="cursor">_</span>
                 </div>
-                <div class="hero-current">Currently: training an AI doppelganger on 10GB of personal data (2010-2026). Side quest: teaching Veridion what 380M companies look like from the inside.</div>
+                <div class="hero-current">Main quest: ready to teach Fortune 500 BR companies how to negotiate with <strong>REAL</strong> security. Side quest: training an AI doppelganger on 14GB of personal data (2010-2026).</div>
             </div>
 
             <div class="hero-bottom">
@@ -624,18 +624,38 @@
         setTimeout(type, 1800);
 
         /* ==========================================================
-           FOOTER CLOCK
+           FOOTER CLOCK — with uptime toggle via double-click
            ========================================================== */
+        var clockShowUptime = false;
+        var clockSessionStart = Date.now();
         function updateClock() {
-            var now = new Date();
-            var utc3 = new Date(now.getTime() + (-3 * 60 * 60 * 1000) - (now.getTimezoneOffset() * 60 * 1000));
-            var h = String(utc3.getHours()).padStart(2, '0');
-            var m = String(utc3.getMinutes()).padStart(2, '0');
-            var s = String(utc3.getSeconds()).padStart(2, '0');
-            document.getElementById('sys-time').textContent = h + ':' + m + ':' + s;
+            var el = document.getElementById('sys-time');
+            if (!el) return;
+            if (clockShowUptime) {
+                var elapsed = Math.floor((Date.now() - clockSessionStart) / 1000);
+                var h = String(Math.floor(elapsed / 3600)).padStart(2, '0');
+                var m = String(Math.floor((elapsed % 3600) / 60)).padStart(2, '0');
+                var s = String(elapsed % 60).padStart(2, '0');
+                el.textContent = h + ':' + m + ':' + s;
+            } else {
+                var now = new Date();
+                var utc3 = new Date(now.getTime() + (-3 * 60 * 60 * 1000) - (now.getTimezoneOffset() * 60 * 1000));
+                el.textContent = String(utc3.getHours()).padStart(2, '0') + ':' + String(utc3.getMinutes()).padStart(2, '0') + ':' + String(utc3.getSeconds()).padStart(2, '0');
+            }
         }
         updateClock();
         setInterval(updateClock, 1000);
+        (function () {
+            var clockEl = document.getElementById('sys-time');
+            if (!clockEl) return;
+            clockEl.style.cursor = 'pointer';
+            clockEl.title = 'Double-click for session uptime';
+            clockEl.addEventListener('dblclick', function () {
+                clockShowUptime = !clockShowUptime;
+                clockEl.title = clockShowUptime ? 'SESSION UPTIME — double-click to reset' : 'Double-click for session uptime';
+                updateClock();
+            });
+        })();
 
         /* ==========================================================
            CUSTOM CURSOR — dot + ring with hover scaling
@@ -807,28 +827,30 @@
         })();
 
         /* ==========================================================
-           KEYBOARD 'gem' — secret Konami for nerds
+           KEYBOARD EASTER EGGS — 'gem' reveals roster, 'ff' pulses logo
            ========================================================== */
         (function () {
             var buffer = '';
             var listEl = document.querySelector('.systems-list');
             var countEl = document.querySelector('.systems-count');
-            if (!listEl || !countEl) return;
             var allGems = ['ISOLINE', 'STAG', 'ORACLE', 'NEXUS', 'CIPHER', 'MERIDIAN', 'AXIOM'];
-            var revealed = false;
+            var gemRevealed = false;
+
             document.addEventListener('keydown', function (e) {
+                if (e.key.length !== 1) return;
                 buffer += e.key.toLowerCase();
-                if (buffer.length > 10) buffer = buffer.slice(-10);
-                if (buffer.includes('gem') && !revealed) {
-                    revealed = true;
+                if (buffer.length > 20) buffer = buffer.slice(-20);
+
+                if (!gemRevealed && listEl && countEl && buffer.includes('gem')) {
+                    gemRevealed = true;
                     var base = listEl.textContent;
                     listEl.textContent = base + ' \u00B7 ' + allGems.join(' \u00B7 ');
                     countEl.textContent = '[' + (6 + allGems.length) + ' of 30+]';
                     countEl.style.color = 'var(--accent)';
                     console.log('%c[GEM PROTOCOL] Full roster unlocked. You typed the magic word.', 'color: #8B1A2B; font-weight: bold;');
                 }
-                if (buffer.includes('ff')) {
-                    buffer = '';
+
+                if (buffer.endsWith('ff')) {
                     var logo = document.querySelector('.nav-logo');
                     if (logo) {
                         logo.style.transition = 'color 0.2s, text-shadow 0.2s';
@@ -841,34 +863,6 @@
                     }
                 }
             });
-        })();
-
-        /* ==========================================================
-           CLOCK UPTIME — double-click for session timer
-           ========================================================== */
-        (function () {
-            var clockEl = document.getElementById('sys-time');
-            if (!clockEl) return;
-            var sessionStart = Date.now();
-            var showUptime = false;
-            clockEl.style.cursor = 'pointer';
-            clockEl.addEventListener('dblclick', function () {
-                showUptime = !showUptime;
-                if (!showUptime) updateClock();
-            });
-            var origUpdate = window.setInterval(function () {
-                if (showUptime) {
-                    var elapsed = Math.floor((Date.now() - sessionStart) / 1000);
-                    var h = String(Math.floor(elapsed / 3600)).padStart(2, '0');
-                    var m = String(Math.floor((elapsed % 3600) / 60)).padStart(2, '0');
-                    var s = String(elapsed % 60).padStart(2, '0');
-                    clockEl.textContent = h + ':' + m + ':' + s;
-                    clockEl.title = 'SESSION UPTIME';
-                } else {
-                    clockEl.title = 'Double-click for session uptime';
-                }
-            }, 500);
-            clockEl.title = 'Double-click for session uptime';
         })();
 
         /* ==========================================================
