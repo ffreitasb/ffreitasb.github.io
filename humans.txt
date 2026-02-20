@@ -1,0 +1,25 @@
+/* TEAM */
+    Architect: Felipe Freitas
+    Contact: contact [at] ffreitasb.cc
+    Site: ffreitasb.github.io
+    Location: Goiania, Brazil (UTC-3)
+
+/* THANKS */
+    Coffee: responsible for 87% of this output
+    LUMEN: intellectual co-pilot since 2024
+    VOIGHT-KAMPFF: knows you're reading this
+
+/* SITE */
+    Last update: 2026-02-20
+    Language: English
+    Standards: HTML5, CSS3, Vanilla JS
+    Components: 0 frameworks, 0 dependencies
+    Load target: <400ms
+    Design: Direction C "O Anti-Portfolio"
+    Fonts: Instrument Sans, Inter, IBM Plex Mono, Tahoma
+    Colors: #C0BFBC (heather gray), #8B1A2B (oxblood), #181818 (text)
+
+/* NOTES */
+    The tactical version lives at ffreitasb.cc
+    This is the well-behaved sibling. Mostly.
+    If you found this file, your curiosity score is: HIGH

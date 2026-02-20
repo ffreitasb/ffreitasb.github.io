@@ -1,6 +1,24 @@
+<!--
+    ╔══════════════════════════════════════════════════════════════╗
+    ║                                                              ║
+    ║    ███████╗███████╗                                          ║
+    ║    ██╔════╝██╔════╝                                          ║
+    ║    █████╗  █████╗     Felipe Freitas                         ║
+    ║    ██╔══╝  ██╔══╝     Engineering Meets Revenue.             ║
+    ║    ██║     ██║                                               ║
+    ║    ╚═╝     ╚═╝         ffreitasb.github.io                   ║
+    ║                         ffreitasb.cc                         ║
+    ║                                                              ║
+    ║    "Two sites, same brain, different rooms."                 ║
+    ║                                                              ║
+    ║    Built with: 0 frameworks, 0 dependencies, 1 obsession.   ║
+    ║    If you're reading this, VOIGHT-KAMPFF approves.           ║
+    ║                                                              ║
+    ╚══════════════════════════════════════════════════════════════╝
+-->
 <!DOCTYPE html>
 <html lang="en">
-<!-- If you're reading this, you're my kind of person. -->
+<!-- TRANSMISSION #001: If you're reading this, you're my kind of person. -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,7 +41,8 @@
 </head>
 <body>
 
-    <!-- VOIGHT-KAMPFF says your curiosity score is: HIGH -->
+    <!-- TRANSMISSION #002: VOIGHT-KAMPFF says your curiosity score is: HIGH -->
+    <!-- TRANSMISSION #003: The tactical version lives at ffreitasb.cc. You'll know it when you see it. -->
 
     <!-- Custom cursor -->
     <div class="cursor-dot" id="cursorDot"></div>
@@ -48,6 +67,7 @@
     </nav>
 
     <main>
+        <!-- TRANSMISSION #004: This is the well-behaved sibling. Mostly. -->
         <!-- ============================================================
              HERO — The first impression
              ============================================================ -->
@@ -72,7 +92,7 @@
                     <span class="typing-prefix">&gt;</span>
                     <span id="typing-text"></span><span class="cursor">_</span>
                 </div>
-                <div class="hero-current">Currently: training an AI doppelganger on 10GB of personal data (2010-2026)</div>
+                <div class="hero-current">Currently: training an AI doppelganger on 10GB of personal data (2010-2026). Side quest: teaching Veridion what 380M companies look like from the inside.</div>
             </div>
 
             <div class="hero-bottom">
@@ -146,6 +166,7 @@
 
         <div class="accent-line"></div>
 
+        <!-- TRANSMISSION #005: 30+ Gems. You've seen 6. The rest require clearance. -->
         <!-- ============================================================
              01 — ABOUT
              Want the unhinged version? → ffreitasb.cc
@@ -441,6 +462,7 @@
             </div>
         </section>
 
+        <!-- TRANSMISSION #006: You've scrolled this far. VOIGHT-KAMPFF is impressed. -->
         <!-- ============================================================
              CTA — impossible to miss
              ============================================================ -->
@@ -481,6 +503,7 @@
     <footer class="footer">
         <div class="footer-line">&copy; 2026 Felipe Freitas &middot; SYS.TIME: <span id="sys-time">--:--:--</span> UTC-3 &middot; No tracking pixels. No cookie banners. No React. Zero dependencies. Built because I respect your bandwidth.</div>
         <div class="footer-eof">[EOF]</div>
+        <!-- TRANSMISSION #007: EOF reached. But the other site never ends. → ffreitasb.cc -->
     </footer>
 
     <script>
@@ -730,24 +753,42 @@
         console.log('%c30+ AI systems. 13 years. 5 industries. One brain.', 'color: #181818;');
 
         /* ==========================================================
+           GEM CLICK REVEAL — gamify the [6 of 30+]
+           ========================================================== */
+        (function () {
+            var countEl = document.querySelector('.systems-count');
+            var listEl = document.querySelector('.systems-list');
+            if (!countEl || !listEl) return;
+            var extras = ['ISOLINE', 'STAG'];
+            var clickCount = 0;
+            var baseList = listEl.textContent;
+            var baseCount = 6;
+            countEl.style.cursor = 'pointer';
+            countEl.addEventListener('click', function () {
+                clickCount++;
+                if (clickCount <= extras.length) {
+                    listEl.textContent = baseList + ' \u00B7 ' + extras.slice(0, clickCount).join(' \u00B7 ');
+                    countEl.textContent = '[' + (baseCount + clickCount) + ' of 30+]';
+                } else {
+                    countEl.textContent = '[ACCESS DENIED: clearance required]';
+                    countEl.style.color = 'var(--accent)';
+                    setTimeout(function () {
+                        clickCount = 0;
+                        listEl.textContent = baseList;
+                        countEl.textContent = '[6 of 30+]';
+                        countEl.style.color = '';
+                    }, 2000);
+                }
+            });
+        })();
+
+        /* ==========================================================
            TAB TITLE — personality on visibility change
            ========================================================== */
         (function () {
             var originalTitle = document.title;
-            var awayMessages = [
-                'Come back. The Gems miss you.',
-                '[VOIGHT-KAMPFF] Subject distracted.',
-                'Meanwhile, 30+ AI systems are still running.',
-                'Tab abandoned. Uptime continues.'
-            ];
-            var msgIdx = 0;
             document.addEventListener('visibilitychange', function () {
-                if (document.hidden) {
-                    document.title = awayMessages[msgIdx % awayMessages.length];
-                    msgIdx++;
-                } else {
-                    document.title = originalTitle;
-                }
+                document.title = document.hidden ? '[VOIGHT-KAMPFF] Subject distracted.' : originalTitle;
             });
         })();
 
