@@ -793,6 +793,80 @@
         })();
 
         /* ==========================================================
+           KEYBOARD 'gem' — secret Konami for nerds
+           ========================================================== */
+        (function () {
+            var buffer = '';
+            var listEl = document.querySelector('.systems-list');
+            var countEl = document.querySelector('.systems-count');
+            if (!listEl || !countEl) return;
+            var allGems = ['ISOLINE', 'STAG', 'ORACLE', 'NEXUS', 'CIPHER', 'MERIDIAN', 'AXIOM'];
+            var revealed = false;
+            document.addEventListener('keydown', function (e) {
+                buffer += e.key.toLowerCase();
+                if (buffer.length > 10) buffer = buffer.slice(-10);
+                if (buffer.includes('gem') && !revealed) {
+                    revealed = true;
+                    var base = listEl.textContent;
+                    listEl.textContent = base + ' \u00B7 ' + allGems.join(' \u00B7 ');
+                    countEl.textContent = '[' + (6 + allGems.length) + ' of 30+]';
+                    countEl.style.color = 'var(--accent)';
+                    console.log('%c[GEM PROTOCOL] Full roster unlocked. You typed the magic word.', 'color: #8B1A2B; font-weight: bold;');
+                }
+                if (buffer.includes('ff')) {
+                    buffer = '';
+                    var logo = document.querySelector('.nav-logo');
+                    if (logo) {
+                        logo.style.transition = 'color 0.2s, text-shadow 0.2s';
+                        logo.style.color = 'var(--accent)';
+                        logo.style.textShadow = '0 0 12px rgba(139,26,43,0.4)';
+                        setTimeout(function () {
+                            logo.style.color = '';
+                            logo.style.textShadow = '';
+                        }, 800);
+                    }
+                }
+            });
+        })();
+
+        /* ==========================================================
+           CLOCK UPTIME — double-click for session timer
+           ========================================================== */
+        (function () {
+            var clockEl = document.getElementById('sys-time');
+            if (!clockEl) return;
+            var sessionStart = Date.now();
+            var showUptime = false;
+            clockEl.style.cursor = 'pointer';
+            clockEl.addEventListener('dblclick', function () {
+                showUptime = !showUptime;
+                if (!showUptime) updateClock();
+            });
+            var origUpdate = window.setInterval(function () {
+                if (showUptime) {
+                    var elapsed = Math.floor((Date.now() - sessionStart) / 1000);
+                    var h = String(Math.floor(elapsed / 3600)).padStart(2, '0');
+                    var m = String(Math.floor((elapsed % 3600) / 60)).padStart(2, '0');
+                    var s = String(elapsed % 60).padStart(2, '0');
+                    clockEl.textContent = h + ':' + m + ':' + s;
+                    clockEl.title = 'SESSION UPTIME';
+                } else {
+                    clockEl.title = 'Double-click for session uptime';
+                }
+            }, 500);
+            clockEl.title = 'Double-click for session uptime';
+        })();
+
+        /* ==========================================================
+           CTA COORDINATES — hover shows lat/long of Goiania
+           ========================================================== */
+        (function () {
+            var cta = document.querySelector('.cta-link');
+            if (!cta) return;
+            cta.setAttribute('data-coordinates', '-16.6869\u00B0 S, -49.2648\u00B0 W');
+        })();
+
+        /* ==========================================================
            3D TILT on project cards
            ========================================================== */
         (function () {

@@ -1063,6 +1063,20 @@ body.cursor-hover .cursor-ring {
   50% { opacity: 0.4; }
 }
 
+.cta-link[data-coordinates]:hover::after {
+  content: attr(data-coordinates);
+  position: absolute;
+  bottom: -1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--mono);
+  font-size: 0.55rem;
+  color: var(--dim);
+  white-space: nowrap;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
 .cta-sub {
   font-family: var(--sig);
   font-size: 0.55rem;
@@ -1278,6 +1292,55 @@ body.cursor-hover .cursor-ring {
 /* ==========================================================================
    Reduced motion
    ========================================================================== */
+
+/* ==========================================================================
+   Print — for the recruiter who hits Ctrl+P
+   ========================================================================== */
+
+@media print {
+  .noise, .cursor-dot, .cursor-ring, .scroll-progress,
+  .hero-scroll, .nav-toggle, .marquee-section,
+  .cta, .nav { display: none !important; }
+
+  body { background: #fff !important; color: #000 !important; }
+
+  .hero { min-height: auto; padding: 2rem 0; }
+  .section { padding: 2rem 0; }
+  .hero-headline { font-size: 3rem !important; }
+
+  .reveal, .hero-word, .letter, .hero-tag, .hero-meta,
+  .hero-bottom, .hero-name-small, .hero-current {
+    opacity: 1 !important;
+    filter: none !important;
+    transform: none !important;
+    animation: none !important;
+  }
+
+  a { color: #000; text-decoration: underline; }
+
+  a[href^="http"]::after {
+    content: ' (' attr(href) ')';
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    color: #666;
+  }
+
+  .project-quip { display: block !important; opacity: 1 !important; transform: none !important; }
+
+  body::after {
+    content: 'Printed from ffreitasb.github.io  |  The version I actually enjoy building lives at ffreitasb.cc  |  No frameworks. No tracking. No excuses.';
+    display: block;
+    margin-top: 3rem;
+    padding-top: 1rem;
+    border-top: 1px solid #ccc;
+    font-family: Tahoma, Geneva, sans-serif;
+    font-size: 0.55rem;
+    color: #999;
+    text-align: center;
+  }
+
+  @page { margin: 2cm; }
+}
 
 /* ==========================================================================
    Dark mode crossover — .cc DNA bleeds through
