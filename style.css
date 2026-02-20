@@ -5,14 +5,14 @@
    ========================================================================== */
 
 :root {
-  --bg:       #EDECEA;
-  --surface:  #E2E1DF;
+  --bg:       #D6D3CE;
+  --surface:  #CCCAC6;
   --text:     #181818;
-  --dim:      #7A7A7A;
-  --border:   #CCCBC8;
+  --dim:      #6A6A6A;
+  --border:   #B8B5B0;
   --accent:   #8B1A2B;
-  --accent-soft: rgba(139, 26, 43, 0.08);
-  --accent-mid:  rgba(139, 26, 43, 0.15);
+  --accent-soft: rgba(139, 26, 43, 0.1);
+  --accent-mid:  rgba(139, 26, 43, 0.18);
 
   --display: 'Instrument Sans', sans-serif;
   --mono:    'IBM Plex Mono', monospace;
@@ -98,19 +98,19 @@ body.cursor-hover .cursor-ring {
 }
 
 /* ==========================================================================
-   Noise texture — subtle paper grain
+   Noise texture — heathered sweatshirt mélange
    ========================================================================== */
 
 .noise {
   position: fixed;
   inset: 0;
-  opacity: 0.03;
+  opacity: 0.08;
   pointer-events: none;
   z-index: 9998;
   mix-blend-mode: multiply;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='6' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   background-repeat: repeat;
-  background-size: 200px 200px;
+  background-size: 256px 256px;
 }
 
 /* ==========================================================================
@@ -138,7 +138,7 @@ body.cursor-hover .cursor-ring {
   left: 0;
   right: 0;
   z-index: 100;
-  background: rgba(237, 236, 234, 0.85);
+  background: rgba(214, 211, 206, 0.85);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--border);
@@ -1199,7 +1199,7 @@ body.cursor-hover .cursor-ring {
     left: 0;
     right: 0;
     flex-direction: column;
-    background: rgba(237, 236, 234, 0.97);
+    background: rgba(214, 211, 206, 0.97);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     padding: 0.75rem 4vw 1.25rem;
