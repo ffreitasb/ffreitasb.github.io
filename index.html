@@ -49,9 +49,12 @@
         <section class="hero" id="hero">
             <div class="hero-tag">[PORTFOLIO v3.0]</div>
 
-            <h1 class="hero-name" aria-label="Felipe Freitas">
-                <span class="hero-line"><span class="letter" style="--i:0">F</span><span class="letter" style="--i:1">e</span><span class="letter" style="--i:2">l</span><span class="letter" style="--i:3">i</span><span class="letter" style="--i:4">p</span><span class="letter" style="--i:5">e</span></span>
-                <span class="hero-line hero-line--accent"><span class="letter" style="--i:7">F</span><span class="letter" style="--i:8">r</span><span class="letter" style="--i:9">e</span><span class="letter" style="--i:10">i</span><span class="letter" style="--i:11">t</span><span class="letter" style="--i:12">a</span><span class="letter" style="--i:13">s</span></span>
+            <div class="hero-name-small">Felipe Freitas</div>
+
+            <h1 class="hero-headline" aria-label="Engineering Meets Revenue">
+                <span class="hero-word" style="--w:0">Engineering</span>
+                <span class="hero-word" style="--w:1">Meets</span>
+                <span class="hero-word hero-word--accent"><span class="letter" style="--i:0">R</span><span class="letter" style="--i:1">e</span><span class="letter" style="--i:2">v</span><span class="letter" style="--i:3">e</span><span class="letter" style="--i:4">n</span><span class="letter" style="--i:5">u</span><span class="letter" style="--i:6">e</span><span class="letter" style="--i:7">.</span></span>
             </h1>
 
             <div class="hero-meta">
@@ -60,6 +63,7 @@
                     <span class="typing-prefix">&gt;</span>
                     <span id="typing-text"></span><span class="cursor">_</span>
                 </div>
+                <div class="hero-current">Currently: training an AI doppelganger on 10GB of personal data</div>
             </div>
 
             <div class="hero-bottom">
@@ -143,7 +147,7 @@
             </div>
             <div class="about-grid">
                 <div class="about-text reveal">
-                    <p>Mechanical Engineer by training, Software Engineer by vocation.</p>
+                    <p>I make things work beyond spec.</p>
                     <p>13+ years of experience across 5 industries: heavy manufacturing, energy, industrial automation, fintech, and tech. I operate at the exact intersection between atoms (hardware, sensors, industrial protocols) and bits (software, AI, data). From building CAN-Bus interceptors with ESP32 to orchestrating multi-agent AI swarms, I specialize in making things work beyond manufacturer specifications.</p>
                     <p>With a strong foundation in commercial strategy, competitive intelligence, and corporate finance &mdash; complemented by a Lean Six Sigma Black Belt (R$ 2.1M in savings) and CEA ANBIMA certification &mdash; I bring a rare combination of deep technical skills and business acumen. I translate complex technical concepts to business stakeholders and vice-versa.</p>
                     <p>Expertise spans <strong>AI Agents, LLM Fine-tuning, Computer Vision, Quant Finance,</strong> and <strong>Hardware Hacking</strong>. Proficient in Portuguese (native) and English (professional).</p>
@@ -282,7 +286,7 @@
                 <h2 class="section-label">Portfolio</h2>
             </div>
             <div class="portfolio-grid">
-                <div class="project-card reveal" data-tilt>
+                <div class="project-card reveal" data-tilt data-cat="ai">
                     <div class="project-number">01</div>
                     <h3 class="project-title">ECHO.2E &mdash; AI Doppelganger</h3>
                     <p class="project-desc">Personal AI system that replicates writing style, vocabulary, thought patterns and personality via In-Context Learning. ETL pipeline processes ~10GB of personal data (2010&ndash;2026) building a tri-layer corpus. Computational stylometry engine quantifies writing fidelity across 35+ metrics.</p>
@@ -294,7 +298,7 @@
                     </div>
                 </div>
 
-                <div class="project-card reveal" data-tilt>
+                <div class="project-card reveal" data-tilt data-cat="ai">
                     <div class="project-number">02</div>
                     <h3 class="project-title">N8N AI Agent Swarm</h3>
                     <p class="project-desc">Multi-agent orchestration for automated phishing email triage. Agent 1 (Mistral-7B local) handles binary classification, Agent 2 (GPT-4) analyzes ambiguous cases. 97.3% detection rate, 0.8% false positives.</p>
@@ -306,7 +310,7 @@
                     </div>
                 </div>
 
-                <div class="project-card reveal" data-tilt>
+                <div class="project-card reveal" data-tilt data-cat="ai">
                     <div class="project-number">03</div>
                     <h3 class="project-title">ThomasB-Vision Suite</h3>
                     <p class="project-desc">Complete computer vision system with native, web (WebRTC), and mobile (React Native) deployments. EfficientNet-B4 optimized with TensorRT for &lt; 50ms latency on Jetson Nano. 94.7% mAP@0.5.</p>
@@ -318,7 +322,7 @@
                     </div>
                 </div>
 
-                <div class="project-card reveal" data-tilt>
+                <div class="project-card reveal" data-tilt data-cat="finance">
                     <div class="project-number">04</div>
                     <h3 class="project-title">Algotrading Bot</h3>
                     <p class="project-desc">Algorithmic trading connected to B3 via MetaTrader 5. Mean reversion strategy with adaptive Bollinger Bands + HMM regime filter. Sharpe 1.87, max drawdown 12.3%, win rate 61%.</p>
@@ -330,7 +334,7 @@
                     </div>
                 </div>
 
-                <div class="project-card reveal" data-tilt>
+                <div class="project-card reveal" data-tilt data-cat="finance">
                     <div class="project-number">05</div>
                     <h3 class="project-title">CVM Data Analysis</h3>
                     <p class="project-desc">Processing pipeline for 15 years of Brazilian capital market data. Analysis of 2.3M records with Pandas for fund flow pattern identification. Interactive Plotly Dash dashboards.</p>
@@ -342,7 +346,7 @@
                     </div>
                 </div>
 
-                <div class="project-card reveal" data-tilt>
+                <div class="project-card reveal" data-tilt data-cat="infra">
                     <div class="project-number">06</div>
                     <h3 class="project-title">Home Lab Cluster</h3>
                     <p class="project-desc">Proxmox VE cluster with 3 nodes (64GB RAM each). Segmented network with PfSense VLANs. Container orchestration via k3s with Longhorn storage. Prometheus + Grafana monitoring.</p>
@@ -354,7 +358,7 @@
                     </div>
                 </div>
 
-                <div class="project-card reveal" data-tilt>
+                <div class="project-card reveal" data-tilt data-cat="hardware">
                     <div class="project-number">07</div>
                     <h3 class="project-title">Industrial OCR</h3>
                     <p class="project-desc">Computer vision for automatic recognition of metallic tags on industrial equipment. Custom Tesseract 5 model trained on 12k samples. 40% reduction in maintenance shutdown time.</p>
@@ -366,7 +370,7 @@
                     </div>
                 </div>
 
-                <div class="project-card reveal" data-tilt>
+                <div class="project-card reveal" data-tilt data-cat="infra">
                     <div class="project-number">08</div>
                     <h3 class="project-title">Supabase Backend</h3>
                     <p class="project-desc">Centralized data backend on Supabase (PostgreSQL 15) serving multiple crawlers and dashboards. Row Level Security, JWT auth, real-time WebSocket subscriptions. 47-table schema.</p>
@@ -378,7 +382,7 @@
                     </div>
                 </div>
 
-                <div class="project-card reveal" data-tilt>
+                <div class="project-card reveal" data-tilt data-cat="business">
                     <div class="project-number">09</div>
                     <h3 class="project-title">Proposal Engine</h3>
                     <p class="project-desc">Dynamic commercial proposal generator eliminating 80% of manual drafting time. Bidirectional CRM integration via Pipedrive API. 4.2 seconds per 15-page proposal.</p>
@@ -390,7 +394,7 @@
                     </div>
                 </div>
 
-                <div class="project-card reveal" data-tilt>
+                <div class="project-card reveal" data-tilt data-cat="business">
                     <div class="project-number">10</div>
                     <h3 class="project-title">Market Intelligence</h3>
                     <p class="project-desc">Competitive intelligence platform monitoring 340+ sources. NLP entity extraction with spaCy. Coverage across 12 industrial segments with daily automated updates.</p>
@@ -444,10 +448,10 @@
                 <a href="https://github.com/ffreitasb" target="_blank" rel="noopener noreferrer" class="contact-link">
                     GitHub <span class="arrow">&rarr;</span>
                 </a>
-                <a href="mailto:contact@ffreitasb.cc" class="contact-link">
+                <a href="https://go.ffreitasb.cc/mail_felipe" class="contact-link">
                     Email <span class="arrow">&rarr;</span>
                 </a>
-                <a href="https://wa.me/5511933443213?text=Ol%C3%A1%2C%20eu%20vim%20do%20seu%20site!%20Tenho%20interesse%20em%20trabalhar%20com%20voc%C3%AA." target="_blank" rel="noopener noreferrer" class="contact-link">
+                <a href="https://go.ffreitasb.cc/wa_felipe" target="_blank" rel="noopener noreferrer" class="contact-link">
                     WhatsApp <span class="arrow">&rarr;</span>
                 </a>
             </div>
@@ -495,13 +499,17 @@
         var typingEl = document.getElementById('typing-text');
         var words = [
             'RevOps & SalesOps',
+            'Hacking CAN-Bus protocols',
             'AI Agents & Automation',
+            'Reverse engineering firmware',
             'Solutions Architecture',
+            'Training LLMs on my own voice',
             'Business Intelligence',
+            'Building multi-agent swarms',
             'Python & Data Science',
-            'LLM Fine-tuning',
-            'Hardware Hacking',
-            'Lean Six Sigma Black Belt'
+            'Intercepting industrial buses',
+            'Lean Six Sigma Black Belt',
+            'Scraping the entire market'
         ];
         var wordIdx = 0, charIdx = 0, deleting = false;
 
