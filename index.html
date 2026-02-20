@@ -20,16 +20,15 @@
 </head>
 <body>
 
-    <!-- Ambient layers -->
-    <div class="dot-grid"></div>
-    <div class="decor">
-        <div class="decor-blob decor-1"></div>
-        <div class="decor-blob decor-2"></div>
-        <div class="decor-blob decor-3"></div>
-    </div>
-    <div class="spotlight" id="spotlight"></div>
-    <div class="grain"></div>
+    <!-- Custom cursor -->
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
 
+    <!-- Ambient -->
+    <div class="noise"></div>
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Navigation -->
     <nav class="nav">
         <div class="nav-inner">
             <a href="#hero" class="nav-logo">FF</a>
@@ -44,93 +43,112 @@
     </nav>
 
     <main>
-        <!-- Hero -->
+        <!-- ============================================================
+             HERO — The first impression
+             ============================================================ -->
         <section class="hero" id="hero">
-            <h1 class="hero-name reveal">
-                Felipe
-                <span class="accent">Freitas</span>
+            <div class="hero-tag">[PORTFOLIO v3.0]</div>
+
+            <h1 class="hero-name" aria-label="Felipe Freitas">
+                <span class="hero-line"><span class="letter" style="--i:0">F</span><span class="letter" style="--i:1">e</span><span class="letter" style="--i:2">l</span><span class="letter" style="--i:3">i</span><span class="letter" style="--i:4">p</span><span class="letter" style="--i:5">e</span></span>
+                <span class="hero-line hero-line--accent"><span class="letter" style="--i:7">F</span><span class="letter" style="--i:8">r</span><span class="letter" style="--i:9">e</span><span class="letter" style="--i:10">i</span><span class="letter" style="--i:11">t</span><span class="letter" style="--i:12">a</span><span class="letter" style="--i:13">s</span></span>
             </h1>
-            <p class="hero-title reveal reveal-d1">Tech Lead &middot; Revenue Architect &middot; LLM Specialist</p>
-            <div class="hero-typing reveal reveal-d2">
-                <span class="typing-prefix">&gt;</span>
-                <span id="typing-text"></span><span class="cursor">_</span>
+
+            <div class="hero-meta">
+                <p class="hero-role">Tech Lead &middot; Revenue Architect &middot; LLM Specialist</p>
+                <div class="hero-typing">
+                    <span class="typing-prefix">&gt;</span>
+                    <span id="typing-text"></span><span class="cursor">_</span>
+                </div>
             </div>
-            <p class="hero-bio reveal reveal-d3">
-                Engineer by training, Revenue Architect by trade. Bridging Engineering &amp; Sales
-                with Python, AI Automation and data-driven strategies. From CAN-Bus interceptors
-                to multi-agent LLM swarms. LSS Black Belt, CEA ANBIMA, 5&times; MBA.
-            </p>
-            <div class="hero-divider reveal reveal-d4"></div>
-            <div class="hero-stats reveal reveal-d5">
-                <div class="hero-stat">
-                    <span class="hero-stat-value" data-count="13" data-suffix="+">0</span>
-                    <span class="hero-stat-label">Years</span>
+
+            <div class="hero-bottom">
+                <p class="hero-bio">
+                    Engineer by training, Revenue Architect by trade. From <strong>CAN-Bus interceptors</strong>
+                    to <strong>multi-agent LLM swarms</strong>. LSS Black Belt, CEA ANBIMA, 5&times; MBA.
+                </p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-num" data-count="13" data-suffix="+">0</span>
+                        <span class="stat-label">Years</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-num" data-count="5">0</span>
+                        <span class="stat-label">Industries</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-num" data-count="300" data-prefix="R$" data-suffix="M+">0</span>
+                        <span class="stat-label">Revenue</span>
+                    </div>
                 </div>
-                <div class="hero-stat">
-                    <span class="hero-stat-value" data-count="5" data-suffix="">0</span>
-                    <span class="hero-stat-label">Industries</span>
-                </div>
-                <div class="hero-stat">
-                    <span class="hero-stat-value" data-count="300" data-prefix="R$" data-suffix="M+">0</span>
-                    <span class="hero-stat-label">Revenue Impact</span>
-                </div>
+            </div>
+
+            <div class="hero-scroll">
+                <span>Scroll</span>
+                <div class="hero-scroll-line"></div>
             </div>
         </section>
 
-        <!-- Skills marquee -->
-        <div class="marquee">
-            <div class="marquee-track">
-                <span>Python</span>
-                <span>AI Agents</span>
-                <span>LLM Fine-tuning</span>
-                <span>Revenue Architecture</span>
-                <span>Computer Vision</span>
-                <span>Hardware Hacking</span>
-                <span>Quant Finance</span>
-                <span>Data Engineering</span>
-                <span>Multi-Agent Swarms</span>
-                <span>Lean Six Sigma</span>
-                <span>Competitive Intelligence</span>
-                <span>CAN-Bus</span>
-                <span>ESP32</span>
-                <span>Algotrading</span>
-                <span>OSINT</span>
-                <span>Proxmox</span>
-                <!-- Duplicate for seamless loop -->
-                <span>Python</span>
-                <span>AI Agents</span>
-                <span>LLM Fine-tuning</span>
-                <span>Revenue Architecture</span>
-                <span>Computer Vision</span>
-                <span>Hardware Hacking</span>
-                <span>Quant Finance</span>
-                <span>Data Engineering</span>
-                <span>Multi-Agent Swarms</span>
-                <span>Lean Six Sigma</span>
-                <span>Competitive Intelligence</span>
-                <span>CAN-Bus</span>
-                <span>ESP32</span>
-                <span>Algotrading</span>
-                <span>OSINT</span>
-                <span>Proxmox</span>
+        <!-- ============================================================
+             DUAL MARQUEE
+             ============================================================ -->
+        <div class="marquee-section">
+            <div class="marquee-row">
+                <div class="marquee-track">
+                    <span>Python</span><span>AI Agents</span><span>LLM Fine-tuning</span>
+                    <span>Revenue Architecture</span><span>Computer Vision</span>
+                    <span>Hardware Hacking</span><span>Quant Finance</span>
+                    <span>Data Engineering</span><span>Multi-Agent Swarms</span>
+                    <span>Lean Six Sigma</span><span>Competitive Intelligence</span>
+                    <span>CAN-Bus</span><span>ESP32</span><span>Algotrading</span>
+                    <span>OSINT</span><span>Proxmox</span>
+                    <!-- Duplicate for seamless loop -->
+                    <span>Python</span><span>AI Agents</span><span>LLM Fine-tuning</span>
+                    <span>Revenue Architecture</span><span>Computer Vision</span>
+                    <span>Hardware Hacking</span><span>Quant Finance</span>
+                    <span>Data Engineering</span><span>Multi-Agent Swarms</span>
+                    <span>Lean Six Sigma</span><span>Competitive Intelligence</span>
+                    <span>CAN-Bus</span><span>ESP32</span><span>Algotrading</span>
+                    <span>OSINT</span><span>Proxmox</span>
+                </div>
+            </div>
+            <div class="marquee-row marquee-row--reverse">
+                <div class="marquee-track">
+                    <span>PyTorch</span><span>Docker</span><span>PostgreSQL</span>
+                    <span>FastAPI</span><span>Supabase</span><span>k3s</span>
+                    <span>LangChain</span><span>N8N</span><span>Scrapy</span>
+                    <span>TensorFlow</span><span>PowerBI</span><span>Pipedrive</span>
+                    <span>OpenCV</span><span>Pandas</span><span>MetaTrader</span>
+                    <span>React Native</span>
+                    <!-- Duplicate -->
+                    <span>PyTorch</span><span>Docker</span><span>PostgreSQL</span>
+                    <span>FastAPI</span><span>Supabase</span><span>k3s</span>
+                    <span>LangChain</span><span>N8N</span><span>Scrapy</span>
+                    <span>TensorFlow</span><span>PowerBI</span><span>Pipedrive</span>
+                    <span>OpenCV</span><span>Pandas</span><span>MetaTrader</span>
+                    <span>React Native</span>
+                </div>
             </div>
         </div>
 
         <div class="accent-line"></div>
 
-        <!-- About -->
+        <!-- ============================================================
+             01 — ABOUT
+             ============================================================ -->
         <section class="section" id="about">
-            <div class="section-bg-number">01</div>
-            <span class="section-label reveal">About</span>
-            <h2 class="section-title reveal">Professional Profile</h2>
+            <div class="section-head reveal">
+                <span class="section-num">01</span>
+                <h2 class="section-label">About</h2>
+            </div>
             <div class="about-grid">
                 <div class="about-text reveal">
-                    <p><strong>Mechanical Engineer by training, Software Engineer by vocation.</strong></p>
+                    <p>Mechanical Engineer by training, Software Engineer by vocation.</p>
                     <p>13+ years of experience across 5 industries: heavy manufacturing, energy, industrial automation, fintech, and tech. I operate at the exact intersection between atoms (hardware, sensors, industrial protocols) and bits (software, AI, data). From building CAN-Bus interceptors with ESP32 to orchestrating multi-agent AI swarms, I specialize in making things work beyond manufacturer specifications.</p>
                     <p>With a strong foundation in commercial strategy, competitive intelligence, and corporate finance &mdash; complemented by a Lean Six Sigma Black Belt (R$ 2.1M in savings) and CEA ANBIMA certification &mdash; I bring a rare combination of deep technical skills and business acumen. I translate complex technical concepts to business stakeholders and vice-versa.</p>
                     <p>Expertise spans <strong>AI Agents, LLM Fine-tuning, Computer Vision, Quant Finance,</strong> and <strong>Hardware Hacking</strong>. Proficient in Portuguese (native) and English (professional).</p>
                 </div>
-                <div class="reveal">
+                <div class="reveal reveal-d1">
                     <div class="stack-wrapper">
                         <div class="stack-section">
                             <h3 class="stack-heading">AI &amp; Data</h3>
@@ -193,11 +211,14 @@
 
         <div class="accent-line"></div>
 
-        <!-- Experience -->
+        <!-- ============================================================
+             02 — EXPERIENCE
+             ============================================================ -->
         <section class="section" id="experience">
-            <div class="section-bg-number">02</div>
-            <span class="section-label reveal">Experience</span>
-            <h2 class="section-title reveal">Career</h2>
+            <div class="section-head reveal">
+                <span class="section-num">02</span>
+                <h2 class="section-label">Experience</h2>
+            </div>
             <div class="timeline reveal">
                 <div class="timeline-item">
                     <h3 class="timeline-role"><span class="timeline-prompt">&gt;</span> Sales and Business Intelligence Manager</h3>
@@ -252,13 +273,16 @@
 
         <div class="accent-line"></div>
 
-        <!-- Portfolio -->
+        <!-- ============================================================
+             03 — PORTFOLIO
+             ============================================================ -->
         <section class="section" id="portfolio">
-            <div class="section-bg-number">03</div>
-            <span class="section-label reveal">Portfolio</span>
-            <h2 class="section-title reveal">Selected Projects</h2>
+            <div class="section-head reveal">
+                <span class="section-num">03</span>
+                <h2 class="section-label">Portfolio</h2>
+            </div>
             <div class="portfolio-grid">
-                <div class="project-card project-card--featured reveal">
+                <div class="project-card reveal" data-tilt>
                     <div class="project-number">01</div>
                     <h3 class="project-title">ECHO.2E &mdash; AI Doppelganger</h3>
                     <p class="project-desc">Personal AI system that replicates writing style, vocabulary, thought patterns and personality via In-Context Learning. ETL pipeline processes ~10GB of personal data (2010&ndash;2026) building a tri-layer corpus. Computational stylometry engine quantifies writing fidelity across 35+ metrics.</p>
@@ -270,7 +294,7 @@
                     </div>
                 </div>
 
-                <div class="project-card reveal">
+                <div class="project-card reveal" data-tilt>
                     <div class="project-number">02</div>
                     <h3 class="project-title">N8N AI Agent Swarm</h3>
                     <p class="project-desc">Multi-agent orchestration for automated phishing email triage. Agent 1 (Mistral-7B local) handles binary classification, Agent 2 (GPT-4) analyzes ambiguous cases. 97.3% detection rate, 0.8% false positives.</p>
@@ -282,7 +306,7 @@
                     </div>
                 </div>
 
-                <div class="project-card reveal">
+                <div class="project-card reveal" data-tilt>
                     <div class="project-number">03</div>
                     <h3 class="project-title">ThomasB-Vision Suite</h3>
                     <p class="project-desc">Complete computer vision system with native, web (WebRTC), and mobile (React Native) deployments. EfficientNet-B4 optimized with TensorRT for &lt; 50ms latency on Jetson Nano. 94.7% mAP@0.5.</p>
@@ -294,7 +318,7 @@
                     </div>
                 </div>
 
-                <div class="project-card reveal">
+                <div class="project-card reveal" data-tilt>
                     <div class="project-number">04</div>
                     <h3 class="project-title">Algotrading Bot</h3>
                     <p class="project-desc">Algorithmic trading connected to B3 via MetaTrader 5. Mean reversion strategy with adaptive Bollinger Bands + HMM regime filter. Sharpe 1.87, max drawdown 12.3%, win rate 61%.</p>
@@ -306,7 +330,7 @@
                     </div>
                 </div>
 
-                <div class="project-card reveal">
+                <div class="project-card reveal" data-tilt>
                     <div class="project-number">05</div>
                     <h3 class="project-title">CVM Data Analysis</h3>
                     <p class="project-desc">Processing pipeline for 15 years of Brazilian capital market data. Analysis of 2.3M records with Pandas for fund flow pattern identification. Interactive Plotly Dash dashboards.</p>
@@ -318,7 +342,7 @@
                     </div>
                 </div>
 
-                <div class="project-card reveal">
+                <div class="project-card reveal" data-tilt>
                     <div class="project-number">06</div>
                     <h3 class="project-title">Home Lab Cluster</h3>
                     <p class="project-desc">Proxmox VE cluster with 3 nodes (64GB RAM each). Segmented network with PfSense VLANs. Container orchestration via k3s with Longhorn storage. Prometheus + Grafana monitoring.</p>
@@ -330,7 +354,7 @@
                     </div>
                 </div>
 
-                <div class="project-card reveal">
+                <div class="project-card reveal" data-tilt>
                     <div class="project-number">07</div>
                     <h3 class="project-title">Industrial OCR</h3>
                     <p class="project-desc">Computer vision for automatic recognition of metallic tags on industrial equipment. Custom Tesseract 5 model trained on 12k samples. 40% reduction in maintenance shutdown time.</p>
@@ -342,7 +366,7 @@
                     </div>
                 </div>
 
-                <div class="project-card reveal">
+                <div class="project-card reveal" data-tilt>
                     <div class="project-number">08</div>
                     <h3 class="project-title">Supabase Backend</h3>
                     <p class="project-desc">Centralized data backend on Supabase (PostgreSQL 15) serving multiple crawlers and dashboards. Row Level Security, JWT auth, real-time WebSocket subscriptions. 47-table schema.</p>
@@ -354,7 +378,7 @@
                     </div>
                 </div>
 
-                <div class="project-card reveal">
+                <div class="project-card reveal" data-tilt>
                     <div class="project-number">09</div>
                     <h3 class="project-title">Proposal Engine</h3>
                     <p class="project-desc">Dynamic commercial proposal generator eliminating 80% of manual drafting time. Bidirectional CRM integration via Pipedrive API. 4.2 seconds per 15-page proposal.</p>
@@ -366,7 +390,7 @@
                     </div>
                 </div>
 
-                <div class="project-card reveal">
+                <div class="project-card reveal" data-tilt>
                     <div class="project-number">10</div>
                     <h3 class="project-title">Market Intelligence</h3>
                     <p class="project-desc">Competitive intelligence platform monitoring 340+ sources. NLP entity extraction with spaCy. Coverage across 12 industrial segments with daily automated updates.</p>
@@ -393,52 +417,38 @@
             </div>
         </section>
 
-        <div class="accent-line"></div>
-
-        <!-- Fun CTA -->
-        <div class="fun-cta reveal">
-            <a href="https://go.ffreitasb.cc/fun_portfolio" target="_blank" rel="noopener noreferrer" class="fun-cta-link">
-                Do you want something more... <span class="fun-highlight">fun!??</span>
+        <!-- ============================================================
+             CTA — impossible to miss
+             ============================================================ -->
+        <div class="cta reveal">
+            <a href="https://go.ffreitasb.cc/fun_portfolio" target="_blank" rel="noopener noreferrer" class="cta-link">
+                Want something more <span class="cta-accent">fun!??</span>
             </a>
-            <div class="fun-cta-sub">The tactical version of this portfolio</div>
+            <div class="cta-sub">The tactical TUI version lives at ffreitasb.cc</div>
         </div>
 
         <div class="accent-line"></div>
 
-        <!-- Contact -->
+        <!-- ============================================================
+             04 — CONTACT — statement style
+             ============================================================ -->
         <section class="section" id="contact">
-            <div class="section-bg-number">04</div>
-            <span class="section-label reveal">Contact</span>
-            <h2 class="section-title reveal">Let's connect</h2>
-            <p class="contact-intro reveal">Interested in collaborating or discussing opportunities?</p>
-            <div class="contact-grid reveal">
-                <a href="https://linkedin.com/in/ffreitasb" target="_blank" rel="noopener noreferrer" class="contact-item">
-                    <span class="contact-symbol">[in]</span>
-                    <div>
-                        <span class="contact-label">LinkedIn</span>
-                        <span class="contact-value">linkedin.com/in/ffreitasb</span>
-                    </div>
+            <h2 class="contact-heading reveal">
+                Let's<br>Talk<span class="contact-dot">.</span>
+            </h2>
+            <p class="contact-intro reveal">Open for opportunities, collaborations, and conversations that push boundaries.</p>
+            <div class="contact-links reveal">
+                <a href="https://linkedin.com/in/ffreitasb" target="_blank" rel="noopener noreferrer" class="contact-link">
+                    LinkedIn <span class="arrow">&rarr;</span>
                 </a>
-                <a href="https://github.com/ffreitasb" target="_blank" rel="noopener noreferrer" class="contact-item">
-                    <span class="contact-symbol">&lt;/&gt;</span>
-                    <div>
-                        <span class="contact-label">GitHub</span>
-                        <span class="contact-value">github.com/ffreitasb</span>
-                    </div>
+                <a href="https://github.com/ffreitasb" target="_blank" rel="noopener noreferrer" class="contact-link">
+                    GitHub <span class="arrow">&rarr;</span>
                 </a>
-                <a href="mailto:contact@ffreitasb.cc" class="contact-item">
-                    <span class="contact-symbol">@</span>
-                    <div>
-                        <span class="contact-label">Email</span>
-                        <span class="contact-value">contact@ffreitasb.cc</span>
-                    </div>
+                <a href="mailto:contact@ffreitasb.cc" class="contact-link">
+                    Email <span class="arrow">&rarr;</span>
                 </a>
-                <a href="https://wa.me/5511933443213?text=Ol%C3%A1%2C%20eu%20vim%20do%20seu%20site!%20Tenho%20interesse%20em%20trabalhar%20com%20voc%C3%AA." target="_blank" rel="noopener noreferrer" class="contact-item">
-                    <span class="contact-symbol">#</span>
-                    <div>
-                        <span class="contact-label">WhatsApp</span>
-                        <span class="contact-value">+55 11 93344-3213</span>
-                    </div>
+                <a href="https://wa.me/5511933443213?text=Ol%C3%A1%2C%20eu%20vim%20do%20seu%20site!%20Tenho%20interesse%20em%20trabalhar%20com%20voc%C3%AA." target="_blank" rel="noopener noreferrer" class="contact-link">
+                    WhatsApp <span class="arrow">&rarr;</span>
                 </a>
             </div>
         </section>
@@ -450,7 +460,9 @@
     </footer>
 
     <script>
-        // Nav toggle
+        /* ==========================================================
+           NAV TOGGLE
+           ========================================================== */
         document.getElementById('navToggle').addEventListener('click', function () {
             document.getElementById('navLinks').classList.toggle('open');
         });
@@ -460,13 +472,15 @@
             });
         });
 
-        // Active nav on scroll
+        /* ==========================================================
+           ACTIVE NAV ON SCROLL
+           ========================================================== */
         var sections = document.querySelectorAll('section[id]');
         var navAnchors = document.querySelectorAll('.nav-links a');
         window.addEventListener('scroll', function () {
             var current = '';
             sections.forEach(function (section) {
-                if (window.scrollY >= section.offsetTop - 100) {
+                if (window.scrollY >= section.offsetTop - 120) {
                     current = '#' + section.id;
                 }
             });
@@ -475,7 +489,9 @@
             });
         });
 
-        // Typing effect
+        /* ==========================================================
+           TYPING EFFECT
+           ========================================================== */
         var typingEl = document.getElementById('typing-text');
         var words = [
             'RevOps & SalesOps',
@@ -493,7 +509,7 @@
             var word = words[wordIdx];
             if (deleting) { charIdx--; } else { charIdx++; }
             typingEl.textContent = word.substring(0, charIdx);
-            var speed = deleting ? 60 : 120;
+            var speed = deleting ? 50 : 100;
             if (!deleting && charIdx === word.length) {
                 speed = 2200;
                 deleting = true;
@@ -504,9 +520,11 @@
             }
             setTimeout(type, speed);
         }
-        setTimeout(type, 800);
+        setTimeout(type, 1800);
 
-        // Footer clock
+        /* ==========================================================
+           FOOTER CLOCK
+           ========================================================== */
         function updateClock() {
             var now = new Date();
             var utc3 = new Date(now.getTime() + (-3 * 60 * 60 * 1000) - (now.getTimezoneOffset() * 60 * 1000));
@@ -518,26 +536,73 @@
         updateClock();
         setInterval(updateClock, 1000);
 
-        // Mouse-following spotlight
+        /* ==========================================================
+           CUSTOM CURSOR — dot + ring with hover scaling
+           ========================================================== */
         (function () {
-            var spot = document.getElementById('spotlight');
-            if (!spot || window.innerWidth < 768) return;
-            var mx = 0, my = 0, sx = 0, sy = 0;
+            var dot = document.getElementById('cursorDot');
+            var ring = document.getElementById('cursorRing');
+            if (!dot || !ring) return;
+
+            var isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+            var isCoarse = window.matchMedia('(pointer: coarse)').matches;
+            if (isTouch || isCoarse || window.innerWidth < 768) {
+                dot.style.display = 'none';
+                ring.style.display = 'none';
+                return;
+            }
+
+            var mx = 0, my = 0;
+            var dx = -100, dy = -100, rx = -100, ry = -100;
+
             document.addEventListener('mousemove', function (e) {
                 mx = e.clientX;
                 my = e.clientY;
             });
-            function lerp() {
-                sx += (mx - sx) * 0.08;
-                sy += (my - sy) * 0.08;
-                spot.style.left = sx + 'px';
-                spot.style.top = sy + 'px';
-                requestAnimationFrame(lerp);
+
+            function animate() {
+                dx += (mx - dx) * 0.18;
+                dy += (my - dy) * 0.18;
+                dot.style.left = dx + 'px';
+                dot.style.top = dy + 'px';
+
+                rx += (mx - rx) * 0.09;
+                ry += (my - ry) * 0.09;
+                ring.style.left = rx + 'px';
+                ring.style.top = ry + 'px';
+
+                requestAnimationFrame(animate);
             }
-            lerp();
+            animate();
+
+            var interactives = document.querySelectorAll('a, button, .project-card, .tag, .other-tag, .contact-link');
+            interactives.forEach(function (el) {
+                el.addEventListener('mouseenter', function () {
+                    document.body.classList.add('cursor-hover');
+                });
+                el.addEventListener('mouseleave', function () {
+                    document.body.classList.remove('cursor-hover');
+                });
+            });
         })();
 
-        // Counter animation for stats
+        /* ==========================================================
+           SCROLL PROGRESS BAR
+           ========================================================== */
+        (function () {
+            var bar = document.getElementById('scrollProgress');
+            if (!bar) return;
+            window.addEventListener('scroll', function () {
+                var scrollTop = window.scrollY;
+                var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+                if (docHeight <= 0) return;
+                bar.style.height = (scrollTop / docHeight * 100) + '%';
+            });
+        })();
+
+        /* ==========================================================
+           COUNTER ANIMATION
+           ========================================================== */
         (function () {
             var counters = document.querySelectorAll('[data-count]');
             var counted = false;
@@ -548,15 +613,13 @@
                 var prefix = el.getAttribute('data-prefix') || '';
                 var suffix = el.getAttribute('data-suffix') || '';
                 var duration = 1500;
-                var start = 0;
                 var startTime = null;
 
                 function step(timestamp) {
                     if (!startTime) startTime = timestamp;
                     var progress = Math.min((timestamp - startTime) / duration, 1);
                     var eased = 1 - Math.pow(1 - progress, 3);
-                    var current = Math.round(eased * target);
-                    el.textContent = prefix + current + suffix;
+                    el.textContent = prefix + Math.round(eased * target) + suffix;
                     if (progress < 1) requestAnimationFrame(step);
                 }
                 requestAnimationFrame(step);
@@ -574,11 +637,13 @@
             counters.forEach(function (el) { obs.observe(el); });
         })();
 
-        // Scroll reveal via IntersectionObserver
+        /* ==========================================================
+           SCROLL REVEAL
+           ========================================================== */
         (function () {
-            var revealEls = document.querySelectorAll('.reveal, .reveal-left');
+            var els = document.querySelectorAll('.reveal');
             if (!('IntersectionObserver' in window)) {
-                revealEls.forEach(function (el) { el.classList.add('visible'); });
+                els.forEach(function (el) { el.classList.add('visible'); });
                 return;
             }
             var observer = new IntersectionObserver(function (entries) {
@@ -588,8 +653,33 @@
                         observer.unobserve(entry.target);
                     }
                 });
-            }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-            revealEls.forEach(function (el) { observer.observe(el); });
+            }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+            els.forEach(function (el) { observer.observe(el); });
+        })();
+
+        /* ==========================================================
+           3D TILT on project cards
+           ========================================================== */
+        (function () {
+            if (window.innerWidth < 768 || 'ontouchstart' in window) return;
+
+            document.querySelectorAll('[data-tilt]').forEach(function (card) {
+                card.addEventListener('mousemove', function (e) {
+                    var rect = card.getBoundingClientRect();
+                    var x = (e.clientX - rect.left) / rect.width;
+                    var y = (e.clientY - rect.top) / rect.height;
+                    var tiltX = (0.5 - y) * 10;
+                    var tiltY = (x - 0.5) * 10;
+                    card.style.transform = 'perspective(800px) rotateX(' + tiltX + 'deg) rotateY(' + tiltY + 'deg) scale3d(1.02, 1.02, 1.02)';
+                });
+                card.addEventListener('mouseleave', function () {
+                    card.style.transform = 'perspective(800px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+                    card.style.transition = 'transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s, box-shadow 0.4s';
+                });
+                card.addEventListener('mouseenter', function () {
+                    card.style.transition = 'border-color 0.4s, box-shadow 0.4s';
+                });
+            });
         })();
     </script>
 </body>
