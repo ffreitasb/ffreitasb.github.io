@@ -730,6 +730,28 @@
         console.log('%c30+ AI systems. 13 years. 5 industries. One brain.', 'color: #181818;');
 
         /* ==========================================================
+           TAB TITLE — personality on visibility change
+           ========================================================== */
+        (function () {
+            var originalTitle = document.title;
+            var awayMessages = [
+                'Come back. The Gems miss you.',
+                '[VOIGHT-KAMPFF] Subject distracted.',
+                'Meanwhile, 30+ AI systems are still running.',
+                'Tab abandoned. Uptime continues.'
+            ];
+            var msgIdx = 0;
+            document.addEventListener('visibilitychange', function () {
+                if (document.hidden) {
+                    document.title = awayMessages[msgIdx % awayMessages.length];
+                    msgIdx++;
+                } else {
+                    document.title = originalTitle;
+                }
+            });
+        })();
+
+        /* ==========================================================
            3D TILT on project cards
            ========================================================== */
         (function () {

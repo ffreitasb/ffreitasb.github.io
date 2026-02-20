@@ -1279,6 +1279,24 @@ body.cursor-hover .cursor-ring {
    Reduced motion
    ========================================================================== */
 
+/* ==========================================================================
+   Dark mode crossover — .cc DNA bleeds through
+   ========================================================================== */
+
+@media (prefers-color-scheme: dark) {
+  ::selection {
+    background: #00FF41;
+    color: #0D0D0D;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #00FF41;
+  }
+}
+
+/* ==========================================================================
+   Reduced motion
+   ========================================================================== */
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .cursor-dot, .cursor-ring { display: none; }
