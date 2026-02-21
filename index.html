@@ -48,6 +48,8 @@
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="manifest" href="manifest.json">
 
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'">
+
     <!-- This site loads in <400ms. I believe slow software is disrespectful. -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -539,7 +541,7 @@
                 <a href="https://go.ffreitasb.cc/github_felipe" target="_blank" rel="noopener noreferrer" class="contact-link">
                     GitHub <span class="arrow">&rarr;</span>
                 </a>
-                <a href="https://go.ffreitasb.cc/mail_felipe" class="contact-link">
+                <a href="https://go.ffreitasb.cc/mail_felipe" target="_blank" rel="noopener noreferrer" class="contact-link">
                     Email <span class="arrow">&rarr;</span>
                 </a>
                 <a href="https://go.ffreitasb.cc/wa_felipe" target="_blank" rel="noopener noreferrer" class="contact-link">
