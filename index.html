@@ -681,9 +681,9 @@
                     }
                 }
             }
-            setTimeout(type, speed);
+            typeTimer = setTimeout(type, speed);
         }
-        setTimeout(type, 1800);
+        var typeTimer = setTimeout(type, 1800);
 
         /* ==========================================================
            FOOTER CLOCK — with uptime toggle via double-click
@@ -708,7 +708,21 @@
             }
         }
         updateClock();
-        setInterval(updateClock, 1000);
+        var clockInterval = setInterval(updateClock, 1000);
+
+        /* Pause typing + clock when tab is hidden to save CPU on mobile */
+        document.addEventListener('visibilitychange', function () {
+            if (document.hidden) {
+                clearTimeout(typeTimer);
+                clearInterval(clockInterval);
+            } else {
+                if (!prefersReducedMotion) {
+                    typeTimer = setTimeout(type, 300);
+                }
+                clockInterval = setInterval(updateClock, 1000);
+                updateClock();
+            }
+        });
         (function () {
             var clockEl = document.getElementById('sys-time');
             if (!clockEl) return;
