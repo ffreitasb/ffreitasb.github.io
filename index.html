@@ -63,18 +63,18 @@
     <!-- TRANSMISSION #003: The tactical version lives at ffreitasb.cc. You'll know it when you see it. -->
 
     <!-- Custom cursor -->
-    <div class="cursor-dot" id="cursorDot"></div>
-    <div class="cursor-ring" id="cursorRing"></div>
+    <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+    <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
 
     <!-- Ambient -->
-    <div class="noise"></div>
-    <div class="scroll-progress" id="scrollProgress"></div>
+    <div class="noise" aria-hidden="true"></div>
+    <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
     <!-- Navigation -->
     <nav class="nav">
         <div class="nav-inner">
             <a href="#hero" class="nav-logo">FF</a>
-            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">&#9776;</button>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">&#9776;</button>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#about">About</a></li>
                 <li><a href="#experience">Experience</a></li>
@@ -143,7 +143,7 @@
         <!-- ============================================================
              DUAL MARQUEE
              ============================================================ -->
-        <div class="marquee-section">
+        <div class="marquee-section" aria-hidden="true">
             <div class="marquee-row">
                 <div class="marquee-track">
                     <span>Python</span><span>AI Agents</span><span>LLM Fine-tuning</span>
@@ -529,12 +529,16 @@
         /* ==========================================================
            NAV TOGGLE
            ========================================================== */
-        document.getElementById('navToggle').addEventListener('click', function () {
-            document.getElementById('navLinks').classList.toggle('open');
+        var navToggleBtn = document.getElementById('navToggle');
+        var navLinksEl = document.getElementById('navLinks');
+        navToggleBtn.addEventListener('click', function () {
+            var isOpen = navLinksEl.classList.toggle('open');
+            navToggleBtn.setAttribute('aria-expanded', isOpen);
         });
         document.querySelectorAll('.nav-links a').forEach(function (link) {
             link.addEventListener('click', function () {
-                document.getElementById('navLinks').classList.remove('open');
+                navLinksEl.classList.remove('open');
+                navToggleBtn.setAttribute('aria-expanded', 'false');
             });
         });
 
