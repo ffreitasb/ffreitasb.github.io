@@ -715,7 +715,7 @@ body.cursor-hover .cursor-ring {
   background: transparent;
   color: var(--dim);
   border: 1px solid var(--border);
-  transition: all 0.3s;
+  transition: border-color 0.3s, color 0.3s, background-color 0.3s;
 }
 
 .tag:hover {
@@ -879,6 +879,9 @@ body.cursor-hover .cursor-ring {
   overflow: hidden;
   transition: border-color 0.4s, box-shadow 0.4s;
   transform-style: preserve-3d;
+}
+
+.project-card:hover {
   will-change: transform;
 }
 
@@ -1037,7 +1040,7 @@ body.cursor-hover .cursor-ring {
   padding: 0.3rem 0.6rem;
   border: 1px solid var(--border);
   color: var(--dim);
-  transition: all 0.3s;
+  transition: border-color 0.3s, color 0.3s, background-color 0.3s;
 }
 
 .other-tag:hover {
