@@ -619,8 +619,14 @@
         var rotationCount = 0;
         var glitchIdx = 0;
         var isGlitch = false;
+        var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        if (prefersReducedMotion) {
+            typingEl.textContent = words[0];
+        }
 
         function type() {
+            if (prefersReducedMotion) return;
             var word;
             var typeSpeed, deleteSpeed, pauseSpeed, nextSpeed;
 
