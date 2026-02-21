@@ -1306,6 +1306,10 @@ body.cursor-hover .cursor-ring {
   }
 
   .footer-line { max-width: 100%; }
+
+  .hero-tag { font-size: 0.65rem; }
+  .tag, .other-tag { font-size: 0.65rem; }
+  .footer-line, .footer-eof { font-size: 0.65rem; }
 }
 
 @media (max-width: 480px) {
