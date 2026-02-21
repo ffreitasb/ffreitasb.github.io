@@ -675,6 +675,10 @@
            ========================================================== */
         var clockShowUptime = false;
         var clockSessionStart = Date.now();
+        var clockFormatter = new Intl.DateTimeFormat('en-GB', {
+            hour: '2-digit', minute: '2-digit', second: '2-digit',
+            hour12: false, timeZone: 'America/Sao_Paulo'
+        });
         function updateClock() {
             var el = document.getElementById('sys-time');
             if (!el) return;
@@ -685,9 +689,7 @@
                 var s = String(elapsed % 60).padStart(2, '0');
                 el.textContent = h + ':' + m + ':' + s;
             } else {
-                var now = new Date();
-                var utc3 = new Date(now.getTime() + (-3 * 60 * 60 * 1000) - (now.getTimezoneOffset() * 60 * 1000));
-                el.textContent = String(utc3.getHours()).padStart(2, '0') + ':' + String(utc3.getMinutes()).padStart(2, '0') + ':' + String(utc3.getSeconds()).padStart(2, '0');
+                el.textContent = clockFormatter.format(new Date());
             }
         }
         updateClock();
