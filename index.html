@@ -519,6 +519,7 @@
     <footer class="footer">
         <div class="footer-line">&copy; 2026 Felipe Freitas &middot; SYS.TIME: <span id="sys-time">--:--:--</span> UTC-3 &middot; No tracking pixels. No cookie banners. No React. Zero dependencies. Built because I respect your bandwidth.</div>
         <div class="footer-eof">[EOF]</div>
+        <div id="layer3-reveal" style="display:none;text-align:center;padding:1.5rem 1rem;font-family:var(--mono);font-size:0.7rem;color:var(--dim);letter-spacing:0.05em;line-height:1.8;opacity:0;transition:opacity 0.8s;">There is no Layer 3.<br>The suggestion of depth was always the point.<br>You looked in both places. That makes you one of us.<br><span style="color:var(--accent);">[DUAL OPERATOR]</span></div>
         <!-- TRANSMISSION #007: EOF reached. But the other site never ends. → ffreitasb.cc -->
     </footer>
 
@@ -853,6 +854,16 @@
                     countEl.style.color = 'var(--accent)';
                     console.log('%c[GEM PROTOCOL] Full roster unlocked. You typed the magic word.', 'color: #8B1A2B; font-weight: bold;');
                     console.log('%c[GEM PROTOCOL] Clearance: REPLICANT-7 — report to the Ghost Shell.', 'color: #8B1A2B;');
+                }
+
+                if (buffer.includes('tahoma')) {
+                    var layer3 = document.getElementById('layer3-reveal');
+                    if (layer3 && layer3.style.display === 'none') {
+                        layer3.style.display = 'block';
+                        requestAnimationFrame(function () { layer3.style.opacity = '1'; });
+                        console.log('%c[TAHOMA] Passphrase accepted. Layer 3 resolved.', 'color: #8B1A2B; font-weight: bold;');
+                        console.log('%cYou visited both sites. The Ghost Shell sent you here.', 'color: #7A7A7A;');
+                    }
                 }
 
                 if (buffer.endsWith('ff')) {
