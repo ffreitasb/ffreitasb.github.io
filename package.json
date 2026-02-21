@@ -28,7 +28,7 @@
     "responsive",
     "pwa"
   ],
-  "author": "Felipe Freitas <ffreitasb@pm.me>",
+  "author": "Felipe Freitas",
   "license": "MIT",
   "devDependencies": {
     "@lhci/cli": "^0.12.0",
