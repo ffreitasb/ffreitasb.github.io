@@ -871,6 +871,36 @@
         })();
 
         /* ==========================================================
+           SPLIT KONAMI — ↑↑↓↓ shows flash hint to complete at .cc
+           ========================================================== */
+        (function () {
+            var halfKonami = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown'];
+            var konamiIdx = 0;
+            var konamiShown = false;
+            document.addEventListener('keydown', function (e) {
+                if (konamiShown) return;
+                if (e.key === halfKonami[konamiIdx]) {
+                    konamiIdx++;
+                    if (konamiIdx === halfKonami.length) {
+                        konamiShown = true;
+                        var flash = document.createElement('div');
+                        flash.textContent = 'Half-sequence accepted. Complete it where the Ghost Shell lives.';
+                        flash.style.cssText = 'position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#181818;color:#8B1A2B;font-family:var(--mono);font-size:0.85rem;padding:1.2rem 2rem;z-index:9999;border:1px solid #8B1A2B;opacity:0;transition:opacity 0.3s;pointer-events:none;';
+                        document.body.appendChild(flash);
+                        requestAnimationFrame(function () { flash.style.opacity = '1'; });
+                        setTimeout(function () {
+                            flash.style.opacity = '0';
+                            setTimeout(function () { flash.remove(); }, 400);
+                        }, 3000);
+                        console.log('%c[KONAMI] Half-sequence ↑↑↓↓ detected. Full code: ↑↑↓↓←→←→BA at ffreitasb.cc', 'color: #8B1A2B;');
+                    }
+                } else {
+                    konamiIdx = 0;
+                }
+            });
+        })();
+
+        /* ==========================================================
            CTA COORDINATES — hover shows lat/long of Goiania
            ========================================================== */
         (function () {
