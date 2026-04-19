@@ -1049,6 +1049,64 @@ body.cursor-hover .cursor-ring {
   background: var(--accent-soft);
 }
 
+/* Anchor variant of .other-tag — public repo link affordance */
+a.other-tag {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Reserve horizontal space on title when card has a GitHub icon */
+.project-card[data-repo] .project-title {
+  padding-right: 32px;
+}
+
+/* GitHub icon on featured cards with public repo */
+.project-github {
+  position: absolute;
+  top: 0.9rem;
+  right: 0.9rem;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  color: var(--dim);
+  opacity: 0.4;
+  transition: opacity 0.3s, color 0.3s, transform 0.3s;
+  text-decoration: none;
+}
+
+.project-card:hover .project-github {
+  opacity: 0.85;
+  color: var(--cat, var(--accent));
+}
+
+.project-github:hover,
+.project-github:focus-visible {
+  opacity: 1;
+  color: var(--cat, var(--accent));
+  transform: translateY(-1px);
+  outline: none;
+}
+
+/* FOSS badge — corner ribbon on open-source featured cards */
+.project-card[data-foss]::after {
+  content: 'FOSS';
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-family: var(--mono);
+  font-size: 0.5rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: var(--bg);
+  background: var(--cat, var(--accent));
+  padding: 0.28rem 0.55rem 0.22rem;
+  pointer-events: none;
+  z-index: 3;
+}
+
 /* ==========================================================================
    CTA — full-width statement
    ========================================================================== */
