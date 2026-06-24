@@ -54,7 +54,7 @@
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="manifest" href="manifest.json">
 
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; base-uri 'self'">
 
     <!-- This site loads in <400ms. I believe slow software is disrespectful. -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -118,7 +118,9 @@
             <a href="#hero" class="nav-logo">FF</a>
             <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">&#9776;</button>
             <ul class="nav-links" id="navLinks">
+                <li><a href="#brief">Brief</a></li>
                 <li><a href="#about">About</a></li>
+                <li><a href="#proof">Proof</a></li>
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#portfolio">Portfolio</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -186,10 +188,47 @@
         </section>
 
         <!-- ============================================================
+             RECRUITER BRIEF — fast scan layer
+             ============================================================ -->
+        <section class="brief section" id="brief" aria-labelledby="brief-title">
+            <div class="brief-kicker reveal">Recruiter brief // 60-second read</div>
+            <div class="brief-layout">
+                <div class="brief-copy reveal">
+                    <h2 id="brief-title">Revenue architecture with engineering teeth.</h2>
+                    <p>Best fit for roles that need business context, technical execution, and a calm adult in the room: Revenue Architect, RevOps/Data Lead, Solutions Architect, AI Automation Lead, or Fractional Tech Lead.</p>
+                    <div class="brief-actions" aria-label="Primary portfolio shortcuts">
+                        <a href="#portfolio" class="brief-link">View proof</a>
+                        <a href="#experience" class="brief-link">Map to CV</a>
+                        <a href="#contact" class="brief-link">Contact</a>
+                    </div>
+                </div>
+                <div class="brief-signal-grid reveal reveal-d1" aria-label="Fast evidence summary">
+                    <div class="brief-signal">
+                        <span class="brief-value">13+</span>
+                        <span class="brief-label">years across sales, engineering, data, automation</span>
+                    </div>
+                    <div class="brief-signal">
+                        <span class="brief-value">R$300M+</span>
+                        <span class="brief-label">revenue context handled across commercial roles</span>
+                    </div>
+                    <div class="brief-signal">
+                        <span class="brief-value">R$441M</span>
+                        <span class="brief-label">B2G TAM mapped in sanitized market intelligence work</span>
+                    </div>
+                    <div class="brief-signal">
+                        <span class="brief-value">30+</span>
+                        <span class="brief-label">AI/data/automation systems in the archive</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
              DUAL MARQUEE
              ============================================================ -->
-        <div class="marquee-section" aria-hidden="true">
-            <div class="marquee-row">
+        <div class="marquee-section">
+            <button class="marquee-toggle" id="marqueeToggle" type="button" aria-pressed="false">Pause ticker</button>
+            <div class="marquee-row" aria-hidden="true">
                 <div class="marquee-track">
                     <span>Python</span><span>AI Agents</span><span>LLM Fine-tuning</span>
                     <span>Revenue Architecture</span><span>Computer Vision</span>
@@ -214,7 +253,7 @@
                     <span>OSINT</span><span>OpSec</span><span>Proxmox</span>
                 </div>
             </div>
-            <div class="marquee-row marquee-row--reverse">
+            <div class="marquee-row marquee-row--reverse" aria-hidden="true">
                 <div class="marquee-track">
                     <span>PyTorch</span><span>Docker</span><span>PostgreSQL</span>
                     <span>FastAPI</span><span>Supabase</span><span>k3s</span>
@@ -325,11 +364,55 @@
         <div class="accent-line"></div>
 
         <!-- ============================================================
-             02 — EXPERIENCE
+             02 — PROOF LEDGER
+             ============================================================ -->
+        <section class="section proof" id="proof" aria-labelledby="proof-title">
+            <div class="section-head reveal">
+                <span class="section-num">02</span>
+                <h2 class="section-label" id="proof-title">Proof Ledger</h2>
+            </div>
+            <div class="proof-grid reveal">
+                <article class="proof-item">
+                    <div class="proof-metric">R$441M</div>
+                    <h3>B2G TAM mapped</h3>
+                    <p>Sanitized healthcare market intelligence pipeline covering 64.3M units, 759 buyer CNPJs, and 26/27 states.</p>
+                </article>
+                <article class="proof-item">
+                    <div class="proof-metric">75%</div>
+                    <h3>Manual actions removed</h3>
+                    <p>Event-driven RevOps automation reduced service-order friction with n8n, CRM webhooks, Graph API, and field bot flows.</p>
+                </article>
+                <article class="proof-item">
+                    <div class="proof-metric">99.64%</div>
+                    <h3>OCR baseline preserved</h3>
+                    <p>Industrial OCR rollback protected a regulatory workflow while deleting bloat and restoring audit reliability.</p>
+                </article>
+                <article class="proof-item">
+                    <div class="proof-metric">747K</div>
+                    <h3>tokens curated</h3>
+                    <p>ECHO.2E turns a 14GB personal archive into a controlled long-context stylometry and cognitive architecture experiment.</p>
+                </article>
+                <article class="proof-item">
+                    <div class="proof-metric">40 / 15s</div>
+                    <h3>slides generated</h3>
+                    <p>Native COM automation renders granular executive decks without corrupting PPTX XML or wasting analyst time.</p>
+                </article>
+                <article class="proof-item">
+                    <div class="proof-metric">0 deps</div>
+                    <h3>this site ships static</h3>
+                    <p>No app framework, no runtime dependencies, no tracking pixels. The artifact itself is part of the proof.</p>
+                </article>
+            </div>
+        </section>
+
+        <div class="accent-line"></div>
+
+        <!-- ============================================================
+             03 — EXPERIENCE
              ============================================================ -->
         <section class="section" id="experience">
             <div class="section-head reveal">
-                <span class="section-num">02</span>
+                <span class="section-num">03</span>
                 <h2 class="section-label">Experience</h2>
             </div>
             <div class="timeline reveal">
@@ -396,20 +479,61 @@
                     <p class="timeline-desc">Managed key accounts in residential channel, leading the largest negotiation in the Company's Midwest region. Increased served volume by 87%. Trained 150+ sales professionals.</p>
                 </div>
             </div>
+
+            <div class="experience-map reveal">
+                <div class="experience-map-title">Experience -> systems map</div>
+                <div class="experience-map-grid">
+                    <article>
+                        <h3>Current pharma market intelligence</h3>
+                        <p>Algorithmic S&amp;OP, Leviathan, Hospital Market Intelligence, Power BI Semantic Layer, geo-logistics.</p>
+                    </article>
+                    <article>
+                        <h3>Industrial RevOps architecture</h3>
+                        <p>POSV, MEMETIC, ThomasB-Vision, COM Deck Engine, Proposal Engine, Supabase/PostgreSQL operations DB.</p>
+                    </article>
+                    <article>
+                        <h3>Private AI/security lab</h3>
+                        <p>ECHO.2E, PhonemeFree, bartleby-pad, Abandoned Uplink, ffreitasb.cc dual-site ARG layer.</p>
+                    </article>
+                </div>
+            </div>
         </section>
 
         <div class="accent-line"></div>
 
         <!-- ============================================================
-             03 — PORTFOLIO
+             04 — PORTFOLIO
              ============================================================ -->
         <section class="section" id="portfolio">
             <div class="section-head reveal">
-                <span class="section-num">03</span>
+                <span class="section-num">04</span>
                 <h2 class="section-label">Portfolio</h2>
             </div>
+            <div class="project-explorer reveal" aria-label="Project explorer controls">
+                <div class="project-explorer-copy">
+                    <h3>Project Explorer</h3>
+                    <p>Filter the work by hiring signal. Everything remains readable without JavaScript; controls only sharpen the scan.</p>
+                </div>
+                <div class="project-tools">
+                    <label class="project-search-label" for="projectSearch">Search projects</label>
+                    <input id="projectSearch" class="project-search" type="search" placeholder="Try: n8n, TAM, OCR, FOSS, security" autocomplete="off">
+                    <div class="project-filters" role="group" aria-label="Project filters">
+                        <button type="button" class="filter-btn active" data-filter="all" aria-pressed="true">All</button>
+                        <button type="button" class="filter-btn" data-filter="recruiter" aria-pressed="false">Recruiter picks</button>
+                        <button type="button" class="filter-btn" data-filter="revenue" aria-pressed="false">Revenue</button>
+                        <button type="button" class="filter-btn" data-filter="data" aria-pressed="false">Data Eng</button>
+                        <button type="button" class="filter-btn" data-filter="ai" aria-pressed="false">AI Agents</button>
+                        <button type="button" class="filter-btn" data-filter="automation" aria-pressed="false">Automation</button>
+                        <button type="button" class="filter-btn" data-filter="security" aria-pressed="false">Security</button>
+                        <button type="button" class="filter-btn" data-filter="hardware" aria-pressed="false">Hardware</button>
+                        <button type="button" class="filter-btn" data-filter="foss" aria-pressed="false">FOSS</button>
+                        <button type="button" class="filter-btn" data-filter="nda" aria-pressed="false">NDA-safe</button>
+                    </div>
+                    <div class="project-count" id="projectCount" aria-live="polite">Showing 14 projects.</div>
+                </div>
+            </div>
             <div class="portfolio-grid">
-                <div class="project-card project-card--hero reveal" data-tilt data-cat="ai">
+                <div class="project-card project-card--hero reveal" data-tilt data-cat="ai" data-tags="recruiter ai nda">
                     <div class="project-number">01</div>
                     <h3 class="project-title">ECHO.2E &mdash; Cognitive Doppelganger</h3>
                     <p class="project-desc">Personal AI doppelganger built from a 14GB source archive and a 747K-token curated corpus spanning 2010&ndash;2026. Tri-layer cognitive architecture (CHAOS / EDITOR / SOUL), XML behavioral injection, Gemini long-context orchestration, and computational stylometry across 35+ metrics: vocabulary richness, n-gram profiles, bilingual code-switching, register contrast, and era-shifting.</p>
@@ -419,10 +543,17 @@
                         <span class="tag">In-Context Learning</span>
                         <span class="tag">Stylometry</span>
                     </div>
+                    <details class="case-file">
+                        <summary>Case file</summary>
+                        <p><strong>Problem:</strong> blank-page friction without outsourcing voice or judgment.</p>
+                        <p><strong>System:</strong> long-context corpus, XML controls, tri-layer persona routing, stylometry metrics.</p>
+                        <p><strong>Evidence:</strong> 14GB source archive, 747K curated tokens, 35+ fidelity metrics.</p>
+                        <p><strong>Boundary:</strong> private corpus; architecture and metrics only.</p>
+                    </details>
                     <p class="project-quip">"It writes like me. Sometimes better. That's the point."</p>
                 </div>
 
-                <div class="project-card project-card--tall reveal" data-tilt data-cat="data">
+                <div class="project-card project-card--tall reveal" data-tilt data-cat="data" data-tags="recruiter data nda">
                     <div class="project-number">02</div>
                     <h3 class="project-title">Power BI Semantic Layer &mdash; CNES Intelligence</h3>
                     <p class="project-desc">Analytical model for healthcare-market intelligence built as a portable Power BI semantic layer. PBIP/PBIR/TMDL structure, offline Parquet distribution, JSONL exports, CNES geographic enrichment, and 5,670 private establishment records prepared for repeatable executive analysis.</p>
@@ -432,10 +563,17 @@
                         <span class="tag">Parquet</span>
                         <span class="tag">CNES</span>
                     </div>
+                    <details class="case-file">
+                        <summary>Case file</summary>
+                        <p><strong>Problem:</strong> market analysis locked inside brittle one-off dashboards.</p>
+                        <p><strong>System:</strong> portable semantic model with PBIP/PBIR/TMDL, Parquet, JSONL, and CNES enrichment.</p>
+                        <p><strong>Evidence:</strong> 5,670 private establishments modeled for repeatable executive analysis.</p>
+                        <p><strong>Boundary:</strong> sanitized healthcare-market structure; no client/company data exposed.</p>
+                    </details>
                     <p class="project-quip">"A dashboard is only useful when the semantic layer stops lying."</p>
                 </div>
 
-                <div class="project-card project-card--wide reveal" data-tilt data-cat="data">
+                <div class="project-card project-card--wide reveal" data-tilt data-cat="data" data-tags="recruiter revenue data nda">
                     <div class="project-number">03</div>
                     <h3 class="project-title">Algorithmic S&amp;OP &mdash; Probabilistic Revenue Engine</h3>
                     <p class="project-desc">Strictly decoupled 3-tier forecasting engine that replaces average-of-averages planning with falsifiable probability distributions. Auto-ETS / SARIMA / Prophet benchmarking, 13-month strategic forecasts, 3-month tactical signals, 80% and 95% prediction intervals, MinT reconciliation, and walk-forward validation across historical shocks.</p>
@@ -445,10 +583,17 @@
                         <span class="tag">S&amp;OP</span>
                         <span class="tag">Risk Governance</span>
                     </div>
+                    <details class="case-file">
+                        <summary>Case file</summary>
+                        <p><strong>Problem:</strong> subjective targets and moving averages hiding forecast error.</p>
+                        <p><strong>System:</strong> Auto-ETS/SARIMA/Prophet benchmarking, prediction intervals, MinT reconciliation, walk-forward validation.</p>
+                        <p><strong>Evidence:</strong> 13-month strategic horizon plus 3-month tactical layer.</p>
+                        <p><strong>Boundary:</strong> business-safe forecasting architecture; no internal demand series exposed.</p>
+                    </details>
                     <p class="project-quip">"Hope is not a forecast. A falsifiable error curve is."</p>
                 </div>
 
-                <div class="project-card reveal" data-tilt data-cat="data">
+                <div class="project-card reveal" data-tilt data-cat="data" data-tags="recruiter revenue data nda">
                     <div class="project-number">04</div>
                     <h3 class="project-title">Leviathan &mdash; TAM Engineering Pipeline</h3>
                     <p class="project-desc">Asymmetric RevOps pipeline that synthesizes market truth from unstructured public procurement, corporate registries, pricing tables, and healthcare datasets. Maps 64.3M units / R$441M B2G TAM, 759 buyer CNPJs, and 26/27 states through entity resolution, Regex/NLP normalization, DuckDB warehousing, and Power BI outputs.</p>
@@ -458,10 +603,17 @@
                         <span class="tag">Entity Resolution</span>
                         <span class="tag">TAM</span>
                     </div>
+                    <details class="case-file">
+                        <summary>Case file</summary>
+                        <p><strong>Problem:</strong> granular TAM did not exist in clean commercial form.</p>
+                        <p><strong>System:</strong> procurement ingestion, entity resolution, free-text normalization, DuckDB warehouse, Power BI output.</p>
+                        <p><strong>Evidence:</strong> 64.3M units, R$441M B2G TAM, 759 buyer CNPJs, 26/27 states.</p>
+                        <p><strong>Boundary:</strong> obfuscated project name and sanitized metrics only.</p>
+                    </details>
                     <p class="project-quip">"When the data doesn't exist cleanly, manufacture signal from the noise."</p>
                 </div>
 
-                <div class="project-card reveal" data-tilt data-cat="data">
+                <div class="project-card reveal" data-tilt data-cat="data" data-tags="data nda">
                     <div class="project-number">05</div>
                     <h3 class="project-title">Hospital Market Intelligence Stack</h3>
                     <p class="project-desc">Healthcare B2B/B2G intelligence layer combining CNES, procurement, pricing, and geospatial signals. PBIP/PBIR/TMDL semantic model, offline Parquet packs, 5,670 private CNES records, 8,638 geocoded addresses, and QGIS overlays for territory, logistics, and account prioritization.</p>
@@ -471,10 +623,17 @@
                         <span class="tag">Parquet</span>
                         <span class="tag">QGIS</span>
                     </div>
+                    <details class="case-file">
+                        <summary>Case file</summary>
+                        <p><strong>Problem:</strong> account prioritization required geography, market, and logistics in one view.</p>
+                        <p><strong>System:</strong> CNES, procurement, pricing, geocoding, Parquet packs, and QGIS overlays.</p>
+                        <p><strong>Evidence:</strong> 8,638 geocoded addresses and 5,670 private CNES records.</p>
+                        <p><strong>Boundary:</strong> sanitized map logic; no sensitive account list exposed.</p>
+                    </details>
                     <p class="project-quip">"A map is a sales strategy if the layers are honest."</p>
                 </div>
 
-                <div class="project-card project-card--wide reveal" data-tilt data-cat="business">
+                <div class="project-card project-card--wide reveal" data-tilt data-cat="business" data-tags="recruiter revenue automation nda">
                     <div class="project-number">06</div>
                     <h3 class="project-title">POSV &mdash; Event-Driven RevOps Engine</h3>
                     <p class="project-desc">Post-sales automation engine built with n8n, CRM webhooks, Microsoft Graph, Teams, and a Telegram command center. Five asynchronous workflows reduced manual service-order actions by 75%, centralized field communication, routed high-value contracts automatically, and pushed data entry errors to zero.</p>
@@ -484,10 +643,17 @@
                         <span class="tag">Microsoft Graph</span>
                         <span class="tag">Telegram Bot</span>
                     </div>
+                    <details class="case-file">
+                        <summary>Case file</summary>
+                        <p><strong>Problem:</strong> post-sale operations depended on scattered manual actions and delayed visibility.</p>
+                        <p><strong>System:</strong> n8n workflows, CRM webhooks, Microsoft Graph, Teams routing, Telegram field command center.</p>
+                        <p><strong>Evidence:</strong> 75% reduction in manual service-order actions and zero data-entry error target.</p>
+                        <p><strong>Boundary:</strong> sanitized workflow topology; no customer or company payloads exposed.</p>
+                    </details>
                     <p class="project-quip">"The CRM stopped being a graveyard and became a nervous system."</p>
                 </div>
 
-                <div class="project-card reveal" data-tilt data-cat="finance" data-repo="ffreitasb/veredas-de-papel" data-foss>
+                <div class="project-card reveal" data-tilt data-cat="finance" data-repo="ffreitasb/veredas-de-papel" data-foss data-tags="recruiter finance foss public">
                     <div class="project-number">07</div>
                     <a class="project-github" href="https://github.com/ffreitasb/veredas-de-papel" target="_blank" rel="noopener noreferrer" aria-label="View Veredas de Papel on GitHub">
                         <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
@@ -500,10 +666,17 @@
                         <span class="tag">Anomaly Detection</span>
                         <span class="tag">ML</span>
                     </div>
+                    <details class="case-file">
+                        <summary>Case file</summary>
+                        <p><strong>Problem:</strong> retail investors see distressed fixed-income rates too late.</p>
+                        <p><strong>System:</strong> BCB/IFData ingestion, statistical thresholds, anomaly rules, typed Python discipline.</p>
+                        <p><strong>Evidence:</strong> public FOSS repo with roadmap for multidimensional outlier detection.</p>
+                        <p><strong>Boundary:</strong> public project; repo link available.</p>
+                    </details>
                     <p class="project-quip">"When banks get desperate, the numbers scream. This listens."</p>
                 </div>
 
-                <div class="project-card project-card--wide reveal" data-tilt data-cat="ai">
+                <div class="project-card project-card--wide reveal" data-tilt data-cat="ai" data-tags="ai automation nda">
                     <div class="project-number">08</div>
                     <h3 class="project-title">MEMETIC v3 &mdash; Autonomous Content Swarm</h3>
                     <p class="project-desc">n8n + LangChain multi-agent architecture for technical content operations. GOLEM, GALATEA, ARGUS, PYTHIA, HYDRA, and an error-handling layer coordinate copy, channel adaptation, visual generation, governance context, and publishing. Refactor reduced execution time by 47%, memory footprint by 60%, and context duplication by 66%.</p>
@@ -513,10 +686,17 @@
                         <span class="tag">Multi-Agent</span>
                         <span class="tag">HitL</span>
                     </div>
+                    <details class="case-file">
+                        <summary>Case file</summary>
+                        <p><strong>Problem:</strong> technical content production was slow, repetitive, and compliance-sensitive.</p>
+                        <p><strong>System:</strong> n8n/LangChain swarm with specialized agents for copy, context, visuals, publishing, and error handling.</p>
+                        <p><strong>Evidence:</strong> 47% faster execution, 60% lower memory footprint, 66% less context duplication.</p>
+                        <p><strong>Boundary:</strong> sanitized agent topology; private workflows stay private.</p>
+                    </details>
                     <p class="project-quip">"Brand voice is just deterministic orchestration wearing a nicer shirt."</p>
                 </div>
 
-                <div class="project-card reveal" data-tilt data-cat="business">
+                <div class="project-card reveal" data-tilt data-cat="business" data-tags="recruiter revenue ai nda">
                     <div class="project-number">09</div>
                     <h3 class="project-title">KALEIDO &mdash; RevOps Intelligence Framework</h3>
                     <p class="project-desc">Senior-role technical case built as a forensic RevOps intelligence system. Domain separation, 1,200 opportunities versus 20 audited records, R$74.8M pipeline analysis, SQL Shield for guarded Text-to-SQL, XAI churn/playbooks, and nine documented deliverables.</p>
@@ -526,10 +706,17 @@
                         <span class="tag">XAI</span>
                         <span class="tag">Data Governance</span>
                     </div>
+                    <details class="case-file">
+                        <summary>Case file</summary>
+                        <p><strong>Problem:</strong> LLMs on dirty CRM data create confident hallucinations.</p>
+                        <p><strong>System:</strong> domain separation, SQL Shield, explainable churn risk, playbook generation, hardened data checks.</p>
+                        <p><strong>Evidence:</strong> R$74.8M pipeline analysis and nine documented deliverables in case format.</p>
+                        <p><strong>Boundary:</strong> evaluative/private repository; architecture disclosed, raw case data not disclosed.</p>
+                    </details>
                     <p class="project-quip">"Dirty CRM data does not become strategy because a chatbot touched it."</p>
                 </div>
 
-                <div class="project-card reveal" data-tilt data-cat="security">
+                <div class="project-card reveal" data-tilt data-cat="security" data-tags="security hardware nda">
                     <div class="project-number">10</div>
                     <h3 class="project-title">PhonemeFree &mdash; Voice Obfuscation Engine</h3>
                     <p class="project-desc">Local-first anti-deepfake research engine for defensive voice obfuscation. Pure C++17 DSP core with pitch shifting, formant warping, and 32-bit LFSR noise injection, packaged through Kotlin/NDK for Android and a custom ESP32-S3 USB microphone path. No cloud, no biometric leakage.</p>
@@ -539,10 +726,17 @@
                         <span class="tag">ESP32-S3</span>
                         <span class="tag">Zero Trust</span>
                     </div>
+                    <details class="case-file">
+                        <summary>Case file</summary>
+                        <p><strong>Problem:</strong> voice notes are becoming reusable biometric attack material.</p>
+                        <p><strong>System:</strong> local DSP pipeline with pitch shifting, formant warping, LFSR noise, Android and ESP32-S3 branches.</p>
+                        <p><strong>Evidence:</strong> dual-branch local-first architecture, no cloud, no biometric upload.</p>
+                        <p><strong>Boundary:</strong> defensive research; release posture controlled.</p>
+                    </details>
                     <p class="project-quip">"Your voice is a credential. Stop uploading it to strangers."</p>
                 </div>
 
-                <div class="project-card reveal" data-tilt data-cat="hardware" data-repo="ffreitasb/bartleby-pad" data-foss>
+                <div class="project-card reveal" data-tilt data-cat="hardware" data-repo="ffreitasb/bartleby-pad" data-foss data-tags="hardware security foss public">
                     <div class="project-number">11</div>
                     <a class="project-github" href="https://github.com/ffreitasb/bartleby-pad" target="_blank" rel="noopener noreferrer" aria-label="View bartleby-pad on GitHub">
                         <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
@@ -555,10 +749,17 @@
                         <span class="tag">USB HID</span>
                         <span class="tag">OpSec</span>
                     </div>
+                    <details class="case-file">
+                        <summary>Case file</summary>
+                        <p><strong>Problem:</strong> locked-down environments turn engineers into manual typists.</p>
+                        <p><strong>System:</strong> RP2040 HID macropad with no wireless, no runtime config, and chip-bound payload obfuscation.</p>
+                        <p><strong>Evidence:</strong> public FOSS repo; payloads avoid plaintext at rest.</p>
+                        <p><strong>Boundary:</strong> public hardware/software project.</p>
+                    </details>
                     <p class="project-quip">"I would prefer not to manually type boilerplate ever again."</p>
                 </div>
 
-                <div class="project-card reveal" data-tilt data-cat="ai">
+                <div class="project-card reveal" data-tilt data-cat="ai" data-tags="recruiter ai automation nda">
                     <div class="project-number">12</div>
                     <h3 class="project-title">ThomasB-Vision &mdash; Industrial OCR Survival</h3>
                     <p class="project-desc">Industrial OCR rollback and lean rewrite for NR-13 compliance workflows. Preserved the 99.64% accuracy baseline, removed 433 non-essential files and 233K lines of dead code, reduced onboarding from 3 weeks to 3 days, and shipped a standalone Windows workflow for auditor-ready Excel outputs.</p>
@@ -568,10 +769,17 @@
                         <span class="tag">OpenCV</span>
                         <span class="tag">Lean Refactor</span>
                     </div>
+                    <details class="case-file">
+                        <summary>Case file</summary>
+                        <p><strong>Problem:</strong> a bloated OCR rewrite threatened a regulatory inspection workflow.</p>
+                        <p><strong>System:</strong> rollback, lean refactor, synonym dictionary, circuit breaker, Excel auditor workflow.</p>
+                        <p><strong>Evidence:</strong> 99.64% baseline preserved, 433 files removed, 233K LOC deleted.</p>
+                        <p><strong>Boundary:</strong> sanitized industrial context; no proprietary inspection data exposed.</p>
+                    </details>
                     <p class="project-quip">"Working code beats fashionable architecture when the audit is real."</p>
                 </div>
 
-                <div class="project-card reveal" data-tilt data-cat="infra">
+                <div class="project-card reveal" data-tilt data-cat="infra" data-tags="security infra public">
                     <div class="project-number">13</div>
                     <h3 class="project-title">The Abandoned Uplink &mdash; Honeypot</h3>
                     <p class="project-desc">Psychological honeypot simulating an abandoned Windows 95 / SCADA terminal at ffreitasb.xyz. Flask backend, zero-dependency frontend, Cloudflare Worker edge classification, fake exposed assets, canary triggers, scanner tarpit behavior, and Telegram digest alerts.</p>
@@ -581,10 +789,17 @@
                         <span class="tag">Active Defense</span>
                         <span class="tag">Telegram</span>
                     </div>
+                    <details class="case-file">
+                        <summary>Case file</summary>
+                        <p><strong>Problem:</strong> automated scanners probe public infrastructure constantly.</p>
+                        <p><strong>System:</strong> fake Win95/SCADA interface, edge classification, tarpit routes, canaries, Telegram digest alerts.</p>
+                        <p><strong>Evidence:</strong> live psychological honeypot pattern and zero-dependency frontend.</p>
+                        <p><strong>Boundary:</strong> public decoy; operational internals partially withheld.</p>
+                    </details>
                     <p class="project-quip">"You found a legacy machine. Actually, it found you."</p>
                 </div>
 
-                <div class="project-card reveal" data-tilt data-cat="business">
+                <div class="project-card reveal" data-tilt data-cat="business" data-tags="recruiter automation business nda">
                     <div class="project-number">14</div>
                     <h3 class="project-title">COM Deck Engine &mdash; Executive Reporting Automation</h3>
                     <p class="project-desc">Native Windows COM automation that turns raw territory KPIs into 40 executive PowerPoint slides in 15 seconds while preserving the original corporate design. Bypasses fragile PPTX XML manipulation, injects data through hidden alt-text placeholders, and eliminates the recurring two-hour copy/paste reporting ritual.</p>
@@ -594,6 +809,13 @@
                         <span class="tag">PowerPoint</span>
                         <span class="tag">Automation</span>
                     </div>
+                    <details class="case-file">
+                        <summary>Case file</summary>
+                        <p><strong>Problem:</strong> recurring executive reporting consumed hours of manual slide assembly.</p>
+                        <p><strong>System:</strong> native Windows COM automation, alt-text placeholders, chart/data injection, design-preserving rendering.</p>
+                        <p><strong>Evidence:</strong> 40 granular territory slides in 15 seconds.</p>
+                        <p><strong>Boundary:</strong> sanitized reporting architecture; no corporate deck assets exposed.</p>
+                    </details>
                     <p class="project-quip">"The best PowerPoint work is the kind the machine does while you drink coffee."</p>
                 </div>
             </div>
@@ -683,23 +905,107 @@
         var sections = document.querySelectorAll('section[id]');
         var navAnchors = document.querySelectorAll('.nav-links a');
         var navScrollTicking = false;
+        function updateActiveNav() {
+            var current = '';
+            var activationY = Math.min(window.innerHeight * 0.35, 260);
+            sections.forEach(function (section) {
+                if (section.getBoundingClientRect().top <= activationY) {
+                    current = '#' + section.id;
+                }
+            });
+            navAnchors.forEach(function (a) {
+                var isActive = a.getAttribute('href') === current;
+                a.classList.toggle('active', isActive);
+                if (isActive) {
+                    a.setAttribute('aria-current', 'page');
+                } else {
+                    a.removeAttribute('aria-current');
+                }
+            });
+        }
         window.addEventListener('scroll', function () {
             if (!navScrollTicking) {
                 requestAnimationFrame(function () {
-                    var current = '';
-                    sections.forEach(function (section) {
-                        if (window.scrollY >= section.offsetTop - 120) {
-                            current = '#' + section.id;
-                        }
-                    });
-                    navAnchors.forEach(function (a) {
-                        a.classList.toggle('active', a.getAttribute('href') === current);
-                    });
+                    updateActiveNav();
                     navScrollTicking = false;
                 });
                 navScrollTicking = true;
             }
         });
+        updateActiveNav();
+        requestAnimationFrame(updateActiveNav);
+        window.addEventListener('load', updateActiveNav);
+        window.addEventListener('hashchange', function () {
+            requestAnimationFrame(updateActiveNav);
+        });
+
+        /* ==========================================================
+           ACCESSIBLE TICKER CONTROL
+           ========================================================== */
+        (function () {
+            var marquee = document.querySelector('.marquee-section');
+            var toggle = document.getElementById('marqueeToggle');
+            if (!marquee || !toggle) return;
+
+            toggle.addEventListener('click', function () {
+                var isPaused = marquee.classList.toggle('is-paused');
+                toggle.setAttribute('aria-pressed', String(isPaused));
+                toggle.textContent = isPaused ? 'Resume ticker' : 'Pause ticker';
+            });
+        })();
+
+        /* ==========================================================
+           PROJECT EXPLORER
+           ========================================================== */
+        (function () {
+            var search = document.getElementById('projectSearch');
+            var count = document.getElementById('projectCount');
+            var buttons = Array.prototype.slice.call(document.querySelectorAll('.filter-btn'));
+            var cards = Array.prototype.slice.call(document.querySelectorAll('.project-card'));
+            var activeFilter = 'all';
+
+            if (!search || !count || !buttons.length || !cards.length) return;
+
+            function normalize(value) {
+                return (value || '')
+                    .toLowerCase()
+                    .normalize('NFD')
+                    .replace(/[\u0300-\u036f]/g, '');
+            }
+
+            function updateProjects() {
+                var query = normalize(search.value);
+                var visible = 0;
+
+                cards.forEach(function (card) {
+                    var tags = normalize((card.getAttribute('data-tags') || '') + ' ' + (card.getAttribute('data-cat') || ''));
+                    var haystack = normalize(card.textContent + ' ' + tags);
+                    var matchesFilter = activeFilter === 'all' || tags.split(/\s+/).indexOf(activeFilter) !== -1;
+                    var matchesQuery = !query || haystack.indexOf(query) !== -1;
+                    var shouldShow = matchesFilter && matchesQuery;
+
+                    card.hidden = !shouldShow;
+                    if (shouldShow) visible++;
+                });
+
+                count.textContent = 'Showing ' + visible + ' of ' + cards.length + ' projects.';
+            }
+
+            buttons.forEach(function (button) {
+                button.addEventListener('click', function () {
+                    activeFilter = button.getAttribute('data-filter') || 'all';
+                    buttons.forEach(function (btn) {
+                        var isActive = btn === button;
+                        btn.classList.toggle('active', isActive);
+                        btn.setAttribute('aria-pressed', String(isActive));
+                    });
+                    updateProjects();
+                });
+            });
+
+            search.addEventListener('input', updateProjects);
+            updateProjects();
+        })();
 
         /* ==========================================================
            TYPING EFFECT — with glitch messages every 4th rotation

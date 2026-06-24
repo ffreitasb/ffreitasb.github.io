@@ -535,6 +535,29 @@ body.cursor-hover .cursor-ring {
   border-bottom: 1px solid var(--border);
   overflow: hidden;
   padding: 0.25rem 0;
+  position: relative;
+}
+
+.marquee-toggle {
+  position: absolute;
+  top: 0.45rem;
+  right: 4vw;
+  z-index: 2;
+  font-family: var(--mono);
+  font-size: 0.52rem;
+  color: var(--dim);
+  background: rgba(192, 191, 188, 0.86);
+  border: 1px solid var(--border);
+  padding: 0.32rem 0.55rem;
+  transition: color 0.3s, border-color 0.3s, background-color 0.3s;
+}
+
+.marquee-toggle:hover,
+.marquee-toggle:focus-visible,
+.marquee-toggle[aria-pressed="true"] {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: rgba(192, 191, 188, 0.96);
 }
 
 .marquee-row {
@@ -569,6 +592,10 @@ body.cursor-hover .cursor-ring {
 }
 
 .marquee-section:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+.marquee-section.is-paused .marquee-track {
   animation-play-state: paused;
 }
 
@@ -625,6 +652,153 @@ body.cursor-hover .cursor-ring {
 .accent-line {
   height: 1px;
   background: var(--border);
+}
+
+/* ==========================================================================
+   Recruiter Brief + Proof Ledger
+   ========================================================================== */
+
+.brief {
+  padding-top: 5.5rem;
+  padding-bottom: 5.5rem;
+}
+
+.brief-kicker {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  color: var(--accent);
+  margin-bottom: 1.5rem;
+}
+
+.brief-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
+  gap: 4rem;
+  align-items: end;
+}
+
+.brief-copy h2 {
+  font-family: var(--display);
+  font-size: 2.15rem;
+  font-weight: 700;
+  line-height: 1.08;
+  color: var(--text);
+  margin-bottom: 1rem;
+  max-width: 720px;
+}
+
+.brief-copy p {
+  max-width: 700px;
+  color: var(--dim);
+  font-size: 0.9rem;
+}
+
+.brief-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.4rem;
+}
+
+.brief-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 0.45rem 0.7rem;
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  text-decoration: none;
+  transition: color 0.3s, border-color 0.3s, background-color 0.3s;
+}
+
+.brief-link:hover,
+.brief-link:focus-visible {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.brief-signal-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-top: 1px solid var(--border);
+  border-left: 1px solid var(--border);
+}
+
+.brief-signal {
+  min-height: 128px;
+  padding: 1rem;
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.brief-signal:hover {
+  background: var(--accent-soft);
+  border-color: var(--accent-mid);
+}
+
+.brief-value,
+.proof-metric {
+  font-family: var(--display);
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1;
+}
+
+.brief-value {
+  font-size: 2rem;
+}
+
+.brief-label {
+  font-family: var(--sig);
+  font-size: 0.62rem;
+  color: var(--dim);
+  line-height: 1.45;
+}
+
+.proof-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+}
+
+.proof-item {
+  min-height: 220px;
+  padding: 1.35rem;
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: background-color 0.3s;
+}
+
+.proof-item:hover {
+  background: rgba(139, 26, 43, 0.06);
+}
+
+.proof-metric {
+  font-size: 2.2rem;
+}
+
+.proof-item h3 {
+  font-family: var(--display);
+  font-size: 0.9rem;
+  color: var(--text);
+  margin: 1.5rem 0 0.55rem;
+}
+
+.proof-item p {
+  color: var(--dim);
+  font-size: 0.78rem;
+  line-height: 1.65;
 }
 
 /* ==========================================================================
@@ -866,9 +1040,137 @@ body.cursor-hover .cursor-ring {
   line-height: 1.7;
 }
 
+.experience-map {
+  margin-top: 3.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+
+.experience-map-title {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+.experience-map-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.experience-map article {
+  border-left: 2px solid var(--border);
+  padding: 0.25rem 0 0.25rem 1rem;
+  transition: border-color 0.3s, background-color 0.3s;
+}
+
+.experience-map article:hover,
+.experience-map article:focus-within {
+  border-color: var(--accent);
+  background: rgba(139, 26, 43, 0.05);
+}
+
+.experience-map h3 {
+  font-family: var(--display);
+  font-size: 0.82rem;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
+.experience-map p {
+  font-size: 0.76rem;
+  color: var(--dim);
+  line-height: 1.65;
+}
+
 /* ==========================================================================
    Portfolio — bento grid with 3D tilt
    ========================================================================== */
+
+.project-explorer {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.74fr) minmax(0, 1.26fr);
+  gap: 2rem;
+  align-items: start;
+  margin-bottom: 1.25rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.project-explorer-copy p {
+  font-size: 0.82rem;
+  color: var(--dim);
+  max-width: 520px;
+}
+
+.project-explorer-copy h3 {
+  font-family: var(--display);
+  font-size: 0.98rem;
+  color: var(--text);
+  margin-bottom: 0.45rem;
+}
+
+.project-tools {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.project-search-label {
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  color: var(--accent);
+}
+
+.project-search {
+  width: 100%;
+  min-height: 40px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text);
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  padding: 0.65rem 0.75rem;
+  outline: none;
+  transition: border-color 0.3s, background-color 0.3s;
+}
+
+.project-search:focus {
+  border-color: var(--accent);
+  background: rgba(139, 26, 43, 0.06);
+}
+
+.project-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.filter-btn {
+  min-height: 31px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--dim);
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  padding: 0.35rem 0.55rem;
+  transition: color 0.3s, border-color 0.3s, background-color 0.3s;
+}
+
+.filter-btn:hover,
+.filter-btn:focus-visible,
+.filter-btn.active {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.project-count {
+  min-height: 1.4rem;
+  font-family: var(--sig);
+  font-size: 0.62rem;
+  color: var(--dim);
+}
 
 .portfolio-grid {
   display: grid;
@@ -892,6 +1194,10 @@ body.cursor-hover .cursor-ring {
 
 .project-card:hover {
   will-change: transform;
+}
+
+.project-card[hidden] {
+  display: none !important;
 }
 
 /* Bento layout — explicit card hierarchy */
@@ -1020,6 +1326,65 @@ body.cursor-hover .cursor-ring {
 .project-card:hover .project-quip {
   opacity: 0.8;
   transform: translateY(0);
+}
+
+.project-card:focus-within {
+  border-color: var(--cat, var(--accent));
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06), 0 0 0 1px var(--cat, var(--accent));
+}
+
+.project-card:focus-within::before {
+  opacity: 1;
+}
+
+.project-card:focus-within .project-quip {
+  opacity: 0.8;
+  transform: translateY(0);
+}
+
+.case-file {
+  position: relative;
+  z-index: 1;
+  margin-top: 1rem;
+  padding-top: 0.8rem;
+  border-top: 1px solid rgba(168, 167, 164, 0.68);
+}
+
+.case-file summary {
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  color: var(--cat, var(--accent));
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  list-style: none;
+  user-select: none;
+}
+
+.case-file summary::-webkit-details-marker {
+  display: none;
+}
+
+.case-file summary::before {
+  content: '+';
+  margin-right: 0.4rem;
+  color: var(--dim);
+}
+
+.case-file[open] summary::before {
+  content: '-';
+}
+
+.case-file p {
+  margin-top: 0.55rem;
+  color: var(--dim);
+  font-size: 0.72rem;
+  line-height: 1.58;
+}
+
+.case-file strong {
+  color: var(--text);
+  font-weight: 600;
 }
 
 /* Other projects */
@@ -1274,6 +1639,17 @@ a.other-tag {
    ========================================================================== */
 
 @media (max-width: 900px) {
+  .brief-layout,
+  .project-explorer {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .proof-grid,
+  .experience-map-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .portfolio-grid {
     grid-template-columns: 1fr 1fr;
   }
@@ -1339,6 +1715,25 @@ a.other-tag {
   .section-head { gap: 1rem; }
   .section-num { font-size: 3rem; }
 
+  .brief {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  .brief-copy h2 {
+    font-size: 1.65rem;
+  }
+
+  .brief-signal-grid,
+  .proof-grid,
+  .experience-map-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .proof-item {
+    min-height: 180px;
+  }
+
   .about-grid {
     grid-template-columns: 1fr;
     gap: 2.5rem;
@@ -1356,13 +1751,34 @@ a.other-tag {
   }
 
   .project-number { font-size: 3rem !important; }
-  .project-quip { display: none; }
+  .project-quip {
+    position: static;
+    display: block;
+    opacity: 0.72;
+    transform: none;
+    margin-top: 1rem;
+  }
+
+  .project-card--hero .project-quip {
+    left: auto;
+    right: auto;
+  }
+
+  .case-file summary {
+    font-size: 0.68rem;
+  }
 
   .contact-heading {
     font-size: clamp(3rem, 14vw, 6rem);
   }
 
   .marquee-track span { font-size: 0.65rem; }
+
+  .marquee-toggle {
+    position: static;
+    display: inline-flex;
+    margin: 0.35rem 4vw 0.1rem;
+  }
 
   .footer {
     flex-direction: column;
@@ -1381,6 +1797,10 @@ a.other-tag {
   .hero-headline { font-size: 2.5rem; }
   .stat-num { font-size: 2rem; }
   .hero-stats { gap: 2rem; }
+  .brief-signal { min-height: 112px; }
+  .proof-metric { font-size: 1.85rem; }
+  .project-card { padding: 1.35rem; padding-bottom: 1.35rem; }
+  .project-card--hero { padding: 1.55rem; }
 }
 
 /* ==========================================================================
@@ -1393,7 +1813,7 @@ a.other-tag {
 
 @media print {
   .noise, .cursor-dot, .cursor-ring, .scroll-progress,
-  .hero-scroll, .nav-toggle, .marquee-section,
+  .hero-scroll, .nav-toggle, .marquee-section, .project-explorer,
   .cta, .nav { display: none !important; }
 
   body { background: #fff !important; color: #000 !important; }
@@ -1419,7 +1839,21 @@ a.other-tag {
     color: #666;
   }
 
-  .project-quip { display: block !important; opacity: 1 !important; transform: none !important; }
+  .brief-layout, .about-grid, .experience-map-grid, .portfolio-grid, .proof-grid {
+    display: block !important;
+  }
+
+  .brief-signal, .proof-item, .project-card, .experience-map article {
+    break-inside: avoid;
+    margin-bottom: 1rem;
+  }
+
+  .project-quip,
+  .case-file {
+    display: block !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
 
   body::after {
     content: 'Printed from ffreitasb.github.io  |  The version I actually enjoy building lives at ffreitasb.cc  |  No frameworks. No tracking. No excuses.';
