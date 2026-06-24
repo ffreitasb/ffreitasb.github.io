@@ -1,7 +1,7 @@
 {
   "name": "ffreitasb-portfolio",
   "version": "2.0.0",
-  "description": "High-performance portfolio for Felipe Freitas",
+  "description": "Zero-dependency portfolio for Felipe Freitas: revenue architecture, data engineering, and AI systems",
   "private": true,
   "main": "index.html",
   "scripts": {
@@ -17,9 +17,12 @@
   "keywords": [
     "portfolio",
     "performance",
-    "data-science",
+    "data-engineering",
     "business-intelligence",
+    "revops",
+    "sop",
     "ai",
+    "ai-agents",
     "responsive",
     "pwa"
   ],

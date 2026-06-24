@@ -431,6 +431,14 @@ body.cursor-hover .cursor-ring {
   animation: fadeSlideUp 0.8s 1.8s forwards;
 }
 
+.hero-current span {
+  display: block;
+}
+
+.hero-current span + span {
+  margin-top: 0.35rem;
+}
+
 .hero-bottom {
   display: flex;
   justify-content: space-between;
@@ -866,6 +874,7 @@ body.cursor-hover .cursor-ring {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
+  align-items: stretch;
 }
 
 .project-card {
@@ -885,20 +894,20 @@ body.cursor-hover .cursor-ring {
   will-change: transform;
 }
 
-/* Bento layout — asymmetric card sizes */
-.project-card:nth-child(1) {
+/* Bento layout — explicit card hierarchy */
+.project-card--hero {
   grid-column: span 2;
   grid-row: span 2;
   padding: 2.5rem;
   padding-bottom: 3.5rem;
 }
 
-.project-card:nth-child(4) {
+.project-card--wide {
   grid-column: span 2;
 }
 
-.project-card:nth-child(7) {
-  grid-column: span 2;
+.project-card--tall {
+  grid-row: span 2;
 }
 
 /* Category color system — adjusted for light bg */
@@ -907,6 +916,8 @@ body.cursor-hover .cursor-ring {
 .project-card[data-cat="finance"]  { --cat: #5B3A8C; }
 .project-card[data-cat="infra"]    { --cat: #1A6B3C; }
 .project-card[data-cat="business"] { --cat: #7A7A7A; }
+.project-card[data-cat="data"]     { --cat: #1F5F73; }
+.project-card[data-cat="security"] { --cat: #6A4C93; }
 
 .project-card::before {
   content: '';
@@ -944,7 +955,7 @@ body.cursor-hover .cursor-ring {
   user-select: none;
 }
 
-.project-card:nth-child(1) .project-number {
+.project-card--hero .project-number {
   font-size: 8rem;
 }
 
@@ -963,7 +974,7 @@ body.cursor-hover .cursor-ring {
   z-index: 1;
 }
 
-.project-card:nth-child(1) .project-title {
+.project-card--hero .project-title {
   font-size: 1.15rem;
 }
 
@@ -1001,7 +1012,7 @@ body.cursor-hover .cursor-ring {
   z-index: 1;
 }
 
-.project-card:nth-child(1) .project-quip {
+.project-card--hero .project-quip {
   left: 2.5rem;
   right: 2.5rem;
 }
@@ -1267,14 +1278,10 @@ a.other-tag {
     grid-template-columns: 1fr 1fr;
   }
 
-  .project-card:nth-child(1) {
+  .project-card--hero,
+  .project-card--tall {
     grid-column: 1 / -1;
     grid-row: span 1;
-  }
-
-  .project-card:nth-child(4),
-  .project-card:nth-child(7) {
-    grid-column: span 1;
   }
 }
 
@@ -1341,9 +1348,9 @@ a.other-tag {
 
   .portfolio-grid { grid-template-columns: 1fr; }
 
-  .project-card:nth-child(1),
-  .project-card:nth-child(4),
-  .project-card:nth-child(7) {
+  .project-card--hero,
+  .project-card--wide,
+  .project-card--tall {
     grid-column: span 1;
     grid-row: span 1;
   }
