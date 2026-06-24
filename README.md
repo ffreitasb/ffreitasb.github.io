@@ -24,11 +24,17 @@ Part of a two-site ecosystem:
 - **Zero npm dependencies** — only Google Fonts CDN
 - **Target load time:** < 400ms
 
+## Commands
+
+- `npm run dev` — serve the static site at `http://localhost:3000/`
+- `npm run build` — no-op confirmation; GitHub Pages serves the files directly
+- `npm run clean` — remove generated local audit/build leftovers, if any
+
 ## Design
 
 **Direction C: "O Anti-Portfolio"**
 
-- **Background:** `#EDECEA` (cool off-white, institutional)
+- **Background:** `#C0BFBC` (heather gray, institutional)
 - **Accent:** `#8B1A2B` (oxblood — dark red, almost brown)
 - **Display:** Instrument Sans
 - **Body:** Inter
@@ -57,4 +63,4 @@ Part of a two-site ecosystem:
 
 ## License
 
-All rights reserved. This is a personal portfolio — not a template.
+All rights reserved. This is a personal portfolio — not a template. Package metadata is marked `UNLICENSED` to match.

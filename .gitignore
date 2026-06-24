@@ -4,7 +4,6 @@ package-lock.json
 
 # Build artifacts
 dist/
-lighthouse-report.json
 
 # Dev tools
 .genkit/

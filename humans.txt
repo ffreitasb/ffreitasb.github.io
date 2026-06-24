@@ -10,7 +10,7 @@
     VOIGHT-KAMPFF: knows you're reading this
 
 /* SITE */
-    Last update: 2026-02-20
+    Last update: 2026-06-24
     Language: English
     Standards: HTML5, CSS3, Vanilla JS
     Components: 0 frameworks, 0 dependencies
