@@ -5,6 +5,8 @@
    ========================================================================== */
 
 :root {
+  color-scheme: only light;
+
   --bg:       #C0BFBC;
   --surface:  #B6B5B2;
   --text:     #181818;
@@ -23,6 +25,7 @@
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
 html {
+  color-scheme: only light;
   scroll-behavior: smooth;
   scroll-padding-top: 72px;
   scrollbar-width: thin;
@@ -30,6 +33,7 @@ html {
 }
 
 body {
+  color-scheme: only light;
   font-family: var(--body);
   background: var(--bg);
   color: var(--dim);
@@ -1662,6 +1666,12 @@ a.other-tag {
 }
 
 @media (max-width: 768px) {
+  :root,
+  html,
+  body {
+    color-scheme: only light;
+  }
+
   .cursor-dot, .cursor-ring { display: none !important; }
   html, body, a, button { cursor: auto !important; }
 
@@ -1672,6 +1682,68 @@ a.other-tag {
 
   .hero-headline {
     font-size: clamp(3rem, 12vw, 6rem);
+  }
+
+  .hero-word,
+  .nav-logo,
+  .brief-copy h2,
+  .brief-value,
+  .proof-metric,
+  .about-text p:first-child,
+  .project-title,
+  .timeline-role,
+  .stat-num,
+  .contact-heading,
+  .brief-link,
+  .filter-btn,
+  .project-search {
+    color: var(--text);
+    -webkit-text-fill-color: var(--text);
+  }
+
+  .hero-word--accent,
+  .hero-word--accent .letter,
+  .systems-list,
+  .hero-typing,
+  .cursor,
+  .section-label,
+  .timeline-company,
+  .project-quip,
+  .case-file summary {
+    color: var(--accent);
+    -webkit-text-fill-color: var(--accent);
+  }
+
+  .hero-tag,
+  .hero-name-small,
+  .hero-role,
+  .nav-toggle,
+  .typing-prefix,
+  .brief-copy p,
+  .brief-label,
+  .proof-item p,
+  .about-text p,
+  .timeline-date,
+  .timeline-desc,
+  .project-desc,
+  .tag,
+  .other-tag,
+  .stat-label,
+  .footer-line,
+  .footer-eof {
+    color: var(--dim);
+    -webkit-text-fill-color: var(--dim);
+  }
+
+  .systems-count {
+    color: var(--dim);
+    -webkit-text-fill-color: var(--dim);
+  }
+
+  .hero-current {
+    color: #333333;
+    -webkit-text-fill-color: #333333;
+    background: rgba(139, 26, 43, 0.08);
   }
 
   .hero-bottom {
