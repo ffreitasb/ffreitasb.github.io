@@ -1,6 +1,6 @@
 # ffreitasb.github.io
 
-Personal portfolio site for **Felipe Freitas** - Revenue Architect, Tech Lead & LLM/Agentic Systems Specialist.
+Personal portfolio site for **Felipe Freitas** - Revenue Architect, Tech Lead, LLM/Agentic Systems Specialist, and CAISR-certified AI Security & Risk practitioner.
 
 **Live:** [ffreitasb.github.io](https://ffreitasb.github.io)
 
@@ -10,7 +10,7 @@ Personal portfolio site for **Felipe Freitas** - Revenue Architect, Tech Lead & 
 
 The professional portfolio - the link for CVs, LinkedIn, and client correspondence. Built as an "Anti-Portfolio": clinical, controlled, intentionally uncomfortable. Like an internal document that shouldn't be public.
 
-Current content emphasis: RevOps automation, market data engineering, probabilistic S&OP, competitive intelligence, AI/agentic systems, OpSec, and hardware-adjacent engineering.
+Current content emphasis: RevOps automation, market data engineering, probabilistic S&OP, competitive intelligence, AI/agentic systems, AI security/risk, OpSec, and hardware-adjacent engineering.
 
 Part of a two-site ecosystem:
 

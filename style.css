@@ -747,6 +747,12 @@ body.cursor-hover .cursor-ring {
   border-color: var(--accent-mid);
 }
 
+.brief-signal--credential {
+  grid-column: 1 / -1;
+  min-height: 104px;
+  border-top: 1px solid var(--accent-mid);
+}
+
 .brief-value,
 .proof-metric {
   font-family: var(--display);
@@ -786,6 +792,15 @@ body.cursor-hover .cursor-ring {
 
 .proof-item:hover {
   background: rgba(139, 26, 43, 0.06);
+}
+
+.proof-item--credential {
+  grid-column: 1 / -1;
+  border-top: 1px solid var(--accent-mid);
+}
+
+.proof-item--credential .proof-metric {
+  color: var(--accent);
 }
 
 .proof-metric {
@@ -948,6 +963,19 @@ body.cursor-hover .cursor-ring {
   font-family: var(--sig);
   font-size: 0.55rem;
   color: var(--dim);
+}
+
+.credential-link {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid var(--accent-mid);
+  transition: border-color 0.3s, color 0.3s;
+}
+
+.credential-link:hover,
+.credential-link:focus-visible {
+  color: var(--text);
+  border-color: var(--accent);
 }
 
 /* ==========================================================================
@@ -1692,6 +1720,7 @@ a.other-tag {
   .about-text p:first-child,
   .project-title,
   .timeline-role,
+  .education-item-title,
   .stat-num,
   .contact-heading,
   .brief-link,
@@ -1708,6 +1737,8 @@ a.other-tag {
   .cursor,
   .section-label,
   .timeline-company,
+  .credential-link,
+  .proof-item--credential .proof-metric,
   .project-quip,
   .case-file summary {
     color: var(--accent);
@@ -1723,6 +1754,7 @@ a.other-tag {
   .brief-label,
   .proof-item p,
   .about-text p,
+  .education-item-sub,
   .timeline-date,
   .timeline-desc,
   .project-desc,

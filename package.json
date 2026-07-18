@@ -1,7 +1,7 @@
 {
   "name": "ffreitasb-portfolio",
   "version": "2.0.0",
-  "description": "Zero-dependency portfolio for Felipe Freitas: revenue architecture, data engineering, and AI systems",
+  "description": "Zero-dependency portfolio for Felipe Freitas: revenue architecture, data engineering, AI security/risk, and AI systems",
   "private": true,
   "main": "index.html",
   "scripts": {
@@ -22,6 +22,7 @@
     "revops",
     "sop",
     "ai",
+    "ai-security",
     "ai-agents",
     "responsive",
     "pwa"
